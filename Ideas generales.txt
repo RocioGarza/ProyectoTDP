@@ -1,0 +1,11 @@
+Paredes imaginarias que hagan rebotar el tiro, y te maten.
+La velocidad y la vida de los enemigos va incrementando de acuerdo al nivel.
+Las muertes de los enemigos te dan experiencia y esto te permite pasar de nivel.
+Algunos enemigos tienen escudo.
+Un power up puede ser un excudo para mi.
+powerup: más municiones por disparo (mayor rafaga de disparos).
+Misil con onda expansiva. 
+Una padred que desvio los disparos (sobre el eje X).
+Tiene que haber 5 tipos de enemigos.
+Mi nave tiene experiencia y mejora cuando esta incrementa.
+Boss (opcional).
