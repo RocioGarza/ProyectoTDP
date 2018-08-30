@@ -1,0 +1,74 @@
+Pesuododigo generarcion del mapa
+DE: jugador
+DS
+
+Inicio
+	Generar mapa con el nivel que correponda
+	Ubicar jugador abajo al medio del mapa
+Fin
+
+Pseudocodigo generar mapa
+DE: nivel
+DS: coleccion de enemigos 
+coleccion de obstaculos
+
+Inicio
+	Cargar archivo de texto del nivel correspondiente
+	x=0
+	y=altura del mapa
+	leer caracter del archivo
+	Si el caracter es "_"
+		x++
+	Si el caracter es "A"
+		crear enemigo alpha
+		posicionar alpha
+	Si el caracter es "B"
+		crear enemigo beta
+		posicionar beta
+	Si el caracter es "C"
+		crear enemigo gama
+		posicionar gama
+	Si el caracter es "D"
+		crear enemigo delta
+		posicionar delta
+	Si el caracter es "E"
+		crear enemigo iota
+		posicionar iota
+	Si el caracter es "1"
+		crear obstaculo irrompible
+		posicionar irrompible
+	Si el caracter es "2"
+		crear obstaculo pared
+		posicionar pared
+	Si el caracter es "3"
+		crear obstaculo rompible por el jugador
+		posicionar rompible por el jugador
+	Si el caracter es "4"
+		crear obstaculo pared con rebote
+		posicionar pared con rebote
+	Si el caracter es "5"
+		crear obstaculo portal
+		posicionar portal// ver como hacer para posicionar el segundo portal
+	
+Fin
+	
+Peudocodigo posicionar // Ver como hacer con las casillas ocupadas por los enemigos de arriba
+DE entidad
+DS coleccion de enemigos
+coleccion de obstaculos
+Inicio
+	obtener ancho de la entidad
+	leer ancho cantidad de caracteres o hasta llegar al final de la linea o exceder el ancho del mapa 
+	si se llega al final de la linea o se excede el ancho del mapa
+		x=-1
+		y--
+	sino
+		x= x+ancho/2
+		obtener altura de la entidad
+		si y-altura no excede el alto del mapa
+			aux = y - altura/2 
+			posicionar la entidad en la posicion x aux
+			x=x+ancho/2
+			agregar la entidad a la coleccion correspondiente
+	x++
+Fin
