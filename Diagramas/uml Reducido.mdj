@@ -58,12 +58,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlc4YSNCbs7Yw="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 973,
 											"top": 415,
 											"width": 94,
 											"height": 13,
-											"text": "Entidad"
+											"text": "Entidad*"
 										},
 										{
 											"_type": "LabelView",
@@ -762,12 +762,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlc4ZcnieUxI0="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 749,
 											"top": 735,
 											"width": 95,
 											"height": 13,
-											"text": "Enemigo"
+											"text": "Enemigo*"
 										},
 										{
 											"_type": "LabelView",
@@ -1114,12 +1114,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlc4Z9VSfoTho="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 1157,
 											"top": 735,
 											"width": 95,
 											"height": 13,
-											"text": "Objeto"
+											"text": "Premio*"
 										},
 										{
 											"_type": "LabelView",
@@ -1290,12 +1290,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlc4aKBSgSKsw="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 1021,
 											"top": 735,
 											"width": 95,
 											"height": 13,
-											"text": "Obstaculo"
+											"text": "Obstaculo*"
 										},
 										{
 											"_type": "LabelView",
@@ -3933,9 +3933,9 @@
 											"font": "Arial;13;1",
 											"left": 1517,
 											"top": 1455,
-											"width": 213.87158203125,
+											"width": 127,
 											"height": 13,
-											"text": "Mejora_de_Ataque_Super_Secreta"
+											"text": "Onda_Expansiva"
 										},
 										{
 											"_type": "LabelView",
@@ -3968,7 +3968,7 @@
 									"font": "Arial;13;0",
 									"left": 1512,
 									"top": 1448,
-									"width": 223.87158203125,
+									"width": 137,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFlc4y4lCrX7XE="
@@ -3995,7 +3995,7 @@
 									"font": "Arial;13;0",
 									"left": 1512,
 									"top": 1473,
-									"width": 223.87158203125,
+									"width": 137,
 									"height": 10
 								},
 								{
@@ -4010,7 +4010,7 @@
 									"font": "Arial;13;0",
 									"left": 1512,
 									"top": 1483,
-									"width": 223.87158203125,
+									"width": 137,
 									"height": 10
 								},
 								{
@@ -4050,7 +4050,7 @@
 							"containerChangeable": true,
 							"left": 1512,
 							"top": 1448,
-							"width": 223.87158203125,
+							"width": 137,
 							"height": 88,
 							"nameCompartment": {
 								"$ref": "AAAAAAFlc4y4lCrWYPU="
@@ -7051,7 +7051,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1777,
+									"left": 1673,
 									"top": 1048,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -7072,7 +7072,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 1762,
+									"left": 1658,
 									"top": 1048,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -7093,7 +7093,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1807,
+									"left": 1703,
 									"top": 1049,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -7270,7 +7270,7 @@
 							"tail": {
 								"$ref": "AAAAAAFlc5LcWTva3xk="
 							},
-							"points": "1199:1627;1792:1627;1792:484;1576:484",
+							"points": "1199:1627;1688:1627;1688:484;1576:484",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFlc5Q5qkuJhB8="
@@ -7422,12 +7422,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlfXaaff1OHrA="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 813,
 											"top": 575,
 											"width": 94,
 											"height": 13,
-											"text": "Personaje"
+											"text": "Personaje*"
 										},
 										{
 											"_type": "LabelView",
@@ -7784,12 +7784,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlfd2N8vAdKow="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 653,
 											"top": 871,
-											"width": 126,
+											"width": 130.7744140625,
 											"height": 13,
-											"text": "Enemigo_Kamikaze"
+											"text": "Enemigo_Kamikaze*"
 										},
 										{
 											"_type": "LabelView",
@@ -7822,7 +7822,7 @@
 									"font": "Arial;13;0",
 									"left": 648,
 									"top": 864,
-									"width": 136,
+									"width": 140.7744140625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFlfd2N8vAeKLA="
@@ -7849,7 +7849,7 @@
 									"font": "Arial;13;0",
 									"left": 648,
 									"top": 889,
-									"width": 136,
+									"width": 140.7744140625,
 									"height": 10
 								},
 								{
@@ -7864,7 +7864,7 @@
 									"font": "Arial;13;0",
 									"left": 648,
 									"top": 899,
-									"width": 136,
+									"width": 140.7744140625,
 									"height": 10
 								},
 								{
@@ -7904,7 +7904,7 @@
 							"containerChangeable": true,
 							"left": 648,
 							"top": 864,
-							"width": 136,
+							"width": 140.7744140625,
 							"height": 80,
 							"nameCompartment": {
 								"$ref": "AAAAAAFlfd2N8vAdKow="
@@ -7960,12 +7960,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlfd2qvfFV6M4="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 805,
 											"top": 871,
 											"width": 126,
 											"height": 13,
-											"text": "Enemigo_Armado"
+											"text": "Enemigo_Armado*"
 										},
 										{
 											"_type": "LabelView",
@@ -8787,12 +8787,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlfeIDIVCEthM="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 1325,
 											"top": 911,
 											"width": 126,
 											"height": 13,
-											"text": "Magia_Temporal"
+											"text": "Magia_Temporal*"
 										},
 										{
 											"_type": "LabelView",
@@ -8963,12 +8963,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFlfeJGsFMEM+I="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 1325,
 											"top": 1279,
 											"width": 126,
 											"height": 13,
-											"text": "Objetos_Preciosos"
+											"text": "Objetos_Preciosos*"
 										},
 										{
 											"_type": "LabelView",
@@ -11435,7 +11435,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Entidad",
+					"name": "Entidad*",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -11466,7 +11466,8 @@
 							},
 							"visibility": "protected"
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -11529,7 +11530,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Enemigo",
+					"name": "Enemigo*",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -11586,7 +11587,8 @@
 								"$ref": "AAAAAAFlfXaafP1LKPI="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -11630,7 +11632,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Objeto",
+					"name": "Premio*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -11645,7 +11647,8 @@
 								"$ref": "AAAAAAFlc4YSMibpKsI="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -11653,7 +11656,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Obstaculo",
+					"name": "Obstaculo*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -11681,7 +11684,8 @@
 								"$ref": "AAAAAAFlc4YSMibpKsI="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -12141,7 +12145,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Mejora_de_Ataque_Super_Secreta",
+					"name": "Onda_Expansiva",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12400,7 +12404,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Personaje",
+					"name": "Personaje*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12428,7 +12432,8 @@
 								"$ref": "AAAAAAFlc4YSMibpKsI="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -12436,7 +12441,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Enemigo_Kamikaze",
+					"name": "Enemigo_Kamikaze*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12451,7 +12456,8 @@
 								"$ref": "AAAAAAFlc4ZcnieR1Gc="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -12459,7 +12465,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Enemigo_Armado",
+					"name": "Enemigo_Armado*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12503,7 +12509,8 @@
 								}
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -12511,7 +12518,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Magia_Temporal",
+					"name": "Magia_Temporal*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12526,7 +12533,8 @@
 								"$ref": "AAAAAAFlc4Z9VSflRrw="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
@@ -12534,7 +12542,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Objetos_Preciosos",
+					"name": "Objetos_Preciosos*",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -12549,7 +12557,8 @@
 								"$ref": "AAAAAAFlc4Z9VSflRrw="
 							}
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
