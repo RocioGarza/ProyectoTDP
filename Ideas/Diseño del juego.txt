@@ -1,0 +1,40 @@
+Diseño del juego:
+
+El juego esta ubicado en un ambiente espacial.
+El mapa tiene coordenadas XY para indicar las posiciones de los objetos, el mismo tiene un tamaño fijo. 
+Cada entidad tiene un tamaño predefinido (ancho y alto) y una posición única.
+El jugador siempre aparece en el mismo lugar cada vez que inicia una partida. 
+
+El mapa ubica los enemigos arriba y el jugador abajo, el jugador solo puede moverse horizontalmente, mientras que los enemigos tienen movimientos variados.
+
+El mapa ubica obstáculos y son los siguientes:
+
+"Irrompible" es un muro que nadie puede romper, ni el jugador ni los enemigos.
+"Pared" es un muro que puede romper cualquiera de los 2.
+"Pared Jugador" es un muro que solo puede romper el jugador.
+El "Portal" se encarga de teletransportar un disparo a otra posición.
+"Rebote" es un muro que hace rebotar los disparos y puede hacerle daño al jugador.
+
+Los enemigos tienen inteligencia, no se pueden chocar, ni tienen "frienldy fire" y su comportamiento de los enemigos es el siguiente:
+
+(Kamikazes)
+Alpha: se tira moviendose de manera aleatorial.
+Beta: Se tira buscando al jugador.
+Gama: Se tira moviendose hacia el jugador hasta que tenga 50% de vida, después se mueve de manera aleatoria.
+
+Delta: Dispara al jugador.
+Iota: Dispara hacia el jugador hasta tener un 20% de vida, después deja de disparar y se tira al jugador.
+
+Power ups:
+Todos los enemigos pueden tirar power ups cuando mueren, esto es aleatorio como la velocidad de los mismos.
+"congela tiempo" detiene a los enemigos por un tiempo determinado.
+"super misil" genera mayor daño del arma del jugador.
+
+El "escudo" protege al jugador de un solo ataque kamikaze.
+La "poción" recupera la vida del jugador.
+"Más Ataques" multiplica los disparos del jugador.
+"Onda Expansiva" elimina todos los enemigos dentro de un rango.
+
+
+
+
