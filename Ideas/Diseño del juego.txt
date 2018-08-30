@@ -9,6 +9,7 @@ El mapa ubica los enemigos arriba y el jugador abajo, el jugador solo puede move
 
 El mapa ubica obstáculos y son los siguientes:
 
+"Pared" la pueden romper todos.
 "Irrompible" es un muro que nadie puede romper, ni el jugador ni los enemigos.
 "Pared" es un muro que puede romper cualquiera de los 2.
 "Pared Jugador" es un muro que solo puede romper el jugador.
