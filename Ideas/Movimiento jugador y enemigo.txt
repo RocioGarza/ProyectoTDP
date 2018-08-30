@@ -1,0 +1,23 @@
+Movimiento del jugador
+	si la tecla 'a' esta presionada
+		Mover al jugador tantos pixeles como su velocidad de movimiento hacia la izquierda
+	sino
+		si la tecla 'd' esta presionada y el jugador no esta en la maxima posición derecha
+			Mover al jugador tantos pixeles como su velocidad de movimiento hacia la derecha
+
+Movimiento del enemigo
+
+	char dirección = (estado inicial: 'i' o 'd')
+	
+	Si dirección = i
+		Mover el enemigo tantos pixeles como su velocidad de movimiento hacia la izquierda
+		Si el enemigo alcanza la posición máxima izquierda
+			dirección = 'd'
+	sino
+		Si dirección = 'd'
+			Mover al enemigo tantos pixeles como su velocidad de movimiento hacia la derecha
+				Si el enemmigo alcanza la posición máxima derecha
+					dirección = 'i'
+
+ Nota: Contemplar que al mover al jugador no se pasa de los limites del nivel.
+       Contemplar que al mover al enemigo no se pasa de los limites del nivel.
