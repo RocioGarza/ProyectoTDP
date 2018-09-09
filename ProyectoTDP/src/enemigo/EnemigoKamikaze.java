@@ -1,5 +1,10 @@
 package enemigo;
 
-public class EnemigoKamikaze {
+public abstract class EnemigoKamikaze {
 
+	protected int dañoImpacto;
+	
+	public int getDañoImpacto() {
+		return dañoImpacto;
+	}
 }

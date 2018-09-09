@@ -14,4 +14,8 @@ public abstract class Proyectil extends Elemento {
 	public int getDaño() {
 		return daño;
 	}
+	
+	public void mover(char c) {
+		pos.moverY(velocidadDeMovimiento);
+	}
 }

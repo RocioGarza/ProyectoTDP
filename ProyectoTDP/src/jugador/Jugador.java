@@ -2,6 +2,7 @@ package jugador;
 
 import arma.Arma;
 import arma.ArmaJugador;
+import enemigo.EnemigoKamikaze;
 import entidad.Personaje;
 import escudo.Escudo;
 import escudo.EscudoAntiKamikaze;
@@ -37,12 +38,29 @@ public class Jugador extends Personaje {
 	}
 	
 	protected void serColisionado(ProyectilEnemigo p) {
-		if (vida-p.getDaño()<=0)
+		int DañoAux = escudo.recibirDaño(this,p);
+		if (vida-DañoAux<=0)
 			morir();
 		else
-			vida = vida - p.getDaño();
+			vida = vida - DañoAux;
 	}
 	
-	protected void serColisionado(Enemigo)
+	protected void serColisionado(EnemigoKamikaze e) {
+		int DañoAux = escudo.recibirDaño(this,e);
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+	
+	public void atacar() {
+		arma.disparar(dañoAtaque, velocidadDeAtaque);
+	}
 
+	public void mover(char c) {
+		if (c=='a')
+			pos.moverX(-velocidadDeMovimiento);
+		if (c=='d')
+			pos.moverX(velocidadDeMovimiento);
+	}
 }
