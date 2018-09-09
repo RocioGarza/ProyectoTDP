@@ -39,6 +39,7 @@ public class Jugador extends Personaje {
 	
 	protected void serColisionado(ProyectilEnemigo p) {
 		int DañoAux = escudo.recibirDaño(this,p);
+		controlarEscudo();
 		if (vida-DañoAux<=0)
 			morir();
 		else
@@ -47,6 +48,7 @@ public class Jugador extends Personaje {
 	
 	protected void serColisionado(EnemigoKamikaze e) {
 		int DañoAux = escudo.recibirDaño(this,e);
+		controlarEscudo();
 		if (vida-DañoAux<=0)
 			morir();
 		else
@@ -62,5 +64,10 @@ public class Jugador extends Personaje {
 			pos.moverX(-velocidadDeMovimiento);
 		if (c=='d')
 			pos.moverX(velocidadDeMovimiento);
+	}
+	
+	private void controlarEscudo() {
+		if (escudo.getDuracion()==0)
+			escudo = new EscudoNormal();
 	}
 }
