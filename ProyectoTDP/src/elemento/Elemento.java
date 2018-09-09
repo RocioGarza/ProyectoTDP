@@ -20,8 +20,6 @@ public abstract class Elemento {
 		return pos;
 	}
 	
-	public void mover(char c) {
-		
-	}
+	public abstract void mover(char c) ;
 	
 }
