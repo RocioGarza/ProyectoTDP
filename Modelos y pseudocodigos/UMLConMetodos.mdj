@@ -11873,6 +11873,24 @@
 										},
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAFlv2+BgzXBBl8=",
+											"_parent": {
+												"$ref": "AAAAAAFlumqhr9moFyo="
+											},
+											"model": {
+												"$ref": "AAAAAAFlv2+BTDWvFvs="
+											},
+											"lineColor": "#ff0000",
+											"font": "Arial;13;0",
+											"left": 1093,
+											"top": 116,
+											"width": 231,
+											"height": 13,
+											"text": "#serColisionado(Elemento e)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAFlus0PJ8ccaiQ=",
 											"_parent": {
 												"$ref": "AAAAAAFlumqhr9moFyo="
@@ -11883,7 +11901,7 @@
 											"lineColor": "#ff0000",
 											"font": "Arial;13;0",
 											"left": 1093,
-											"top": 116,
+											"top": 131,
 											"width": 231,
 											"height": 13,
 											"text": "+getPosicion(): Posicion",
@@ -11901,7 +11919,7 @@
 											"lineColor": "#ff0000",
 											"font": "Arial;13;0",
 											"left": 1093,
-											"top": 131,
+											"top": 146,
 											"width": 231,
 											"height": 13,
 											"text": "+mover()",
@@ -11913,7 +11931,7 @@
 									"left": 1088,
 									"top": 96,
 									"width": 241,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -18614,8 +18632,26 @@
 									"_parent": {
 										"$ref": "AAAAAAFlun1eDHHLQZc="
 									},
-									"name": "Elemento e",
-									"type": ""
+									"name": "Elemento e"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFlv2+BTDWvFvs=",
+							"_parent": {
+								"$ref": "AAAAAAFlumqhrdmfLTY="
+							},
+							"name": "serColisionado",
+							"visibility": "protected",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFlv2+sBDbWjXE=",
+									"_parent": {
+										"$ref": "AAAAAAFlv2+BTDWvFvs="
+									},
+									"name": "Elemento e"
 								}
 							]
 						},
