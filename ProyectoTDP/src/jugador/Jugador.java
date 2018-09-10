@@ -74,4 +74,8 @@ public class Jugador extends Personaje {
 		if (escudo.getDuracion()==0)
 			escudo = new EscudoNormal();
 	}
+	
+	public JugadorGrafico getGrafico() {
+		return grafico;
+	}
 }
