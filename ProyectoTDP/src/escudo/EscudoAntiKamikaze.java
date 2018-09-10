@@ -9,7 +9,7 @@ public class EscudoAntiKamikaze extends Escudo{
 		duracion = 1;
 	}
 
-	public int recibirDaño(Jugador j, EnemigoKamikaze e) {
+	public int recibirDaño(EnemigoKamikaze e) {
 		duracion = duracion - 1;
 		return 0;
 	}

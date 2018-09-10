@@ -8,11 +8,11 @@ public abstract class Escudo {
 	
 	protected int duracion;
 
-	public int recibirDaño(Jugador j, ProyectilEnemigo e) {
+	public int recibirDaño(ProyectilEnemigo e) {
 		return e.getDaño();
 	}
 	
-	public int recibirDaño(Jugador j, EnemigoKamikaze e) {
+	public int recibirDaño(EnemigoKamikaze e) {
 		return e.getDañoImpacto();
 	}
 	

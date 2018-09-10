@@ -26712,6 +26712,146 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAFlwAs7dj7Cnwc="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFlwJnd9+L1yxc=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 1064,
+							"top": 1776,
+							"width": 145,
+							"height": 90,
+							"text": "Se lanza hacia el jugador hasta que Gamma tenga 50% de vida, luego de esto se mueve de manera aleatoria"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFlwJqQ5vJ3XUk=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 1064,
+							"top": 1632,
+							"width": 70,
+							"height": 64,
+							"text": "Se lanza hacia el jugador"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFlwJq23fPjOTw=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 1064,
+							"top": 1504,
+							"width": 70,
+							"height": 64,
+							"text": "Se lanza de manera aleatoria"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFlwJr1Yvy0wOU=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFlc4mTUyk/zps="
+							},
+							"tail": {
+								"$ref": "AAAAAAFlwJqQ5vJ3XUk="
+							},
+							"points": "1064:1648;1004:1648;1004:1631"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFlwJr9l/1rgWE=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFlc4lhEikUVH0="
+							},
+							"tail": {
+								"$ref": "AAAAAAFlwJq23fPjOTw="
+							},
+							"points": "1064:1528;1008:1528;1008:1511"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFlwJsF+v4iqLw=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFlc4m3hylqbJQ="
+							},
+							"tail": {
+								"$ref": "AAAAAAFlwJnd9+L1yxc="
+							},
+							"points": "1064:1820;1003:1820;1003:1751"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFlwJvG6y6xVzw=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 624,
+							"top": 1344,
+							"width": 80,
+							"height": 51,
+							"text": "Dispara hacia el jugador"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFlwJvp7zI6sUo=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFlwJvG6y6xVzw="
+							},
+							"tail": {
+								"$ref": "AAAAAAFlc4nNdimUVjk="
+							},
+							"points": "599:1432;632:1432;632:1394"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFlwJwu+zwZIXQ=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 568,
+							"top": 1632,
+							"width": 136,
+							"height": 103,
+							"text": "Dispara hacia el jugador hasta que Iota tenga 20% de vida, luego de esto deja de disparar y se lanza hacia el jugador"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFlwJyaikBWo3Y=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFlwJwu+zwZIXQ="
+							},
+							"tail": {
+								"$ref": "AAAAAAFlc4nnKCm+BgY="
+							},
+							"points": "544:1607;544:1656;568:1656"
 						}
 					]
 				},
@@ -29095,7 +29235,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlun1eDHHLQZc="
 									},
-									"name": "Elemento e"
+									"name": "Elemento e",
+									"type": ""
 								}
 							]
 						},

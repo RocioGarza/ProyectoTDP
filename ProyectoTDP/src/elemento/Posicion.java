@@ -6,12 +6,14 @@ public class Posicion {
 	private int Y;
 	private int alto;
 	private int ancho;
+	private PosicionMaxima posMaxima;
 	
 	public Posicion(int X, int Y, int alto, int ancho) {
 		this.X=X;
-		this.Y=Y;
+		this.Y=Y;	
 		this.ancho=ancho;
 		this.alto=alto;
+		this.posMaxima = PosicionMaxima.getPosicionMaxima();
 	}
 	
 	public int getX() {
@@ -31,11 +33,16 @@ public class Posicion {
 	}
 	
 	public void moverX(int cantX) {
-		//Tener en cuenta que no se pase del mapa
-		X = X + cantX; 
+		if (X+(ancho/2)+cantX>posMaxima.getX())
+			X = posMaxima.getX()-(ancho/2);
+		else
+			X = X + cantX; 
 	}
 	
 	public void moverY(int cantY) {
-		Y = Y + cantY;
+		if (Y+(alto/2)+cantY>posMaxima.getY())
+			Y = posMaxima.getY()-(alto/2);
+		else
+			Y = Y + cantY;
 	}
 }

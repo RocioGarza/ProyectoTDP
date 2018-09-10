@@ -2,6 +2,7 @@ package jugador;
 
 import arma.Arma;
 import arma.ArmaJugador;
+import elemento.PosicionMaxima;
 import enemigo.EnemigoKamikaze;
 import entidad.Personaje;
 import escudo.Escudo;
@@ -13,11 +14,13 @@ public class Jugador extends Personaje {
 
 	private Arma arma;
 	private Escudo escudo;
+	private JugadorGrafico grafico;
 	
 	public Jugador(int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
 		super(X, Y, alto, ancho, VM, vidaM, vida, daño, VA);
 		arma = new ArmaJugador();
 		escudo = new EscudoNormal();
+		grafico = new JugadorGrafico(X, Y, alto, ancho, VM);	
 	}
 	
 	public void setArma(char c) {
@@ -38,7 +41,7 @@ public class Jugador extends Personaje {
 	}
 	
 	protected void serColisionado(ProyectilEnemigo p) {
-		int DañoAux = escudo.recibirDaño(this,p);
+		int DañoAux = escudo.recibirDaño(p);
 		controlarEscudo();
 		if (vida-DañoAux<=0)
 			morir();
@@ -47,7 +50,7 @@ public class Jugador extends Personaje {
 	}
 	
 	protected void serColisionado(EnemigoKamikaze e) {
-		int DañoAux = escudo.recibirDaño(this,e);
+		int DañoAux = escudo.recibirDaño(e);
 		controlarEscudo();
 		if (vida-DañoAux<=0)
 			morir();
@@ -64,6 +67,7 @@ public class Jugador extends Personaje {
 			pos.moverX(-velocidadDeMovimiento);
 		if (c=='d')
 			pos.moverX(velocidadDeMovimiento);
+		grafico.mover(c);
 	}
 	
 	private void controlarEscudo() {
