@@ -1,5 +1,9 @@
 package enemigo;
 
+//import elemento.Elemento;
+import jugador.*;
+import proyectil.*;
+
 public class Alpha extends EnemigoKamikaze{
 	
 	private AlphaGrafico grafico;
@@ -17,8 +21,17 @@ public class Alpha extends EnemigoKamikaze{
 
 	@Override
 	public void mover(char c) {
-		// TODO Auto-generated method stub
-		
+		intel.mover();
+	}
+	
+	protected void serColisionado(Jugador e) {
+		this.morir();
+	}
+	
+	protected void serColisionado(Proyectil e) {
+		this.quitarVida(e.getDaño());
+		if(this.vida == 0)
+			this.morir();
 	}
 	
 	public AlphaGrafico getAlphaGrafico() {

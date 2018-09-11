@@ -1,5 +1,8 @@
 package enemigo;
 
+import jugador.Jugador;
+import proyectil.Proyectil;
+
 public class Iota extends EnemigoArmado{
 
 	private IotaGrafico grafico;
@@ -15,10 +18,14 @@ public class Iota extends EnemigoArmado{
 		
 	}
 
-	@Override
 	public void mover(char c) {
-		// TODO Auto-generated method stub
-		
+		intel.mover();
+	}	
+	
+	protected void serColisionado(Proyectil e) {
+		this.quitarVida(e.getDaño());
+		if(this.vida == 0)
+			this.morir();
 	}
 	
 	public IotaGrafico getAlphaGrafico() {
