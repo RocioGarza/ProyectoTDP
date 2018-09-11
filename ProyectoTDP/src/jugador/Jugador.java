@@ -2,7 +2,6 @@ package jugador;
 
 import arma.Arma;
 import arma.ArmaJugador;
-import elemento.PosicionMaxima;
 import enemigo.EnemigoKamikaze;
 import entidad.Personaje;
 import escudo.Escudo;
@@ -16,11 +15,15 @@ public class Jugador extends Personaje {
 	private Escudo escudo;
 	private JugadorGrafico grafico;
 	
-	public Jugador(int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida, daño, VA);
+	public Jugador(int X, int Y) {
+		super(X, Y, 160, 190);
+		velocidadDeMovimiento = 3;
+		vidaMaxima = 250;
+		dañoAtaque = 5;
+		vida = vidaMaxima;
 		arma = new ArmaJugador();
 		escudo = new EscudoNormal();
-		grafico = new JugadorGrafico(X, Y, alto, ancho, VM);	
+		grafico = new JugadorGrafico(X, Y, 160, 190, velocidadDeMovimiento);	
 	}
 	
 	public void setArma(char c) {

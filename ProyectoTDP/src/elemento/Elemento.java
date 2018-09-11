@@ -5,9 +5,8 @@ public abstract class Elemento {
 	protected int velocidadDeMovimiento;
 	protected Posicion pos;
 	
-	public Elemento(int X, int Y, int alto, int ancho, int VM) {
+	public Elemento(int X, int Y, int alto, int ancho) {
 		pos = new Posicion(X,Y,alto,ancho);
-		velocidadDeMovimiento = VM;
 	}
 	
 	public void Colisionar(Elemento e) {

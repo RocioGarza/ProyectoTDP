@@ -1,15 +1,17 @@
 package enemigo;
 
-import jugador.Jugador;
 import proyectil.Proyectil;
 
 public class Delta extends EnemigoArmado{
 	
 	private DeltaGrafico grafico;
 
-	public Delta (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida, daño, VA);	
-		grafico = new DeltaGrafico(X, Y, alto, ancho, VM);
+	public Delta (int X, int Y, int Nivel) {
+		super(X, Y, 103, 193);
+		velocidadDeMovimiento = 2*Nivel;
+		vidaMaxima = 100*Nivel;	
+		dañoAtaque = 5*Nivel;
+		grafico = new DeltaGrafico(X, Y, 103, 193, velocidadDeMovimiento);
 	}
 
 	@Override
@@ -19,7 +21,7 @@ public class Delta extends EnemigoArmado{
 	}
 
 	public void mover(char c) {
-		intel.mover();
+		//intel.mover();
 	}
 	
 	protected void serColisionado(Proyectil e) {

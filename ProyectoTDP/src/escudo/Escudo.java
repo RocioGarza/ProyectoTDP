@@ -1,7 +1,6 @@
 package escudo;
 
 import enemigo.EnemigoKamikaze;
-import jugador.Jugador;
 import proyectil.ProyectilEnemigo;
 
 public abstract class Escudo {

@@ -7,10 +7,8 @@ public abstract class Entidad extends Elemento {
 	protected int vidaMaxima;
 	protected int vida;
 	
-	public Entidad(int X, int Y, int alto, int ancho, int VM, int vidaM, int vida) {
-		super(X,Y,alto,ancho,VM);
-		vidaMaxima = vidaM;
-		this.vida = vida;
+	public Entidad(int X, int Y, int alto, int ancho) {
+		super(X,Y,alto,ancho);
 	}
 	
 	public int getVidaMaxima() {

@@ -7,9 +7,12 @@ public class Iota extends EnemigoArmado{
 
 	private IotaGrafico grafico;
 
-	public Iota (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida, daño, VA);	
-		grafico = new IotaGrafico(X, Y, alto, ancho, VM);
+	public Iota (int X, int Y, int Nivel) {
+		super(X, Y, 103, 193);
+		velocidadDeMovimiento = 2*Nivel;
+		vidaMaxima = 100*Nivel;	
+		dañoAtaque = 5*Nivel;
+		grafico = new IotaGrafico(X, Y, 103, 193, velocidadDeMovimiento);
 	}
 
 	@Override
@@ -19,8 +22,12 @@ public class Iota extends EnemigoArmado{
 	}
 
 	public void mover(char c) {
-		intel.mover();
+		//intel.mover();
 	}	
+	
+	protected void serColisionado(Jugador e) {
+		this.morir();
+	}
 	
 	protected void serColisionado(Proyectil e) {
 		this.quitarVida(e.getDaño());

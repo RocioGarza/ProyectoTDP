@@ -1,6 +1,5 @@
 package enemigo;
 
-//import elemento.Elemento;
 import jugador.*;
 import proyectil.*;
 
@@ -8,9 +7,13 @@ public class Alpha extends EnemigoKamikaze{
 	
 	private AlphaGrafico grafico;
 
-	public Alpha (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida, daño, VA);	
-		grafico = new AlphaGrafico(X, Y, alto, ancho, VM);
+	public Alpha (int X, int Y, int Nivel) {
+		super(X, Y, 103, 193);
+		velocidadDeMovimiento = 2*Nivel;
+		vidaMaxima = 100*Nivel;
+		dañoAtaque = 5*Nivel;
+		dañoImpacto = dañoAtaque*10;
+		grafico = new AlphaGrafico(X, Y, 103, 193, velocidadDeMovimiento);
 	}
 
 	@Override
@@ -21,7 +24,7 @@ public class Alpha extends EnemigoKamikaze{
 
 	@Override
 	public void mover(char c) {
-		intel.mover();
+		//intel.mover();
 	}
 	
 	protected void serColisionado(Jugador e) {

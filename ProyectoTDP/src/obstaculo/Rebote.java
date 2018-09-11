@@ -4,9 +4,9 @@ public class Rebote extends Obstaculo {
 
 	private ReboteGrafico grafico;
 	
-	public Rebote (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida);	
-		grafico = new ReboteGrafico(X, Y, alto, ancho, VM);
+	public Rebote (int X, int Y) {
+		super(X, Y, 100, 190);	
+		grafico = new ReboteGrafico(X, Y, 100, 190, 0);
 	}
 	
 	public ReboteGrafico getAlphaGrafico() {

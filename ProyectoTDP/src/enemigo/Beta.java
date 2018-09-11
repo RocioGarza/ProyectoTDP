@@ -7,11 +7,15 @@ public class Beta extends EnemigoKamikaze{
 	
 	private BetaGrafico grafico;
 
-	public Beta (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida, daño, VA);	
-		grafico = new BetaGrafico(X, Y, alto, ancho, VM);
+	public Beta (int X, int Y, int Nivel) {
+		super(X, Y, 103, 193);
+		velocidadDeMovimiento = 2*Nivel;
+		vidaMaxima = 100*Nivel;	
+		dañoAtaque = 5*Nivel;
+		dañoImpacto = dañoAtaque*10;
+		grafico = new BetaGrafico(X, Y, 103, 193, velocidadDeMovimiento);
 	}
-
+	
 	@Override
 	public void atacar() {
 		// TODO Auto-generated method stub
@@ -19,7 +23,7 @@ public class Beta extends EnemigoKamikaze{
 	}
 
 	public void mover(char c) {
-		intel.mover();
+		//intel.mover();
 	}
 	
 	protected void serColisionado(Jugador e) {

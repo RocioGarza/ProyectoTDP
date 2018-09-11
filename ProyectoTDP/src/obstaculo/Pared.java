@@ -4,9 +4,9 @@ public class Pared extends Obstaculo {
 
 	private ParedGrafica grafico;
 	
-	public Pared (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida);	
-		grafico = new ParedGrafica(X, Y, alto, ancho, VM);
+	public Pared (int X, int Y) {
+		super(X, Y, 100, 190);	
+		grafico = new ParedGrafica(X, Y, 100, 190, 0);
 	}
 	
 	public ParedGrafica getAlphaGrafico() {

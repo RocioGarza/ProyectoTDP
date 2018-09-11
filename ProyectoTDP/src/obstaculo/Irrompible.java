@@ -4,9 +4,9 @@ public class Irrompible extends Obstaculo {
 
 	private IrrompibleGrafico grafico;
 	
-	public Irrompible (int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida);	
-		grafico = new IrrompibleGrafico(X, Y, alto, ancho, VM);
+	public Irrompible (int X, int Y) {
+		super(X, Y, 100, 190);	
+		grafico = new IrrompibleGrafico(X, Y, 100, 190, 0);
 	}
 	
 	public IrrompibleGrafico getAlphaGrafico() {

@@ -5,10 +5,8 @@ public abstract class Personaje extends Entidad {
 	protected int dañoAtaque;
 	protected int velocidadDeAtaque;
 
-	public Personaje(int X, int Y, int alto, int ancho, int VM, int vidaM, int vida, int daño, int VA) {
-		super(X, Y, alto, ancho, VM, vidaM, vida);
-		dañoAtaque = daño;
-		velocidadDeAtaque = VA;
+	public Personaje(int X, int Y, int alto, int ancho) {
+		super(X, Y, alto, ancho);
 	}
 	
 	public abstract void atacar();
