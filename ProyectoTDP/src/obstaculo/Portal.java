@@ -5,8 +5,16 @@ public class Portal extends Obstaculo {
 	private PortalGrafico grafico;
 	
 	public Portal (int X, int Y) {
-		super(X, Y, 100, 190);	
-		grafico = new PortalGrafico(X, Y, 100, 190, 0);
+		super(X, Y, getAlto(), getAncho());	
+		grafico = new PortalGrafico(X, Y, getAlto(), getAncho(), 0);
+	}
+	
+	public static int getAlto() {
+		return 100;
+	}
+	
+	public static int getAncho() {
+		return 190;
 	}
 	
 	public PortalGrafico getAlphaGrafico() {

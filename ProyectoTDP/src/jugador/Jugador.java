@@ -16,14 +16,22 @@ public class Jugador extends Personaje {
 	private JugadorGrafico grafico;
 	
 	public Jugador(int X, int Y) {
-		super(X, Y, 160, 190);
+		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 3;
 		vidaMaxima = 250;
 		dañoAtaque = 5;
 		vida = vidaMaxima;
 		arma = new ArmaJugador();
 		escudo = new EscudoNormal();
-		grafico = new JugadorGrafico(X, Y, 160, 190, velocidadDeMovimiento);	
+		grafico = new JugadorGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);	
+	}
+	
+	public static int getAlto() {
+		return 160;
+	}
+	
+	public static int getAncho() {
+		return 190;
 	}
 	
 	public void setArma(char c) {
