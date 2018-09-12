@@ -1,6 +1,5 @@
 package elemento;
 
-import javax.swing.JLabel;
 
 public abstract class Elemento {
 
@@ -23,6 +22,6 @@ public abstract class Elemento {
 	
 	public abstract void mover(char c) ;
 
-	public abstract JLabel getGrafico();
+	public abstract ElementoGrafico getGrafico();
 	
 }

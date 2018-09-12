@@ -2,6 +2,7 @@ package logica;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import elemento.Elemento;
 import jugador.Jugador;
@@ -32,6 +33,13 @@ public class Mapa {
         
         mGraf = new MapaGrafico(coleccion);
 	}	
+	
+	public Mapa() {
+		j = new Jugador(512,300);
+		coleccion = new LinkedList<Elemento>();
+		coleccion.add(j);
+		mGraf = new MapaGrafico(coleccion);
+	}
 	
 	public MapaGrafico getGrafico()
 	{

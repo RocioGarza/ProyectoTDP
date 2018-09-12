@@ -48,40 +48,33 @@ public abstract class ElementoGrafico {
 		if(this.grafico!=null) {
 			changeIcon(c);
 			
-			try {
+			
 				switch (c){
 				case 'w' : // Arriba
-					for(int i = 0; i < pos.getAlto(); i += velocidad){
-						pos.moverY(-velocidad);
+					for(int i = 0; (i < velocidad); i += 1){
+						pos.moverY(1);
 						grafico.setBounds(pos.getX() , pos.getY(), pos.getAncho(), pos.getAlto());
-						Thread.sleep(100);
 					}
 					break;
 				case 's' : // Abajo
-					for(int i = 0; i < pos.getAlto(); i += velocidad){
-						pos.moverY(velocidad);
+					for(int i = 0; (i < velocidad); i += 1){
+						pos.moverY(-1);
 						grafico.setBounds(pos.getX() , pos.getY(), pos.getAncho(), pos.getAlto());
-						Thread.sleep(100);
 					}
 					break;
 				case 'd' : // Derecha
-					for(int i = 0; i < pos.getAncho(); i += velocidad){
-						pos.moverX(velocidad);
+					for(int i = 0; (i < velocidad); i += 1){
+						pos.moverX(1);
 						grafico.setBounds(pos.getX() , pos.getY(), pos.getAncho(), pos.getAlto());
-						Thread.sleep(100);
 					}
 					break;
 				case 'a' : // Derecha
-					for(int i = 0; i < pos.getAncho(); i += velocidad){
-						pos.moverX(-velocidad);
+					for(int i = 0; (i < velocidad); i += 1){
+						pos.moverX(-1);
 						grafico.setBounds(pos.getX() , pos.getY(), pos.getAncho(), pos.getAlto());
-						Thread.sleep(100);
 					}
 					break;
 				}
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 	

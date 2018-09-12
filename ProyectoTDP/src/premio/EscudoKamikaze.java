@@ -1,5 +1,7 @@
 package premio;
 
+import elemento.ElementoGrafico;
+
 public class EscudoKamikaze extends ObjetoPrecioso{
 
 	public EscudoKamikaze(int X, int Y, int alto, int ancho) {
@@ -11,6 +13,12 @@ public class EscudoKamikaze extends ObjetoPrecioso{
 	public void mover(char c) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ElementoGrafico getGrafico() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

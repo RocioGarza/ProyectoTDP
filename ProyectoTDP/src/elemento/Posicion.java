@@ -31,16 +31,13 @@ public class Posicion {
 	}
 	
 	public void moverX(int cantX) {
-		if(cantX > 0) {//avanza a derecha
-			if (X+(ancho/2)+cantX > PosicionMaxima.getPosicionMaxima().getX())
-				X = PosicionMaxima.getPosicionMaxima().getX()-(ancho/2);
-			else
-				X = X + cantX;
-		}else {// si llega al borde izquierdo
+		if (X+(ancho/2)+cantX > PosicionMaxima.getPosicionMaxima().getX())
+			X = PosicionMaxima.getPosicionMaxima().getX()-(ancho/2);
+		else {
 			if (X-(ancho/2)+cantX < 0)
 				X = (ancho/2);
 			else
-				X = X - cantX;
+				X = X + cantX;
 		}
 
 	}

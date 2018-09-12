@@ -1,8 +1,6 @@
 package logica;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.util.Collection;
 
 import javax.swing.JLabel;
@@ -27,8 +25,7 @@ public class MapaGrafico {
 	{
 		for(Elemento e: coleccion)
 		{
-			JLabel label = e.getGrafico();
-			panel.add(label);
+			panel.add(e.getGrafico().getGrafico());
 		}
 		
 	}

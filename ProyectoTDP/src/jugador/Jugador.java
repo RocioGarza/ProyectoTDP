@@ -74,11 +74,14 @@ public class Jugador extends Personaje {
 	}
 
 	public void mover(char c) {
-		if (c=='a')
+		if (c=='a') {
 			pos.moverX(-velocidadDeMovimiento);
-		if (c=='d')
-			pos.moverX(velocidadDeMovimiento);
-		grafico.mover(c);
+			grafico.mover(c);
+		} else
+			if (c=='d') {
+				pos.moverX(velocidadDeMovimiento);
+				grafico.mover(c);
+			}
 	}
 	
 	private void controlarEscudo() {
