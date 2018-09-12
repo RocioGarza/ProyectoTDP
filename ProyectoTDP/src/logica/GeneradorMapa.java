@@ -22,15 +22,23 @@ public class GeneradorMapa {
 	private int x;
 	private int y;
 	private char c;
-	private Collection<Point> ocupados = new LinkedList<Point>();
+	private Collection<Point> ocupados;
 	
 	public GeneradorMapa(File txt)
-	{	 try {
+	{	 
+		coleccion = new LinkedList<Elemento>();
+		ocupados = new LinkedList<Point>();
+		try {
 			arch =  new BufferedReader(new FileReader(txt));
 			x=0;
 			y=0;
 			while(y<PosicionMaxima.getY()) {
-			c =(char) arch.read();
+			try {
+				c =(char) arch.read();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			while(c!='/' && x!= PosicionMaxima.getX()) 
 			{
 				switch (c) {
@@ -116,19 +124,19 @@ public class GeneradorMapa {
 					break;	
 				}
 				x++;
-				c =(char) arch.read();
+				try {
+					c =(char) arch.read();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			x=0;
 			y++;
-			}
-							
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		 
+			}	
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+	}
 	}
 	
 	//CAMBIO: le paso ancho y alto y devuelve x e y de pos. Maneja la coleccion ocupados

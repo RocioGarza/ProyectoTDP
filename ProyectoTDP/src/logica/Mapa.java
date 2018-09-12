@@ -17,7 +17,7 @@ public class Mapa {
 	//y=1024
 	
 	public Mapa (int n){
-		//j = new Jugador(512,300);
+		j = new Jugador(512,300);
 		File nivel;
 		String dir = this.getClass()+"nivel" + n + ".txt"; 
         nivel = new File(dir); 
