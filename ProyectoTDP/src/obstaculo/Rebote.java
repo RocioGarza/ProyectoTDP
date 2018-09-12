@@ -17,7 +17,7 @@ public class Rebote extends Obstaculo {
 		return 190;
 	}
 	
-	public ReboteGrafico getAlphaGrafico() {
+	public ReboteGrafico getGrafico() {
 		return grafico;
 	}
 

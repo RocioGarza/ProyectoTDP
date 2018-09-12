@@ -17,7 +17,7 @@ public class ParedJugador extends Obstaculo {
 		return 190;
 	}
 	
-	public ParedJugadorGrafica getAlphaGrafico() {
+	public ParedJugadorGrafica getGrafico() {
 		return grafico;
 	}
 

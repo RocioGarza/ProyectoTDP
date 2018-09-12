@@ -1,7 +1,7 @@
 package enemigo;
 
 import jugador.Jugador;
-import proyectil.Proyectil;
+import proyectil.ProyectilJugador;
 
 public class Gamma extends EnemigoKamikaze{
 
@@ -38,13 +38,13 @@ public class Gamma extends EnemigoKamikaze{
 		this.morir();
 	}
 
-	protected void serColisionado(Proyectil e) {
+	protected void serColisionado(ProyectilJugador e) {
 		this.quitarVida(e.getDaño());
 		if(this.vida == 0)
 			this.morir();
 	}
 
-	public GammaGrafico getAlphaGrafico() {
+	public GammaGrafico getGrafico() {
 		return grafico;
 	}
 }

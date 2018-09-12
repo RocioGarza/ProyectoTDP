@@ -17,7 +17,7 @@ public class Irrompible extends Obstaculo {
 		return 190;
 	}
 	
-	public IrrompibleGrafico getAlphaGrafico() {
+	public IrrompibleGrafico getGrafico() {
 		return grafico;
 	}
 

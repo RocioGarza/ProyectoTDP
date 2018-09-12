@@ -1,6 +1,6 @@
 package enemigo;
 
-import proyectil.Proyectil;
+import proyectil.ProyectilJugador;
 
 public class Delta extends EnemigoArmado{
 	
@@ -32,13 +32,13 @@ public class Delta extends EnemigoArmado{
 		//intel.mover();
 	}
 	
-	protected void serColisionado(Proyectil e) {
+	protected void serColisionado(ProyectilJugador e) {
 		this.quitarVida(e.getDaño());
 		if(this.vida == 0)
 			this.morir();
 	}
 	
-	public DeltaGrafico getAlphaGrafico() {
+	public DeltaGrafico getGrafico() {
 		return grafico;
 	}
 

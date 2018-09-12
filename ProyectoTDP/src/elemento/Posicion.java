@@ -6,14 +6,12 @@ public class Posicion {
 	private int Y;
 	private int alto;
 	private int ancho;
-	private PosicionMaxima posMaxima;
 
 	public Posicion(int X, int Y, int alto, int ancho) {
 		this.X=X;
 		this.Y=Y;	
 		this.ancho=ancho;
 		this.alto=alto;
-		this.posMaxima = PosicionMaxima.getPosicionMaxima();
 	}
 
 	public int getX() {
@@ -31,15 +29,11 @@ public class Posicion {
 	public int getAncho() {
 		return ancho;
 	}
-
-	public int getMaxX() {
-		return posMaxima.getX();
-	}
 	
 	public void moverX(int cantX) {
 		if(cantX > 0) {//avanza a derecha
-			if (X+(ancho/2)+cantX > posMaxima.getX())
-				X = posMaxima.getX()-(ancho/2);
+			if (X+(ancho/2)+cantX > PosicionMaxima.getPosicionMaxima().getX())
+				X = PosicionMaxima.getPosicionMaxima().getX()-(ancho/2);
 			else
 				X = X + cantX;
 		}else {// si llega al borde izquierdo
@@ -52,8 +46,8 @@ public class Posicion {
 	}
 
 	public void moverY(int cantY) {
-		if (Y+(alto/2)+cantY>posMaxima.getY())
-			Y = posMaxima.getY()-(alto/2);
+		if (Y+(alto/2)+cantY>PosicionMaxima.getPosicionMaxima().getY())
+			Y = PosicionMaxima.getPosicionMaxima().getX()-(alto/2);
 		else
 			Y = Y + cantY;
 	}

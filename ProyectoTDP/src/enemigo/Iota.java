@@ -1,7 +1,7 @@
 package enemigo;
 
 import jugador.Jugador;
-import proyectil.Proyectil;
+import proyectil.ProyectilJugador;
 
 public class Iota extends EnemigoArmado{
 
@@ -37,13 +37,13 @@ public class Iota extends EnemigoArmado{
 		this.morir();
 	}
 	
-	protected void serColisionado(Proyectil e) {
+	protected void serColisionado(ProyectilJugador e) {
 		this.quitarVida(e.getDaño());
 		if(this.vida == 0)
 			this.morir();
 	}
 	
-	public IotaGrafico getAlphaGrafico() {
+	public IotaGrafico getGrafico() {
 		return grafico;
 	}
 }

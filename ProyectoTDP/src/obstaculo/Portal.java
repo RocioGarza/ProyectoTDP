@@ -17,7 +17,7 @@ public class Portal extends Obstaculo {
 		return 190;
 	}
 	
-	public PortalGrafico getAlphaGrafico() {
+	public PortalGrafico getGrafico() {
 		return grafico;
 	}
 
