@@ -70,6 +70,7 @@ public class GeneradorDeNiveles{
 						arch.write("."); // 100-8,75=91,25%
 						break;	
 				}
+				arch.write("/");
 			}
 			arch.write('\n');
 		}			

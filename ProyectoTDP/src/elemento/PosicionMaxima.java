@@ -12,11 +12,11 @@ public class PosicionMaxima {
 		return instancia;
 	}
 	
-	public int getX() {
+	public static int getX() {
 		return X;
 	}
 	
-	public int getY() {
+	public static int getY() {
 		return Y;
 	}
 
