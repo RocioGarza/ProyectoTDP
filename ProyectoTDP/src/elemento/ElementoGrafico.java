@@ -14,7 +14,7 @@ public abstract class ElementoGrafico {
 		pos= new Posicion(X,Y,alto,ancho);
 		this.velocidad = velocidad;
 	
-		this.image = new Icon[4];
+		this.image = new Icon[5];
 	}
 	
 	public int getVelocidad() {

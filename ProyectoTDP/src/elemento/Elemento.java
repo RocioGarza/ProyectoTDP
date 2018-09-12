@@ -1,5 +1,7 @@
 package elemento;
 
+import javax.swing.JLabel;
+
 public abstract class Elemento {
 
 	protected int velocidadDeMovimiento;
@@ -20,5 +22,7 @@ public abstract class Elemento {
 	}
 	
 	public abstract void mover(char c) ;
+
+	public abstract JLabel getGrafico();
 	
 }

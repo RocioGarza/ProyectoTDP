@@ -4,17 +4,19 @@ import java.io.File;
 import java.util.Collection;
 
 import elemento.Elemento;
+import jugador.Jugador;
 
 public class Mapa {
 	
 	private Collection<Elemento> coleccion;
 	private MapaGrafico mGraf;
+	private Jugador j;
 	
 	//x=1028
 	//y=1024
 	
-	public Mapa (int n)
-	{
+	public Mapa (int n){
+		//j = new Jugador(512,300);
 		File nivel;
 		String dir = this.getClass()+"nivel" + n + ".txt"; 
         nivel = new File(dir); 
@@ -26,12 +28,18 @@ public class Mapa {
         GeneradorMapa gen = new GeneradorMapa(nivel);
         coleccion = gen.getColeccion();
         
+        coleccion.add(j);
+        
         mGraf = new MapaGrafico(coleccion);
 	}	
 	
 	public MapaGrafico getGrafico()
 	{
 		return mGraf;
+	}
+	
+	public Jugador getJugador() {
+		return j;
 	}
 
 }
