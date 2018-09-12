@@ -7,11 +7,11 @@ public class Beta extends EnemigoKamikaze{
 	
 	private BetaGrafico grafico;
 
-	public Beta (int X, int Y, int Nivel) {
+	public Beta (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 2*Nivel;
-		vidaMaxima = 100*Nivel;
-		dañoAtaque = 5*Nivel;
+		velocidadDeMovimiento = 2;
+		vidaMaxima = 100;
+		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
 		grafico = new BetaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
 	}

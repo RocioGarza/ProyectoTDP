@@ -7,11 +7,11 @@ public class Alpha extends EnemigoKamikaze{
 	
 	private AlphaGrafico grafico;
 
-	public Alpha (int X, int Y, int Nivel) {
+	public Alpha (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 2*Nivel;
-		vidaMaxima = 100*Nivel;
-		dañoAtaque = 5*Nivel;
+		velocidadDeMovimiento = 2;
+		vidaMaxima = 100;
+		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
 		grafico = new AlphaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
 	}

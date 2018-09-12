@@ -7,11 +7,11 @@ public class Gamma extends EnemigoKamikaze{
 
 	private GammaGrafico grafico;
 
-	public Gamma (int X, int Y, int Nivel) {
+	public Gamma (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 2*Nivel;
-		vidaMaxima = 100*Nivel;
-		dañoAtaque = 5*Nivel;
+		velocidadDeMovimiento = 2;
+		vidaMaxima = 100;
+		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
 		grafico = new GammaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
 	}

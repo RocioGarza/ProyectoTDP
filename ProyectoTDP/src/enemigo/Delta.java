@@ -6,11 +6,11 @@ public class Delta extends EnemigoArmado{
 	
 	private DeltaGrafico grafico;
 
-	public Delta (int X, int Y, int Nivel) {
+	public Delta (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 2*Nivel;
-		vidaMaxima = 100*Nivel;
-		dañoAtaque = 5*Nivel;
+		velocidadDeMovimiento = 2;
+		vidaMaxima = 100;
+		dañoAtaque = 5;
 		grafico = new DeltaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
 	}
 	

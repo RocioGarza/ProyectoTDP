@@ -7,11 +7,11 @@ public class Iota extends EnemigoArmado{
 
 	private IotaGrafico grafico;
 
-	public Iota (int X, int Y, int Nivel) {
+	public Iota (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 2*Nivel;
-		vidaMaxima = 100*Nivel;
-		dañoAtaque = 5*Nivel;
+		velocidadDeMovimiento = 2;
+		vidaMaxima = 100;
+		dañoAtaque = 5;
 		grafico = new IotaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
 	}
 	
