@@ -17,11 +17,11 @@ public class Alpha extends EnemigoKamikaze{
 	}
 	
 	public static int getAlto() {
-		return 103;
+		return 103; 
 	}
 	
 	public static int getAncho() {
-		return 193;
+		return 193; 
 	}
 
 	@Override

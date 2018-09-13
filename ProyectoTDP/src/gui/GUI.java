@@ -40,8 +40,9 @@ public class GUI extends JFrame {
 				mover(arg0);
 			}
 		});
-		mapa = new Mapa();
-		setContentPane(mapa.getGrafico());
+		mapa = new Mapa(0);
+		getContentPane().add(mapa.getGrafico());
+		//setContentPane(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, 1280, 1024);
 		

@@ -35,7 +35,7 @@ public class GeneradorDeNiveles{
 			{	
 			for(int i=0; i<PosicionMaxima.getX(); i++)
 			{
-				n = rnd.nextInt(400);
+				n = rnd.nextInt(400000); //CAMBIAR % ANTES ERA 400
 				switch(n) 
 				{
 					case 0: case 1: case 2: case 3: case 4: case 5:

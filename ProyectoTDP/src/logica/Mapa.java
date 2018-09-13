@@ -16,9 +16,6 @@ public class Mapa {
 	private MapaGrafico mGraf;
 	private Jugador j;
 	
-	//x=1028
-	//y=1024
-	
 	public Mapa (int n){
 		File nivel;
 		String dir = this.getClass()+"nivel" + n + ".txt"; 
@@ -30,16 +27,12 @@ public class Mapa {
         
         
         String archivo ="nivel"+n+".txt";
+        
         GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
         
-        //j = new Jugador(512,300);
-        //coleccion.add(j);
-        
-        for(Elemento e: coleccion)
-		{
-			System.out.println(e.toString());
-		}
+        j = new Jugador(PosicionMaxima.getX()/2,PosicionMaxima.getY()-(Jugador.getAlto()*7)/2);
+        coleccion.add(j);
         
         mGraf = new MapaGrafico(coleccion);
 	}	

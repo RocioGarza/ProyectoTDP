@@ -5,8 +5,6 @@ public class testerGradorNiv {
 	{
 		Mapa m = new Mapa(0);
 		
-		
-		
 		GeneradorDeNiveles test = new GeneradorDeNiveles();
 	}
 
