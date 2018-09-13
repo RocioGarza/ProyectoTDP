@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import javax.swing.JPanel;
+
 import elemento.Elemento;
+import elemento.PosicionMaxima;
 import jugador.Jugador;
 
 public class Mapa {
@@ -17,7 +20,6 @@ public class Mapa {
 	//y=1024
 	
 	public Mapa (int n){
-		j = new Jugador(512,300);
 		File nivel;
 		String dir = this.getClass()+"nivel" + n + ".txt"; 
         nivel = new File(dir); 
@@ -26,24 +28,32 @@ public class Mapa {
         	nivel= gen.getNivel();
         }
         
-        GeneradorMapa gen = new GeneradorMapa(nivel);
+        
+        String archivo ="nivel"+n+".txt";
+        GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
         
-        coleccion.add(j);
+        //j = new Jugador(512,300);
+        //coleccion.add(j);
+        
+        for(Elemento e: coleccion)
+		{
+			System.out.println(e.toString());
+		}
         
         mGraf = new MapaGrafico(coleccion);
 	}	
 	
 	public Mapa() {
-		j = new Jugador(512,300);
+		j = new Jugador(PosicionMaxima.getX()/2,PosicionMaxima.getY()-(Jugador.getAlto()*7)/2);
 		coleccion = new LinkedList<Elemento>();
 		coleccion.add(j);
 		mGraf = new MapaGrafico(coleccion);
 	}
 	
-	public MapaGrafico getGrafico()
+	public JPanel getGrafico()
 	{
-		return mGraf;
+		return mGraf.getGrafica();
 	}
 	
 	public Jugador getJugador() {

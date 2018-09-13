@@ -17,7 +17,7 @@ public class Jugador extends Personaje {
 	
 	public Jugador(int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 3;
+		velocidadDeMovimiento = 10;
 		vidaMaxima = 250;
 		dañoAtaque = 5;
 		vida = vidaMaxima;

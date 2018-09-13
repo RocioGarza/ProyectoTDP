@@ -24,7 +24,7 @@ public class GeneradorMapa {
 	private char c;
 	private Collection<Point> ocupados;
 	
-	public GeneradorMapa(File txt)
+	public GeneradorMapa(String txt)
 	{	 
 		coleccion = new LinkedList<Elemento>();
 		ocupados = new LinkedList<Point>();
@@ -133,7 +133,8 @@ public class GeneradorMapa {
 			}
 			x=0;
 			y++;
-			}	
+			}
+
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 	}
@@ -162,7 +163,7 @@ public class GeneradorMapa {
 				return null;
 			}	
 		}
-		else return null;
+		return null;
 	}
 	
 	private boolean ocupados(int pos, int ancho)

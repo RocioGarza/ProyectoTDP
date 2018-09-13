@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import logica.Mapa;
-import logica.MapaGrafico;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -42,7 +41,7 @@ public class GUI extends JFrame {
 			}
 		});
 		mapa = new Mapa();
-		setContentPane(mapa.getGrafico().getGrafica());
+		setContentPane(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, 1280, 1024);
 		
@@ -50,12 +49,7 @@ public class GUI extends JFrame {
 	
 	protected void mover(KeyEvent key){
 		char aux=key.getKeyChar();
-		//System.out.println(aux);
-		mapa.getJugador().mover(aux);	
-		//System.out.println(mapa.getJugador().getPosicion().getX());
-		//System.out.println(mapa.getJugador().getPosicion().getY());
-		//System.out.println(mapa.getJugador().getGrafico().getPos().getX());
-		//System.out.println(mapa.getJugador().getGrafico().getPos().getY());
+		mapa.getJugador().mover(aux);
 	}
 	
 	

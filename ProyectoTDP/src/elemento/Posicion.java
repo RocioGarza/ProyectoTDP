@@ -31,8 +31,8 @@ public class Posicion {
 	}
 	
 	public void moverX(int cantX) {
-		if (X+(ancho/2)+cantX > PosicionMaxima.getPosicionMaxima().getX())
-			X = PosicionMaxima.getPosicionMaxima().getX()-(ancho/2);
+		if (X+(ancho/2)+cantX > PosicionMaxima.getX())
+			X = PosicionMaxima.getX()-(ancho/2);
 		else {
 			if (X-(ancho/2)+cantX < 0)
 				X = (ancho/2);
@@ -43,8 +43,8 @@ public class Posicion {
 	}
 
 	public void moverY(int cantY) {
-		if (Y+(alto/2)+cantY>PosicionMaxima.getPosicionMaxima().getY())
-			Y = PosicionMaxima.getPosicionMaxima().getX()-(alto/2);
+		if (Y+(alto/2)+cantY>PosicionMaxima.getY())
+			Y = PosicionMaxima.getX()-(alto/2);
 		else
 			Y = Y + cantY;
 	}
