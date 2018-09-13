@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
+import elemento.PosicionMaxima;
+
 
 public class GeneradorDeNiveles{
 	
@@ -29,9 +31,9 @@ public class GeneradorDeNiveles{
 		int n = 0;
 		try {
 			BufferedWriter arch = new BufferedWriter(new FileWriter("nivel0.txt"));
-			for(int j=0; j<1000; j++)
+			for(int j=0; j<PosicionMaxima.getY(); j++)
 			{	
-			for(int i=0; i<1000; i++)
+			for(int i=0; i<PosicionMaxima.getX(); i++)
 			{
 				n = rnd.nextInt(400);
 				switch(n) 
