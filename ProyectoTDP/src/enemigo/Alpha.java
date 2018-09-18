@@ -2,6 +2,7 @@ package enemigo;
 
 import jugador.Jugador;
 import proyectil.ProyectilJugador;
+import elemento.*;
 
 public class Alpha extends EnemigoKamikaze{
 	
@@ -29,10 +30,17 @@ public class Alpha extends EnemigoKamikaze{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+
+	
 
 	@Override
 	public void mover(char c) {
-		//intel.mover();
+		/*
+		Hilo h = new Hilo();
+		h.start();
+		*/
 	}
 	
 	protected void serColisionado(Jugador e) {

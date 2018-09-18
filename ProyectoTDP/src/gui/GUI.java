@@ -23,6 +23,8 @@ public class GUI extends JFrame {
 				try {
 					GUI frame = new GUI();
 					frame.setVisible(true);
+					//prueba
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

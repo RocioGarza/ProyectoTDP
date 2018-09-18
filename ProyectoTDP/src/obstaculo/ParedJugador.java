@@ -1,4 +1,5 @@
 package obstaculo;
+import proyectil.*;
 
 public class ParedJugador extends Obstaculo {
 	
@@ -26,4 +27,10 @@ public class ParedJugador extends Obstaculo {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void serColisionado(ProyectilJugador e) {
+		this.quitarVida(e.getDaño());
+		
+	}
 }
+

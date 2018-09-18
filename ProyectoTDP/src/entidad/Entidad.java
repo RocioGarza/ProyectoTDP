@@ -24,8 +24,8 @@ public abstract class Entidad extends Elemento {
 	}
 	
 	public void quitarVida(int v) {
-		if (vida-v<0)
-			vida = 0;
+		if (vida-v <= 0)
+			this.morir();
 		else
 			vida = vida - v;
 	}
