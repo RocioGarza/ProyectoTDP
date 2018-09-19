@@ -3,17 +3,17 @@ package logica;
 import java.awt.Color;
 import java.util.Collection;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import elemento.Elemento;
+import entidad.Entidad;
+
 
 public class MapaGrafico {
 
 	private JPanel panel;
 	
-	public MapaGrafico(Collection<Elemento> coleccion) {
+	public MapaGrafico(Collection<Entidad> coleccion) {
 		panel = new JPanel();
 		posicionarElementos(coleccion);
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -21,9 +21,9 @@ public class MapaGrafico {
 		panel.setLayout(null);
 	}
 	
-	private void posicionarElementos(Collection<Elemento> coleccion)
+	private void posicionarElementos(Collection<Entidad> coleccion)
 	{
-		for(Elemento e: coleccion)
+		for(Entidad e: coleccion)
 		{
 			panel.add(e.getGrafico().getGrafico());
 		}

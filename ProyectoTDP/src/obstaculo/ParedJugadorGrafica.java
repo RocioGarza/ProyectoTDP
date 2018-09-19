@@ -1,12 +1,13 @@
 package obstaculo;
 
 import javax.swing.ImageIcon;
-import elemento.ElementoGrafico;
+import entidad.EntidadGrafica;
+import entidad.Posicion;
 
-public class ParedJugadorGrafica extends ElementoGrafico {
+public class ParedJugadorGrafica extends EntidadGrafica {
 
-	protected ParedJugadorGrafica(int X, int Y, int alto, int ancho, int velocidad) {
-		super(X, Y, alto, ancho, velocidad);
+	protected ParedJugadorGrafica(Posicion pos) {
+		super(pos);
 		
 		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/ParedJugador.png"));
 		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/ParedJugador.png"));

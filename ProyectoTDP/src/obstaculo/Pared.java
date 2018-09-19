@@ -6,7 +6,7 @@ public class Pared extends Obstaculo {
 	
 	public Pared (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
-		grafico = new ParedGrafica(X, Y, getAlto(), getAncho(), 0);
+		grafico = new ParedGrafica(pos);
 	}
 	
 	public static int getAlto() {
@@ -22,7 +22,7 @@ public class Pared extends Obstaculo {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
 	}

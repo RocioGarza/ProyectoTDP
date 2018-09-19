@@ -13,7 +13,7 @@ public class Beta extends EnemigoKamikaze{
 		vidaMaxima = 100;
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
-		grafico = new BetaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new BetaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -26,12 +26,11 @@ public class Beta extends EnemigoKamikaze{
 	
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		grafico.changeIcon(' ');
 	}
 
-	public void mover(char c) {
-		//intel.mover();
+	public void mover() {
+		inteligencia.mover();
 	}
 	
 	protected void serColisionado(Jugador e) {

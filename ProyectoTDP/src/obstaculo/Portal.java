@@ -6,7 +6,7 @@ public class Portal extends Obstaculo {
 	
 	public Portal (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
-		grafico = new PortalGrafico(X, Y, getAlto(), getAncho(), 0);
+		grafico = new PortalGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -22,7 +22,7 @@ public class Portal extends Obstaculo {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
 	}

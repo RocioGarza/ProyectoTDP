@@ -13,7 +13,7 @@ public class Alpha extends EnemigoKamikaze{
 		vidaMaxima = 100;
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
-		grafico = new AlphaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new AlphaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -24,15 +24,12 @@ public class Alpha extends EnemigoKamikaze{
 		return 193; 
 	}
 
-	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		grafico.changeIcon(' ');
 	}
 
-	@Override
-	public void mover(char c) {
-		//intel.mover();
+	public void mover() {
+		inteligencia.mover();
 	}
 	
 	protected void serColisionado(Jugador e) {

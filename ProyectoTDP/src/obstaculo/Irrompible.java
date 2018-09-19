@@ -6,7 +6,7 @@ public class Irrompible extends Obstaculo {
 	
 	public Irrompible (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
-		grafico = new IrrompibleGrafico(X, Y, getAlto(), getAncho(), 0);
+		grafico = new IrrompibleGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -22,7 +22,7 @@ public class Irrompible extends Obstaculo {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
 	}

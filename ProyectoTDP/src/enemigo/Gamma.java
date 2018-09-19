@@ -13,7 +13,7 @@ public class Gamma extends EnemigoKamikaze{
 		vidaMaxima = 100;
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
-		grafico = new GammaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new GammaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -24,14 +24,12 @@ public class Gamma extends EnemigoKamikaze{
 		return 193;
 	}
 
-	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-
+		grafico.changeIcon(' ');
 	}
 
-	public void mover(char c) {
-		//intel.mover();
+	public void mover() {
+		inteligencia.mover();
 	}
 
 	protected void serColisionado(Jugador e) {

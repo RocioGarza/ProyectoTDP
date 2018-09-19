@@ -11,7 +11,7 @@ public class Delta extends EnemigoArmado{
 		velocidadDeMovimiento = 2;
 		vidaMaxima = 100;
 		dañoAtaque = 5;
-		grafico = new DeltaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new DeltaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -24,12 +24,11 @@ public class Delta extends EnemigoArmado{
 
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		grafico.changeIcon(' ');
 	}
 
-	public void mover(char c) {
-		//intel.mover();
+	public void mover() {
+		inteligencia.mover();
 	}
 	
 	protected void serColisionado(ProyectilJugador e) {

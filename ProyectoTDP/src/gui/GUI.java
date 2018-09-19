@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import logica.Mapa;
+import logica.Reloj;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -13,7 +14,9 @@ public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private Mapa mapa;
-
+	private Reloj reloj;
+	private Refresh refresh;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -45,7 +48,10 @@ public class GUI extends JFrame {
 		//setContentPane(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, 1280, 1024);
-		
+		reloj = new Reloj(mapa);
+		reloj.start();
+		refresh = new Refresh(mapa);
+		refresh.start();
 	}
 	
 	protected void mover(KeyEvent key){

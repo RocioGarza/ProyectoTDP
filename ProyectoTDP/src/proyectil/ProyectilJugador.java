@@ -1,6 +1,6 @@
 package proyectil;
 
-import elemento.ElementoGrafico;
+import entidad.EntidadGrafica;
 
 public class ProyectilJugador extends Proyectil {
 
@@ -9,7 +9,7 @@ public class ProyectilJugador extends Proyectil {
 	}
 
 	@Override
-	public ElementoGrafico getGrafico() {
+	public EntidadGrafica getGrafico() {
 		// TODO Auto-generated method stub
 		return null;
 	}

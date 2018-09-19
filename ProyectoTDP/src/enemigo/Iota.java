@@ -12,7 +12,7 @@ public class Iota extends EnemigoArmado{
 		velocidadDeMovimiento = 2;
 		vidaMaxima = 100;
 		dañoAtaque = 5;
-		grafico = new IotaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new IotaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -25,12 +25,11 @@ public class Iota extends EnemigoArmado{
 
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		grafico.changeIcon(' ');
 	}
 
-	public void mover(char c) {
-		//intel.mover();
+	public void mover() {
+		inteligencia.mover();
 	}	
 	
 	protected void serColisionado(Jugador e) {

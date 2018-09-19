@@ -1,15 +1,33 @@
 package entidad;
 
-import elemento.Elemento;
+public abstract class Entidad {
 
-public abstract class Entidad extends Elemento {
-
+	protected int velocidadDeMovimiento;
+	protected Posicion pos;
 	protected int vidaMaxima;
 	protected int vida;
 	
 	public Entidad(int X, int Y, int alto, int ancho) {
-		super(X,Y,alto,ancho);
+		pos = new Posicion(X,Y,alto,ancho);
 	}
+	
+	public void Colisionar(Entidad e) {
+		e.serColisionado(this);
+	}
+	
+	protected void serColisionado(Entidad e) {}
+	
+	public Posicion getPosicion() {
+		return pos;
+	}
+	
+	public int getVelocidadDeMovimiento() {
+		return velocidadDeMovimiento;
+	}
+	
+	public void mover() {}
+
+	public abstract EntidadGrafica getGrafico();
 	
 	public int getVidaMaxima() {
 		return vidaMaxima;

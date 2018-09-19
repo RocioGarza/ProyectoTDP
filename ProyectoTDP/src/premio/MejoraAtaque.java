@@ -1,6 +1,6 @@
 package premio;
 
-import elemento.ElementoGrafico;
+import entidad.EntidadGrafica;
 
 public class MejoraAtaque extends MagiaTemporal {
 
@@ -10,13 +10,13 @@ public class MejoraAtaque extends MagiaTemporal {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public ElementoGrafico getGrafico() {
+	public EntidadGrafica getGrafico() {
 		// TODO Auto-generated method stub
 		return null;
 	}

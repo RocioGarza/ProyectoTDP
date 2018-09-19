@@ -6,7 +6,7 @@ public class Rebote extends Obstaculo {
 	
 	public Rebote (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
-		grafico = new ReboteGrafico(X, Y, getAlto(), getAncho(), 0);
+		grafico = new ReboteGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -22,7 +22,7 @@ public class Rebote extends Obstaculo {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -23,7 +23,7 @@ public class Jugador extends Personaje {
 		vida = vidaMaxima;
 		arma = new ArmaJugador();
 		escudo = new EscudoNormal();
-		grafico = new JugadorGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);	
+		grafico = new JugadorGrafico(pos);	
 	}
 	
 	public static int getAlto() {
@@ -76,11 +76,9 @@ public class Jugador extends Personaje {
 	public void mover(char c) {
 		if (c=='a') {
 			pos.moverX(-velocidadDeMovimiento);
-			grafico.mover(c);
 		} else
 			if (c=='d') {
 				pos.moverX(velocidadDeMovimiento);
-				grafico.mover(c);
 			}
 	}
 	

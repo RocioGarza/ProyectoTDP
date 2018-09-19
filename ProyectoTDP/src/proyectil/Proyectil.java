@@ -1,8 +1,8 @@
 package proyectil;
 
-import elemento.Elemento;
+import entidad.Entidad;
 
-public abstract class Proyectil extends Elemento {
+public abstract class Proyectil extends Entidad {
 
 	protected int daño;
 	

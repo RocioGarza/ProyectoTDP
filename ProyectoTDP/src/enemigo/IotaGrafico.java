@@ -1,17 +1,18 @@
 package enemigo;
 
 import javax.swing.ImageIcon;
-import elemento.ElementoGrafico;
+import entidad.EntidadGrafica;
+import entidad.Posicion;
 
-public class IotaGrafico extends ElementoGrafico {
+public class IotaGrafico extends EntidadGrafica {
 
-	protected IotaGrafico(int X, int Y, int alto, int ancho, int velocidad) {
-		super(X, Y, alto, ancho, velocidad);
+	protected IotaGrafico(Posicion pos) {
+		super(pos);
 		
 		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[2] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[3] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
-		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
+		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/IotaAtaque.gif"));
 	}
 }

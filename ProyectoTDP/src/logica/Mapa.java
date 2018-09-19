@@ -6,13 +6,13 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
-import elemento.Elemento;
-import elemento.PosicionMaxima;
+import entidad.Entidad;
+import entidad.Posicion;
 import jugador.Jugador;
 
 public class Mapa {
 	
-	private Collection<Elemento> coleccion;
+	private Collection<Entidad> coleccion;
 	private MapaGrafico mGraf;
 	private Jugador j;
 	
@@ -31,15 +31,15 @@ public class Mapa {
         GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
         
-        j = new Jugador(PosicionMaxima.getX()/2,PosicionMaxima.getY()-(Jugador.getAlto()*7)/2);
+        j = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*7)/2);
         coleccion.add(j);
         
         mGraf = new MapaGrafico(coleccion);
 	}	
 	
 	public Mapa() {
-		j = new Jugador(PosicionMaxima.getX()/2,PosicionMaxima.getY()-(Jugador.getAlto()*7)/2);
-		coleccion = new LinkedList<Elemento>();
+		j = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*7)/2);
+		coleccion = new LinkedList<Entidad>();
 		coleccion.add(j);
 		mGraf = new MapaGrafico(coleccion);
 	}
@@ -52,5 +52,8 @@ public class Mapa {
 	public Jugador getJugador() {
 		return j;
 	}
-
+	
+	public Collection<Entidad> getColeccion(){
+		return coleccion;
+	}
 }
