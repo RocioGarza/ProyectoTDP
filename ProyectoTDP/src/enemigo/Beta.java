@@ -1,23 +1,14 @@
 package enemigo;
 
-import Visitor.Visitable;
-import Visitor.Visitor;
-import jugador.Jugador;
+import entidad.Entidad;
 import obstaculo.Irrompible;
 import obstaculo.Pared;
 import obstaculo.ParedJugador;
 import obstaculo.Portal;
 import obstaculo.Rebote;
-import premio.CongelarEnemigos;
-import premio.EscudoKamikaze;
-import premio.MasAtaques;
-import premio.MejoraAtaque;
-import premio.OndaExpansiva;
-import premio.Pocion;
-import proyectil.ProyectilEnemigo;
 import proyectil.ProyectilJugador;
 
-public class Beta extends EnemigoKamikaze implements Visitor,Visitable {
+public class Beta extends EnemigoKamikaze{
 	
 	private BetaGrafico grafico;
 
@@ -47,65 +38,38 @@ public class Beta extends EnemigoKamikaze implements Visitor,Visitable {
 		inteligencia.mover();
 	}
 	
-	public void serColisionado(Jugador e) {
-		this.morir();
-	}
 	
 	public BetaGrafico getGrafico() {
 		return grafico;
 	}
 
-	public void chocar(Visitor visitor) {
-		visitor.serChocado(this);
-	}
+	//Colisiones
 
-	public void serChocado(Alpha e) {}
+		public void chocar(Entidad e) {
+			e.serChocado(this);
+		}
+		
+		public void serChocado(Irrompible e) {
+			inteligencia.rebotar();
+		}
 
-	public void serChocado(Beta e) {}
+		public void serChocado(Pared e) {
+			inteligencia.rebotar();
+		}
 
-	public void serChocado(Gamma e) {}
+		public void serChocado(ParedJugador e) {
+			inteligencia.rebotar();
+		}
 
-	public void serChocado(Delta e) {}
+		public void serChocado(Portal e) {
+			inteligencia.rebotar();
+		}
 
-	public void serChocado(Iota e) {}
-
-	public void serChocado(Jugador e) {}
-
-	public void serChocado(Irrompible e) {
-		inteligencia.rebotar();
-	}
-
-	public void serChocado(Pared e) {
-		inteligencia.rebotar();
-	}
-
-	public void serChocado(ParedJugador e) {
-		inteligencia.rebotar();
-	}
-
-	public void serChocado(Portal e) {
-		inteligencia.rebotar();
-	}
-
-	public void serChocado(Rebote e) {
-		inteligencia.rebotar();
-	}
-
-	public void serChocado(CongelarEnemigos e) {}
-
-	public void serChocado(EscudoKamikaze e) {}
-
-	public void serChocado(MasAtaques e) {}
-
-	public void serChocado(MejoraAtaque e) {}
-
-	public void serChocado(OndaExpansiva e) {}
-
-	public void serChocado(Pocion e) {}
-	
-	public void serChocado(ProyectilJugador e) {
-		e.quitarVida(10);
-	}
-	
-	public void serChocado(ProyectilEnemigo e) {}
+		public void serChocado(Rebote e) {
+			inteligencia.rebotar();
+		}
+		
+		public void serChocado(ProyectilJugador e) {
+			e.quitarVida(10);
+		}
 }

@@ -30,9 +30,6 @@ public class Mapa {
         GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
         
-        for(Entidad e: coleccion)
-        	System.out.println(e.getVida());
-        
         j = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*7)/2);
         coleccion.add(j);
         
@@ -74,12 +71,11 @@ public class Mapa {
 	private boolean controlarHitbox(Entidad e1, Entidad e2) {
 		Posicion posicion1 = e1.getPosicion();
 		Posicion posicion2 = e2.getPosicion();
-		boolean retorno=false;
-		
-		retorno = (posicion1.getX()>= posicion2.getX() && posicion1.getX()<=posicion2.getX()+posicion2.getAncho()) && (posicion1.getY()>= posicion2.getY() && posicion1.getY()<=posicion2.getY()+posicion2.getAlto());
-		if (!retorno)
-			retorno = (posicion2.getX()>= posicion1.getX() && posicion2.getX()<=posicion1.getX()+posicion1.getAncho()) && (posicion2.getY()>= posicion1.getY() && posicion2.getY()<=posicion1.getY()+posicion1.getAlto());
+		Boolean retorno = (posicion1.getX()> posicion2.getX() && posicion1.getX()<posicion2.getX()+posicion2.getAncho()) && (posicion1.getY()> posicion2.getY() && posicion1.getY()<posicion2.getY()+posicion2.getAlto()) || (posicion2.getX()> posicion1.getX() && posicion2.getX()<posicion1.getX()+posicion1.getAncho()) && (posicion2.getY()> posicion1.getY() && posicion2.getY()<posicion1.getY()+posicion1.getAlto());
 
+		if(retorno)
+			System.out.println(e1 + " " + e2);
+		
 		return retorno;
 	}
 }

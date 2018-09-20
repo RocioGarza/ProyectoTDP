@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import logica.ControlDeColisiones;
 import logica.Mapa;
 import logica.Reloj;
 import proyectil.Proyectil;
@@ -18,8 +17,7 @@ public class GUI extends JFrame {
 	private Mapa mapa;
 	private Reloj reloj;
 	private Refresh refresh;
-	private ControlDeColisiones controlador;
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -55,13 +53,11 @@ public class GUI extends JFrame {
 		reloj.start();
 		refresh = new Refresh(mapa);
 		refresh.start();
-		controlador = new ControlDeColisiones(mapa);
-		controlador.start();
 	}
 	
 	protected void mover(KeyEvent key){
 		char aux=key.getKeyChar();
-		if(aux=='x') {
+		if(aux==' ') {
 			Proyectil p = mapa.getJugador().atacarJugador();
 			mapa.getColeccion().add(p);
 			mapa.getMapaGrafico().agregarGrafico(p.getGrafico());
