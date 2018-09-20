@@ -58,8 +58,8 @@ public abstract class Entidad {
 	}
 	
 	public void quitarVida(int v) {
-		if (vida-v <= 0)
-			this.morir();
+		if (vida-v<0)
+			vida = 0;
 		else
 			vida = vida - v;
 	}

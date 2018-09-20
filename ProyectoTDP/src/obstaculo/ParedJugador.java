@@ -1,13 +1,15 @@
 package obstaculo;
-import proyectil.*;
 
-public class ParedJugador extends Obstaculo {
+import entidad.Entidad;
+import proyectil.ProyectilJugador;
+
+public class ParedJugador extends Obstaculo{
 	
 	private ParedJugadorGrafica grafico;
 	
 	public ParedJugador (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
-		grafico = new ParedJugadorGrafica(X, Y, getAlto(), getAncho(), 0);
+		grafico = new ParedJugadorGrafica(pos);
 	}
 	
 	public static int getAlto() {
@@ -23,14 +25,16 @@ public class ParedJugador extends Obstaculo {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public void serColisionado(ProyectilJugador e) {
-		this.quitarVida(e.getDaño());
-		
+
+	public void chocar(Entidad e) {
+		e.serChocado(this);
+	}
+
+	public void serChocado(ProyectilJugador e) {
+		e.quitarVida(10);
 	}
 }
-
