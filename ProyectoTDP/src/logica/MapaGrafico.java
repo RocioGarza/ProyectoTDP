@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import entidad.Entidad;
+import entidad.EntidadGrafica;
 
 
 public class MapaGrafico {
@@ -34,5 +35,13 @@ public class MapaGrafico {
 	{
 		return panel;
 	}
+	
+	public void agregarGrafico(EntidadGrafica e) {
+		panel.add(e.getGrafico());
+	}
 
+	public void removerGrafico(EntidadGrafica e) {
+		panel.remove(e.getGrafico());
+		panel.repaint();
+	}
 }

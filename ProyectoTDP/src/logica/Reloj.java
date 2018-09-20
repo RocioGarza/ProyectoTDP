@@ -13,9 +13,12 @@ public class Reloj extends Thread{
 	}
 	
 	public void run() {
+		Entidad[] aux;
 		while (true) {
-			for(Entidad e : coleccion)
-				e.mover();
+			aux = new Entidad[coleccion.size()];
+			coleccion.toArray(aux);
+			for(int i=0; i<aux.length; i++) 
+				aux[i].mover();
 			
 			try {
 				Thread.sleep(8);
@@ -27,3 +30,4 @@ public class Reloj extends Thread{
 	}
 
 }
+

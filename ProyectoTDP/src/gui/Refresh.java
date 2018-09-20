@@ -14,9 +14,21 @@ private Collection<Entidad> coleccion;
 	}
 
 	public void run() {
+		Entidad[] aux;
 		while (true) {
-			for(Entidad e : coleccion)
-				e.getGrafico().actualizar();
+			//System.out.println(coleccion.size());
+			aux = new Entidad[coleccion.size()];
+			coleccion.toArray(aux);
+			for(int i=0; i<aux.length; i++) {
+				//System.out.println(e);
+				aux[i].getGrafico().actualizar();
+			}
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

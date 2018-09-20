@@ -1,6 +1,15 @@
 package arma;
 
+import entidad.Posicion;
+import proyectil.Proyectil;
+
 public abstract class Arma {
 	
-	public abstract void disparar(int daño, int velocidad);
+	protected Posicion posDisparo;
+	
+	public Arma(Posicion p) {
+		this.posDisparo = p;
+	}
+	
+	public abstract Proyectil disparar(int daño, int velocidad);
 }

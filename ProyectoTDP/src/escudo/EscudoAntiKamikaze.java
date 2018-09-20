@@ -1,6 +1,6 @@
 package escudo;
 
-import enemigo.EnemigoKamikaze;
+import enemigo.Enemigo;
 
 public class EscudoAntiKamikaze extends Escudo{
 	
@@ -8,7 +8,7 @@ public class EscudoAntiKamikaze extends Escudo{
 		duracion = 1;
 	}
 
-	public int recibirDaño(EnemigoKamikaze e) {
+	public int recibirDaño(Enemigo e) {
 		duracion = duracion - 1;
 		return 0;
 	}

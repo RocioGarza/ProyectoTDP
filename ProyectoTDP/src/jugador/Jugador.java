@@ -1,15 +1,34 @@
 package jugador;
 
+import Visitor.Visitor;
 import arma.Arma;
 import arma.ArmaJugador;
+import enemigo.Alpha;
+import enemigo.Beta;
+import enemigo.Delta;
 import enemigo.EnemigoKamikaze;
+import enemigo.Gamma;
+import enemigo.Iota;
 import entidad.Personaje;
 import escudo.Escudo;
 import escudo.EscudoAntiKamikaze;
 import escudo.EscudoNormal;
+import obstaculo.Irrompible;
+import obstaculo.Pared;
+import obstaculo.ParedJugador;
+import obstaculo.Portal;
+import obstaculo.Rebote;
+import premio.CongelarEnemigos;
+import premio.EscudoKamikaze;
+import premio.MasAtaques;
+import premio.MejoraAtaque;
+import premio.OndaExpansiva;
+import premio.Pocion;
+import proyectil.Proyectil;
 import proyectil.ProyectilEnemigo;
+import proyectil.ProyectilJugador;
 
-public class Jugador extends Personaje {
+public class Jugador extends Personaje implements Visitor{
 
 	private Arma arma;
 	private Escudo escudo;
@@ -17,11 +36,12 @@ public class Jugador extends Personaje {
 	
 	public Jugador(int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 10;
+		velocidadDeMovimiento = 20;
+		velocidadDeAtaque = 5;
 		vidaMaxima = 250;
 		dañoAtaque = 5;
 		vida = vidaMaxima;
-		arma = new ArmaJugador();
+		arma = new ArmaJugador(pos);
 		escudo = new EscudoNormal();
 		grafico = new JugadorGrafico(pos);	
 	}
@@ -51,26 +71,8 @@ public class Jugador extends Personaje {
 		//hacer algo
 	}
 	
-	protected void serColisionado(ProyectilEnemigo p) {
-		int DañoAux = escudo.recibirDaño(p);
-		controlarEscudo();
-		if (vida-DañoAux<=0)
-			morir();
-		else
-			vida = vida - DañoAux;
-	}
-	
-	protected void serColisionado(EnemigoKamikaze e) {
-		int DañoAux = escudo.recibirDaño(e);
-		controlarEscudo();
-		if (vida-DañoAux<=0)
-			morir();
-		else
-			vida = vida - DañoAux;
-	}
-	
-	public void atacar() {
-		arma.disparar(dañoAtaque, velocidadDeAtaque);
+	public Proyectil atacarJugador() {
+		return arma.disparar(dañoAtaque, velocidadDeAtaque);
 	}
 
 	public void mover(char c) {
@@ -89,5 +91,83 @@ public class Jugador extends Personaje {
 	
 	public JugadorGrafico getGrafico() {
 		return grafico;
+	}
+
+	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void serChocado(Alpha e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Beta e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Gamma e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Delta e) {}
+
+	public void serChocado(Iota e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Jugador e) {}
+
+	public void serChocado(Irrompible e) {}
+
+	public void serChocado(Pared e) {}
+
+	public void serChocado(ParedJugador e) {}
+
+	public void serChocado(Portal e) {}
+
+	public void serChocado(Rebote e) {}
+
+	public void serChocado(CongelarEnemigos e) {}
+
+	public void serChocado(EscudoKamikaze e) {}
+
+	public void serChocado(MasAtaques e) {}
+
+	public void serChocado(MejoraAtaque e) {}
+
+	public void serChocado(OndaExpansiva e) {}
+
+	public void serChocado(Pocion e) {}
+	
+	public void serChocado(ProyectilJugador e) {}
+
+	public void serChocado(ProyectilEnemigo e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
 	}
 }

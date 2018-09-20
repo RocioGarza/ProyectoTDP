@@ -1,6 +1,8 @@
 package entidad;
 
-public abstract class Entidad {
+import Visitor.Visitor;
+
+public abstract class Entidad implements Visitor {
 
 	protected int velocidadDeMovimiento;
 	protected Posicion pos;
@@ -9,13 +11,9 @@ public abstract class Entidad {
 	
 	public Entidad(int X, int Y, int alto, int ancho) {
 		pos = new Posicion(X,Y,alto,ancho);
+		vidaMaxima=1000;
+		vida=1000;
 	}
-	
-	public void Colisionar(Entidad e) {
-		e.serColisionado(this);
-	}
-	
-	protected void serColisionado(Entidad e) {}
 	
 	public Posicion getPosicion() {
 		return pos;
@@ -69,4 +67,10 @@ public abstract class Entidad {
 		else
 			velocidadDeMovimiento = velocidadDeMovimiento - vel;
 	}
+	
+	public boolean estaViva() {
+		return vida>0;
+	}
+	
+	public void chocar(Visitor visitor) {}
 }

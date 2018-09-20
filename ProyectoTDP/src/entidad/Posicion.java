@@ -28,8 +28,6 @@ public class Posicion {
 				this.Y=Y;
 		this.ancho=ancho;
 		this.alto=alto;
-		System.out.println(X);
-		System.out.println(Y);
 	}
 
 	public int getX() {
@@ -92,7 +90,7 @@ public class Posicion {
 		if(cantY>0)
 			aux=1;
 		else {
-			aux=1;
+			aux=-1;
 			cantY=-cantY;
 		}
 		while(i<cantY && !termine) {
@@ -108,6 +106,7 @@ public class Posicion {
 				else
 					Y = Y + aux;
 			}
+			i++;
 		}
 	}
 	
