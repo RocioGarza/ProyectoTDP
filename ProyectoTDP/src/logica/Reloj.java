@@ -1,6 +1,8 @@
 package logica;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 import entidad.Entidad;
 
@@ -18,6 +20,7 @@ public class Reloj extends Thread{
 		while(true) {
 			mover();
 			controlarColisiones();
+			refresh();
 			try {
 				Thread.sleep(8);
 			} catch (InterruptedException e) {
@@ -27,41 +30,37 @@ public class Reloj extends Thread{
 		}
 	}
 	
-	public void mover() {
-		Entidad[] aux;
-		aux = new Entidad[coleccion.size()];
-		coleccion.toArray(aux);
-		for(int i=0; i<aux.length; i++) 
-			aux[i].mover();
+	private void mover() {
+		for(Entidad e: coleccion)
+			e.mover();
 	}
 
-	public void controlarColisiones() {
-		Entidad[] aux;
-		int i1;
-		int i2;
-		boolean colicione;
-		
-		int size=coleccion.size();
-		aux = new Entidad[size+10];
-		coleccion.toArray(aux);
-		i1=0;
-		i2=i1+1;
-		colicione=false;
-		
-		while(i1 < size) {
-			while(i2<size) {
-				colicione = mapa.colision(aux[i1], aux[i2]);
-				if(colicione) {
-					if(!aux[i1].estaViva()) 
-						mapa.remover(aux[i1]);
-					if(i2<aux.length && !aux[i2].estaViva()) 
-						mapa.remover(aux[i2]);
+	private void controlarColisiones() {
+		boolean colicion=false;
+		Collection<Entidad> coleccionBorrar = new LinkedList<Entidad>();
+		HashMap<Entidad,Entidad> hash = new HashMap<Entidad,Entidad>();
+		for(Entidad e1: coleccion) {
+			for(Entidad e2: coleccion) {
+				if(e1.estaViva() && e2.estaViva() && hash.get(e1)!=e2 && hash.get(e2)!=e1)
+					colicion = mapa.colision(e1, e2);
+				if(colicion) {
+					hash.put(e1, e2);
+					hash.put(e2, e1);
 				}
-				i2++;
-				colicione=false;
+				colicion=false;
 			}
-			i1++;
-			i2=i1+1;
-		} 
+		}
+		for(Entidad e : coleccion)
+			if(!e.estaViva())
+				coleccionBorrar.add(e);
+		for(Entidad e : coleccionBorrar)
+			mapa.remover(e);
+	}
+	
+	private void refresh() { 
+		try {
+			for(Entidad e: coleccion)
+				e.getGrafico().actualizar();
+		} catch (NullPointerException e) {}
 	}
 }

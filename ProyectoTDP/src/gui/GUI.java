@@ -16,7 +16,6 @@ public class GUI extends JFrame {
 
 	private Mapa mapa;
 	private Reloj reloj;
-	private Refresh refresh;
 
 	/**
 	 * Launch the application.
@@ -51,8 +50,6 @@ public class GUI extends JFrame {
 		setBounds(1, 1, 1280, 1024);
 		reloj = new Reloj(mapa);
 		reloj.start();
-		refresh = new Refresh(mapa);
-		refresh.start();
 	}
 	
 	protected void mover(KeyEvent key){
@@ -65,5 +62,4 @@ public class GUI extends JFrame {
 		else
 			mapa.getJugador().mover(aux);
 	}
-	
 }

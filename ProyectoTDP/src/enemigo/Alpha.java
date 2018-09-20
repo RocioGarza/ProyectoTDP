@@ -71,3 +71,4 @@ public class Alpha extends EnemigoKamikaze{
 		e.quitarVida(10);
 	}
 }
+ 

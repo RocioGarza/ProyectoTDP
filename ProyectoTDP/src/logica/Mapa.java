@@ -64,18 +64,23 @@ public class Mapa {
 	}
 	
 	public void remover(Entidad e1) {
-		coleccion.remove(e1);
 		mGraf.removerGrafico(e1.getGrafico());
+		coleccion.remove(e1);
 	}
 	
 	private boolean controlarHitbox(Entidad e1, Entidad e2) {
 		Posicion posicion1 = e1.getPosicion();
 		Posicion posicion2 = e2.getPosicion();
-		Boolean retorno = (posicion1.getX()> posicion2.getX() && posicion1.getX()<posicion2.getX()+posicion2.getAncho()) && (posicion1.getY()> posicion2.getY() && posicion1.getY()<posicion2.getY()+posicion2.getAlto()) || (posicion2.getX()> posicion1.getX() && posicion2.getX()<posicion1.getX()+posicion1.getAncho()) && (posicion2.getY()> posicion1.getY() && posicion2.getY()<posicion1.getY()+posicion1.getAlto());
-
-		if(retorno)
-			System.out.println(e1 + " " + e2);
-		
-		return retorno;
+		return perteneceAlCuadrado(posicion1.getX(),posicion1.getY(),posicion2)
+				|| perteneceAlCuadrado(posicion1.getX() + posicion1.getAncho(),posicion1.getY(),posicion2)
+				|| perteneceAlCuadrado(posicion1.getX(),posicion1.getY() + posicion1.getAlto(),posicion2)
+				|| perteneceAlCuadrado(posicion1.getX() + posicion1.getAncho(),posicion1.getY() + posicion1.getAlto(),posicion2);
+	}
+	
+	private boolean perteneceAlCuadrado(int X, int Y, Posicion posicion) {
+		return (X>= posicion.getX() 
+				&& X<=posicion.getX()+posicion.getAncho()) 
+				&& (Y>= posicion.getY() 
+				&& Y<=posicion.getY()+posicion.getAlto() );
 	}
 }
