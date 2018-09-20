@@ -1,12 +1,15 @@
 package obstaculo;
 
-public class Portal extends Obstaculo {
+import entidad.Entidad;
+import proyectil.ProyectilJugador;
+
+public class Portal extends Obstaculo{
 
 	private PortalGrafico grafico;
 	
 	public Portal (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
-		grafico = new PortalGrafico(X, Y, getAlto(), getAncho(), 0);
+		grafico = new PortalGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -22,8 +25,16 @@ public class Portal extends Obstaculo {
 	}
 
 	@Override
-	public void mover(char c) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void chocar(Entidad e) {
+		e.serChocado(this);
+	}
+
+	public void serChocado(ProyectilJugador e) {
+		e.quitarVida(10);
 	}
 }

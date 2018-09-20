@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import logica.Mapa;
+import logica.Reloj;
+import proyectil.Proyectil;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -13,6 +15,7 @@ public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private Mapa mapa;
+	private Reloj reloj;
 
 	/**
 	 * Launch the application.
@@ -47,13 +50,18 @@ public class GUI extends JFrame {
 		//setContentPane(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, 1280, 1024);
-		
+		reloj = new Reloj(mapa);
+		reloj.start();
 	}
 	
 	protected void mover(KeyEvent key){
 		char aux=key.getKeyChar();
-		mapa.getJugador().mover(aux);
+		if(aux==' ') {
+			Proyectil p = mapa.getJugador().atacarJugador();
+			mapa.getColeccion().add(p);
+			mapa.getMapaGrafico().agregarGrafico(p.getGrafico());
+		}
+		else
+			mapa.getJugador().mover(aux);
 	}
-	
-	
 }

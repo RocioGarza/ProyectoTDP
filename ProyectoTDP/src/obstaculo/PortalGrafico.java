@@ -1,12 +1,14 @@
 package obstaculo;
 
 import javax.swing.ImageIcon;
-import elemento.ElementoGrafico;
 
-public class PortalGrafico extends ElementoGrafico {
+import entidad.EntidadGrafica;
+import entidad.Posicion;
 
-	protected PortalGrafico(int X, int Y, int alto, int ancho, int velocidad) {
-		super(X, Y, alto, ancho, velocidad);
+public class PortalGrafico extends EntidadGrafica {
+
+	protected PortalGrafico(Posicion pos) {
+		super(pos);
 		
 		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/Portal.png"));
 		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/Portal.png"));

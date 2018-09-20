@@ -1,6 +1,12 @@
 package enemigo;
 
+import entidad.Entidad;
 import jugador.Jugador;
+import obstaculo.Irrompible;
+import obstaculo.Pared;
+import obstaculo.ParedJugador;
+import obstaculo.Portal;
+import obstaculo.Rebote;
 import proyectil.ProyectilJugador;
 
 public class Gamma extends EnemigoKamikaze{
@@ -13,7 +19,7 @@ public class Gamma extends EnemigoKamikaze{
 		vidaMaxima = 100;
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
-		grafico = new GammaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new GammaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -24,27 +30,49 @@ public class Gamma extends EnemigoKamikaze{
 		return 193;
 	}
 
-	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-
+		grafico.changeIcon(' ');
 	}
 
-	public void mover(char c) {
-		//intel.mover();
+	public void mover() {
+		inteligencia.mover();
 	}
 
-	protected void serColisionado(Jugador e) {
+	public void serColisionado(Jugador e) {
 		this.morir();
-	}
-
-	protected void serColisionado(ProyectilJugador e) {
-		this.quitarVida(e.getDaño());
-		if(this.vida == 0)
-			this.morir();
 	}
 
 	public GammaGrafico getGrafico() {
 		return grafico;
 	}
+
+	//Colisiones
+
+		public void chocar(Entidad e) {
+			e.serChocado(this);
+		}
+		
+		public void serChocado(Irrompible e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(Pared e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(ParedJugador e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(Portal e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(Rebote e) {
+			inteligencia.rebotar();
+		}
+		
+		public void serChocado(ProyectilJugador e) {
+			e.quitarVida(10);
+		}
 }

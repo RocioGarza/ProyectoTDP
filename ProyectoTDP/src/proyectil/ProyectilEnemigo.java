@@ -1,15 +1,16 @@
 package proyectil;
 
-import elemento.ElementoGrafico;
+import entidad.EntidadGrafica;
+
 
 public class ProyectilEnemigo extends Proyectil{
 	
 	public ProyectilEnemigo(int X, int Y, int VM, int daño) {
-		super(X,Y,5,10,VM,daño);
+		super(X,Y,VM,daño);
 	}
 
 	@Override
-	public ElementoGrafico getGrafico() {
+	public EntidadGrafica getGrafico() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,12 +1,14 @@
 package obstaculo;
 
 import javax.swing.ImageIcon;
-import elemento.ElementoGrafico;
 
-public class IrrompibleGrafico extends ElementoGrafico {
+import entidad.EntidadGrafica;
+import entidad.Posicion;
 
-	protected IrrompibleGrafico(int X, int Y, int alto, int ancho, int velocidad) {
-		super(X, Y, alto, ancho, velocidad);
+public class IrrompibleGrafico extends EntidadGrafica {
+
+	protected IrrompibleGrafico(Posicion pos) {
+		super(pos);
 		
 		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/Irrompible.png"));
 		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/Irrompible.png"));

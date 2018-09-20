@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import elemento.Elemento;
-import elemento.PosicionMaxima;
 import obstaculo.*;
 import enemigo.*;
+import entidad.Entidad;
+import entidad.Posicion;
 import jugador.Jugador;
 
 public class GeneradorMapa {
 	
 	BufferedReader arch;
-	private Collection<Elemento> coleccion;
+	private Collection<Entidad> coleccion;
 	private int x;
 	private int y;
 	private int yMax;
@@ -24,8 +24,8 @@ public class GeneradorMapa {
 	
 	public GeneradorMapa(String txt)
 	{	 
-		yMax = PosicionMaxima.getY()-(Jugador.getAlto()*4);
-		coleccion = new LinkedList<Elemento>();
+		yMax = Posicion.getYmax()-(Jugador.getAlto()*4);
+		coleccion = new LinkedList<Entidad>();
 		ocupados = new AlmacenadorOcupados();
 		try {
 			arch =  new BufferedReader(new FileReader(txt));
@@ -33,7 +33,7 @@ public class GeneradorMapa {
 			y=0;
 			while(y<(yMax)) {
 				c =(char) arch.read();
-				while(c!='/' && x!= PosicionMaxima.getX()) 
+				while(c!='/' && x!= Posicion.getXmax()) 
 				{
 					switch (c) {
 					case 'A':
@@ -131,7 +131,7 @@ public class GeneradorMapa {
 	private Punto posicionar(int alto, int ancho)
 	{
 		Punto pos = null;
-		if (y+alto<yMax && x+ancho<PosicionMaxima.getX() && !ocupados(x, ancho))
+		if (y+alto<yMax && x+ancho<Posicion.getXmax() && !ocupados(x, ancho))
 		{
 			try {
 				char aux ='.';
@@ -162,7 +162,7 @@ public class GeneradorMapa {
 		return estaOcupado;
 	}
 	
-	public Collection<Elemento> getColeccion()
+	public Collection<Entidad> getColeccion()
 	{
 		return coleccion;
 	}

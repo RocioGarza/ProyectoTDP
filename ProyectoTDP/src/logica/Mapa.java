@@ -2,17 +2,16 @@ package logica;
 
 import java.io.File;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
-import elemento.Elemento;
-import elemento.PosicionMaxima;
+import entidad.Entidad;
+import entidad.Posicion;
 import jugador.Jugador;
 
 public class Mapa {
 	
-	private Collection<Elemento> coleccion;
+	private Collection<Entidad> coleccion;
 	private MapaGrafico mGraf;
 	private Jugador j;
 	
@@ -31,17 +30,14 @@ public class Mapa {
         GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
         
-        j = new Jugador(PosicionMaxima.getX()/2,PosicionMaxima.getY()-(Jugador.getAlto()*7)/2);
+        j = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*7)/2);
         coleccion.add(j);
         
         mGraf = new MapaGrafico(coleccion);
 	}	
 	
-	public Mapa() {
-		j = new Jugador(PosicionMaxima.getX()/2,PosicionMaxima.getY()-(Jugador.getAlto()*7)/2);
-		coleccion = new LinkedList<Elemento>();
-		coleccion.add(j);
-		mGraf = new MapaGrafico(coleccion);
+	public MapaGrafico getMapaGrafico() {
+		return mGraf;
 	}
 	
 	public JPanel getGrafico()
@@ -52,5 +48,39 @@ public class Mapa {
 	public Jugador getJugador() {
 		return j;
 	}
-
+	
+	public Collection<Entidad> getColeccion(){
+		return coleccion;
+	}
+	
+	public boolean colision(Entidad e1, Entidad e2) {
+		boolean colision = false;
+		colision = controlarHitbox(e1, e2);
+		if (colision) {
+			e1.chocar(e2);
+			e2.chocar(e1);
+		}
+		return colision;
+	}
+	
+	public void remover(Entidad e1) {
+		mGraf.removerGrafico(e1.getGrafico());
+		coleccion.remove(e1);
+	}
+	
+	private boolean controlarHitbox(Entidad e1, Entidad e2) {
+		Posicion posicion1 = e1.getPosicion();
+		Posicion posicion2 = e2.getPosicion();
+		return perteneceAlCuadrado(posicion1.getX(),posicion1.getY(),posicion2)
+				|| perteneceAlCuadrado(posicion1.getX() + posicion1.getAncho(),posicion1.getY(),posicion2)
+				|| perteneceAlCuadrado(posicion1.getX(),posicion1.getY() + posicion1.getAlto(),posicion2)
+				|| perteneceAlCuadrado(posicion1.getX() + posicion1.getAncho(),posicion1.getY() + posicion1.getAlto(),posicion2);
+	}
+	
+	private boolean perteneceAlCuadrado(int X, int Y, Posicion posicion) {
+		return (X>= posicion.getX() 
+				&& X<=posicion.getX()+posicion.getAncho()) 
+				&& (Y>= posicion.getY() 
+				&& Y<=posicion.getY()+posicion.getAlto() );
+	}
 }

@@ -2,14 +2,18 @@ package jugador;
 
 import arma.Arma;
 import arma.ArmaJugador;
-import enemigo.EnemigoKamikaze;
+import enemigo.Alpha;
+import enemigo.Beta;
+import enemigo.Gamma;
+import enemigo.Iota;
 import entidad.Personaje;
 import escudo.Escudo;
 import escudo.EscudoAntiKamikaze;
 import escudo.EscudoNormal;
+import proyectil.Proyectil;
 import proyectil.ProyectilEnemigo;
 
-public class Jugador extends Personaje {
+public class Jugador extends Personaje{
 
 	private Arma arma;
 	private Escudo escudo;
@@ -17,13 +21,14 @@ public class Jugador extends Personaje {
 	
 	public Jugador(int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
-		velocidadDeMovimiento = 10;
+		velocidadDeMovimiento = 20;
+		velocidadDeAtaque = 5;
 		vidaMaxima = 250;
 		dañoAtaque = 5;
 		vida = vidaMaxima;
-		arma = new ArmaJugador();
+		arma = new ArmaJugador(pos);
 		escudo = new EscudoNormal();
-		grafico = new JugadorGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);	
+		grafico = new JugadorGrafico(pos);	
 	}
 	
 	public static int getAlto() {
@@ -51,36 +56,16 @@ public class Jugador extends Personaje {
 		//hacer algo
 	}
 	
-	protected void serColisionado(ProyectilEnemigo p) {
-		int DañoAux = escudo.recibirDaño(p);
-		controlarEscudo();
-		if (vida-DañoAux<=0)
-			morir();
-		else
-			vida = vida - DañoAux;
-	}
-	
-	protected void serColisionado(EnemigoKamikaze e) {
-		int DañoAux = escudo.recibirDaño(e);
-		controlarEscudo();
-		if (vida-DañoAux<=0)
-			morir();
-		else
-			vida = vida - DañoAux;
-	}
-	
-	public void atacar() {
-		arma.disparar(dañoAtaque, velocidadDeAtaque);
+	public Proyectil atacarJugador() {
+		return arma.disparar(dañoAtaque, velocidadDeAtaque);
 	}
 
 	public void mover(char c) {
 		if (c=='a') {
 			pos.moverX(-velocidadDeMovimiento);
-			grafico.mover(c);
 		} else
 			if (c=='d') {
 				pos.moverX(velocidadDeMovimiento);
-				grafico.mover(c);
 			}
 	}
 	
@@ -91,5 +76,57 @@ public class Jugador extends Personaje {
 	
 	public JugadorGrafico getGrafico() {
 		return grafico;
+	}
+
+	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	//Colisiones
+
+	public void serChocado(Alpha e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Beta e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Gamma e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+	public void serChocado(Iota e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
+	}
+
+		public void serChocado(ProyectilEnemigo e) {
+		int DañoAux = escudo.recibirDaño(e);
+		controlarEscudo();
+		if (vida-DañoAux<=0)
+			morir();
+		else
+			vida = vida - DañoAux;
 	}
 }

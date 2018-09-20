@@ -1,6 +1,6 @@
 package escudo;
 
-import enemigo.EnemigoKamikaze;
+import enemigo.Enemigo;
 import proyectil.ProyectilEnemigo;
 
 public abstract class Escudo {
@@ -11,8 +11,8 @@ public abstract class Escudo {
 		return e.getDaño();
 	}
 	
-	public int recibirDaño(EnemigoKamikaze e) {
-		return e.getDañoImpacto();
+	public int recibirDaño(Enemigo e) {
+		return e.getDaño();
 	}
 	
 	public int getDuracion() {

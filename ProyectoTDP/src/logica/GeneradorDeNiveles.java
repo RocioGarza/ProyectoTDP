@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-import elemento.PosicionMaxima;
+import entidad.Posicion;
 
 
 public class GeneradorDeNiveles{
@@ -31,9 +31,9 @@ public class GeneradorDeNiveles{
 		int n = 0;
 		try {
 			BufferedWriter arch = new BufferedWriter(new FileWriter("nivel0.txt"));
-			for(int j=0; j<PosicionMaxima.getY(); j++)
+			for(int j=0; j<Posicion.getYmax(); j++)
 			{	
-			for(int i=0; i<PosicionMaxima.getX(); i++)
+			for(int i=0; i<Posicion.getXmax(); i++)
 			{
 				n = rnd.nextInt(400000); //CAMBIAR % ANTES ERA 400
 				switch(n) 

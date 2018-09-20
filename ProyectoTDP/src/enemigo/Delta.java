@@ -1,5 +1,11 @@
 package enemigo;
 
+import entidad.Entidad;
+import obstaculo.Irrompible;
+import obstaculo.Pared;
+import obstaculo.ParedJugador;
+import obstaculo.Portal;
+import obstaculo.Rebote;
 import proyectil.ProyectilJugador;
 
 public class Delta extends EnemigoArmado{
@@ -11,7 +17,7 @@ public class Delta extends EnemigoArmado{
 		velocidadDeMovimiento = 2;
 		vidaMaxima = 100;
 		dañoAtaque = 5;
-		grafico = new DeltaGrafico(X, Y, getAlto(), getAncho(), velocidadDeMovimiento);
+		grafico = new DeltaGrafico(pos);
 	}
 	
 	public static int getAlto() {
@@ -24,22 +30,44 @@ public class Delta extends EnemigoArmado{
 
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		grafico.changeIcon(' ');
 	}
 
-	public void mover(char c) {
-		//intel.mover();
-	}
-	
-	protected void serColisionado(ProyectilJugador e) {
-		this.quitarVida(e.getDaño());
-		if(this.vida == 0)
-			this.morir();
+	public void mover() {
+		inteligencia.mover();
 	}
 	
 	public DeltaGrafico getGrafico() {
 		return grafico;
 	}
 
+	//Colisiones
+
+		public void chocar(Entidad e) {
+			e.serChocado(this);
+		}
+		
+		public void serChocado(Irrompible e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(Pared e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(ParedJugador e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(Portal e) {
+			inteligencia.rebotar();
+		}
+
+		public void serChocado(Rebote e) {
+			inteligencia.rebotar();
+		}
+		
+		public void serChocado(ProyectilJugador e) {
+			e.quitarVida(10);
+		}
 }

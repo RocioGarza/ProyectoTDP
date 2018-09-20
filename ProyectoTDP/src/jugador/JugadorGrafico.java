@@ -1,12 +1,13 @@
 package jugador;
 
 import javax.swing.ImageIcon;
-import elemento.ElementoGrafico;
+import entidad.EntidadGrafica;
+import entidad.Posicion;
 
-public class JugadorGrafico extends ElementoGrafico {
+public class JugadorGrafico extends EntidadGrafica {
 
-	protected JugadorGrafico(int X, int Y, int alto, int ancho, int velocidad) {
-		super(X, Y, alto, ancho, velocidad);
+	protected JugadorGrafico(Posicion pos) {
+		super(pos);
 		
 		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/Jugador.png"));
 		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/Jugador.png"));

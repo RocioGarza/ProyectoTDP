@@ -1,10 +1,16 @@
 package arma;
 
+import entidad.Posicion;
+import proyectil.Proyectil;
+import proyectil.ProyectilJugador;
+
 public class ArmaJugador extends Arma {
 
-	public ArmaJugador() {}
+	public ArmaJugador(Posicion p) {
+		super(p);
+	}
 	
-	public void disparar(int daño, int velocidad) {
-		//crea un proyectilJugador con daño igual a daño y velocidad de movimiento igual a velocidad
+	public Proyectil disparar(int daño, int velocidad) {
+		return new ProyectilJugador(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, daño, velocidad);
 	}
 }
