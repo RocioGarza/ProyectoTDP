@@ -18,6 +18,7 @@ public class Iota extends EnemigoArmado{
 		vidaMaxima = 100;
 		dañoAtaque = 5;
 		grafico = new IotaGrafico(pos);
+		puntaje=30;
 	}
 	
 	public static int getAlto() {

@@ -13,9 +13,10 @@ public class Mapa {
 	
 	private Collection<Entidad> coleccion;
 	private MapaGrafico mGraf;
-	private Jugador j;
+	private Jugador jugador;
+	private int puntaje;
 	
-	public Mapa (int n){
+	public Mapa (Jugador j,int n){
 		File nivel;
 		String dir = this.getClass()+"nivel" + n + ".txt"; 
         nivel = new File(dir); 
@@ -30,8 +31,8 @@ public class Mapa {
         GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
         
-        j = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*7)/2);
-        coleccion.add(j);
+        jugador = j; 
+        coleccion.add(jugador);
         
         mGraf = new MapaGrafico(coleccion);
 	}	
@@ -40,13 +41,12 @@ public class Mapa {
 		return mGraf;
 	}
 	
-	public JPanel getGrafico()
-	{
+	public JPanel getGrafico(){
 		return mGraf.getGrafica();
 	}
 	
 	public Jugador getJugador() {
-		return j;
+		return jugador;
 	}
 	
 	public Collection<Entidad> getColeccion(){
@@ -64,6 +64,7 @@ public class Mapa {
 	}
 	
 	public void remover(Entidad e1) {
+		puntaje = puntaje + e1.getPuntaje();
 		mGraf.removerGrafico(e1.getGrafico());
 		coleccion.remove(e1);
 	}
@@ -82,5 +83,13 @@ public class Mapa {
 				&& X<=posicion.getX()+posicion.getAncho()) 
 				&& (Y>= posicion.getY() 
 				&& Y<=posicion.getY()+posicion.getAlto() );
+	}
+	
+	public boolean termine() {
+		return coleccion.size()==0 || !jugador.estaViva();
+	}
+
+	public int finalizarMapa() {
+		return puntaje;
 	}
 }

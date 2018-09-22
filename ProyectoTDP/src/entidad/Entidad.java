@@ -26,11 +26,13 @@ public abstract class Entidad {
 	protected Posicion pos;
 	protected int vidaMaxima;
 	protected int vida;
+	protected int puntaje;
 	
 	public Entidad(int X, int Y, int alto, int ancho) {
 		pos = new Posicion(X,Y,alto,ancho);
 		vidaMaxima=1000;
 		vida=1000;
+		puntaje=0;
 	}
 	
 	public Posicion getPosicion() {
@@ -84,6 +86,10 @@ public abstract class Entidad {
 			velocidadDeMovimiento = 0;
 		else
 			velocidadDeMovimiento = velocidadDeMovimiento - vel;
+	}
+	
+	public int getPuntaje() {
+		return puntaje;
 	}
 	
 	public boolean estaViva() {

@@ -19,6 +19,7 @@ public class Beta extends EnemigoKamikaze{
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
 		grafico = new BetaGrafico(pos);
+		puntaje=15;
 	}
 	
 	public static int getAlto() {

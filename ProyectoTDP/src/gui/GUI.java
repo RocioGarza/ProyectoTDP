@@ -1,9 +1,12 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import entidad.Posicion;
+import logica.Juego;
 import logica.Mapa;
 import logica.Reloj;
 import proyectil.Proyectil;
@@ -14,6 +17,7 @@ import java.awt.event.KeyEvent;
 public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
+	private Juego juego;
 	private Mapa mapa;
 	private Reloj reloj;
 
@@ -43,11 +47,12 @@ public class GUI extends JFrame {
 				mover(arg0);
 			}
 		});
-		mapa = new Mapa(0);
+		juego = new Juego();
+		mapa = juego.crearMapa();
 		getContentPane().add(mapa.getGrafico());
 		//setContentPane(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(1, 1, 1280, 1024);
+		setBounds(1, 1, Posicion.getXmax(), Posicion.getYmax());
 		reloj = new Reloj(mapa);
 		reloj.start();
 	}

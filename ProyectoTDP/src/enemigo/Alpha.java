@@ -19,6 +19,7 @@ public class Alpha extends EnemigoKamikaze{
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
 		grafico = new AlphaGrafico(pos);
+		puntaje=10;
 	}
 	
 	public static int getAlto() {

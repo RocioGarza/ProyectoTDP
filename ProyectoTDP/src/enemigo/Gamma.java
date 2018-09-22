@@ -20,6 +20,7 @@ public class Gamma extends EnemigoKamikaze{
 		dañoAtaque = 5;
 		dañoImpacto = dañoAtaque*10;
 		grafico = new GammaGrafico(pos);
+		puntaje=25;
 	}
 	
 	public static int getAlto() {

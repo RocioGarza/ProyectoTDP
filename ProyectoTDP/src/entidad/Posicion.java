@@ -6,8 +6,8 @@ public class Posicion {
 	private int Y;
 	private int alto;
 	private int ancho;
-	private static final int Xmax = 1024;
-	private static final int Ymax = 1280;
+	private static final int Xmax = 1280;
+	private static final int Ymax = 800;
 
 	
 	public Posicion(int X, int Y, int alto, int ancho) {

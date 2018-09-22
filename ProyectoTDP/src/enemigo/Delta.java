@@ -18,6 +18,7 @@ public class Delta extends EnemigoArmado{
 		vidaMaxima = 100;
 		dañoAtaque = 5;
 		grafico = new DeltaGrafico(pos);
+		puntaje=20;
 	}
 	
 	public static int getAlto() {
