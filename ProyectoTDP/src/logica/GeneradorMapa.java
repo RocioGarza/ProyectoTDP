@@ -24,7 +24,7 @@ public class GeneradorMapa {
 	
 	public GeneradorMapa(String txt)
 	{	 
-		yMax = Posicion.getYmax()-(Jugador.getAlto()*4);
+		yMax = Posicion.getYmax()-(Jugador.getAlto()*2);
 		coleccion = new LinkedList<Entidad>();
 		ocupados = new AlmacenadorOcupados();
 		try {
