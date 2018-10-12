@@ -1,7 +1,7 @@
 package obstaculo;
 
+import colisionador.ColisionadorObstaculo;
 import entidad.Entidad;
-import proyectil.ProyectilJugador;
 
 public class Pared extends Obstaculo{
 
@@ -10,29 +10,22 @@ public class Pared extends Obstaculo{
 	public Pared (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
 		grafico = new ParedGrafica(pos);
+		colisionador = new ColisionadorObstaculo();
 	}
 	
 	public static int getAlto() {
-		return 100;
+		return 126;
 	}
 	
 	public static int getAncho() {
-		return 190;
+		return 126;
 	}
 	
 	public ParedGrafica getGrafico() {
 		return grafico;
 	}
 
-	@Override
-	public void mover() {
-		// TODO Auto-generated method stub
-		
-	}public void chocar(Entidad e) {
-		e.serChocado(this);
-	}
-
-	public void serChocado(ProyectilJugador e) {
-		e.quitarVida(10);
+	public void chocar(Entidad e) {
+		e.getColisionador().serChocado(this);
 	}
 }

@@ -1,5 +1,6 @@
 package premio;
 
+import entidad.Entidad;
 import entidad.EntidadGrafica;
 
 public class MasAtaques extends ObjetoPrecioso{
@@ -10,14 +11,12 @@ public class MasAtaques extends ObjetoPrecioso{
 	}
 
 	@Override
-	public void mover() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public EntidadGrafica getGrafico() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void chocar(Entidad e) {
+		e.getColisionador().serChocado(this);
 	}
 }

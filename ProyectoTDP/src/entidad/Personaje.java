@@ -1,5 +1,7 @@
 package entidad;
 
+import proyectil.Proyectil;
+
 public abstract class Personaje extends Entidad {
 	
 	protected int dañoAtaque;
@@ -9,7 +11,7 @@ public abstract class Personaje extends Entidad {
 		super(X, Y, alto, ancho);
 	}
 	
-	public abstract void atacar();
+	public abstract Proyectil atacar();
 
 	public void aumentarDaño(int d) {
 		dañoAtaque = dañoAtaque + d;

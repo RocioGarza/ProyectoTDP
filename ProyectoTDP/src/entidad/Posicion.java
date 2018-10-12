@@ -7,7 +7,7 @@ public class Posicion {
 	private int alto;
 	private int ancho;
 	private static final int Xmax = 1280;
-	private static final int Ymax = 800;
+	private static final int Ymax = 750;
 
 	
 	public Posicion(int X, int Y, int alto, int ancho) {
@@ -81,8 +81,8 @@ public class Posicion {
 			i++;
 		}
 	}
-
-	public void moverY(int cantY) {
+	
+		public void moverY(int cantY) {
 		boolean termine=false;
 		int i=0;
 		int aux;
@@ -108,6 +108,26 @@ public class Posicion {
 			}
 			i++;
 		}
+	}
+		
+	public void setX(int x) {
+		if((x+ancho)>Xmax)
+			X=(Xmax-ancho);
+		else
+			if(x<0)
+				X=0;
+			else
+				X=x;
+	}
+	
+	public void setY(int y) {
+		if((y+alto)>Ymax)
+			X=(Ymax-alto);
+		else
+			if(y<0)
+				Y=0;
+			else
+				Y=y;
 	}
 	
 	public boolean estaEnXmax() {

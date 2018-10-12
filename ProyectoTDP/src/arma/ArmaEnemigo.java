@@ -2,6 +2,7 @@ package arma;
 
 import entidad.Posicion;
 import proyectil.Proyectil;
+import proyectil.ProyectilEnemigo;
 
 public class ArmaEnemigo extends Arma {
 
@@ -10,7 +11,6 @@ public class ArmaEnemigo extends Arma {
 	}
 	
 	public Proyectil disparar(int daño, int velocidad) {
-		//crea un proyectilEnemigo con daño igual a daño y velocidad de movimiento igual a velocidad
-		return null;
+		return new ProyectilEnemigo(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, daño, velocidad);
 	}
 }

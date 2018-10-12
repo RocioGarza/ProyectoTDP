@@ -3,10 +3,8 @@ package extra;
 public class Contador {
 
 	private int contador;
-	private int max;
 	
-	public Contador(int max) {
-		this.max=max;
+	public Contador() {
 		contador=0;
 	}
 	
@@ -14,15 +12,20 @@ public class Contador {
 		return contador;
 	}
 	
-	public void iniciar() {
-		contador=1;
+	public void iniciar(int n) {
+		contador=n;
 	}
 	
-	public void incrementarContador() {
-		contador++;
+	public void decrementarContador() {
+		if(contador>0)
+			contador--;
+	}
+	
+	public void terminar() {
+		contador=0;
 	}
 	
 	public boolean disponible() {
-		return contador==max || contador==0;
+		return contador==0;
 	}
 }

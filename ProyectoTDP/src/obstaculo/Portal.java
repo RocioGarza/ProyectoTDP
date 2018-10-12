@@ -1,7 +1,7 @@
 package obstaculo;
 
+import colisionador.ColisionadorPortal;
 import entidad.Entidad;
-import proyectil.ProyectilJugador;
 
 public class Portal extends Obstaculo{
 
@@ -10,31 +10,22 @@ public class Portal extends Obstaculo{
 	public Portal (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());	
 		grafico = new PortalGrafico(pos);
+		colisionador = new ColisionadorPortal();
 	}
 	
 	public static int getAlto() {
-		return 100;
+		return 75;
 	}
 	
 	public static int getAncho() {
-		return 190;
+		return 75;
 	}
 	
 	public PortalGrafico getGrafico() {
 		return grafico;
 	}
 
-	@Override
-	public void mover() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void chocar(Entidad e) {
-		e.serChocado(this);
-	}
-
-	public void serChocado(ProyectilJugador e) {
-		e.quitarVida(10);
+		e.getColisionador().serChocado(this);
 	}
 }

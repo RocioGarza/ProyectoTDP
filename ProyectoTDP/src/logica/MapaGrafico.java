@@ -1,21 +1,34 @@
 package logica;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import entidad.Entidad;
 import entidad.EntidadGrafica;
+import gui.PanelConFondo;
 
 
 public class MapaGrafico {
 
-	private JPanel panel;
+	private PanelConFondo panel;
 	
 	public MapaGrafico(Collection<Entidad> coleccion) {
-		panel = new JPanel();
+		BufferedImage img = null;
+		
+		try {
+		    img = ImageIO.read(new File("src/Graficos/Fondo.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		panel = new PanelConFondo(img);
 		posicionarElementos(coleccion);
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel.setBackground(Color.BLACK);

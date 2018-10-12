@@ -1,7 +1,6 @@
 package logica;
 
 import java.util.Collection;
-import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -22,20 +21,27 @@ public class Reloj extends Thread{
 			mover();
 			controlarColisiones();
 			refresh();
+			controlarJugador();
 			try {
 				Thread.sleep(8);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} catch (Exception e) {}
 		}
 	}
 	
 	private void mover() {
 		try {
-			for(Entidad e: coleccion)
-				e.mover();
-		} catch (ConcurrentModificationException e) {}	
+			Collection<Entidad> coleccionAgregar = new LinkedList<Entidad>();
+			Entidad aux;
+			for(Entidad e: coleccion) {
+				aux = e.mover();
+				if(aux!=null) 
+					coleccionAgregar.add(aux);
+			}
+			for(Entidad e: coleccionAgregar) {
+				mapa.getColeccion().add(e);
+				mapa.getMapaGrafico().agregarGrafico(e.getGrafico());
+			}
+		} catch (Exception e) {	}	
 	}
 
 	private void controlarColisiones() {
@@ -59,14 +65,23 @@ public class Reloj extends Thread{
 					coleccionBorrar.add(e);
 			for(Entidad e : coleccionBorrar)
 				mapa.remover(e);
-		} catch (ConcurrentModificationException e) {}
+		} catch (Exception e) {}
 	}
 	
 	private void refresh() { 
 		try {
 			for(Entidad e: coleccion)
 				e.getGrafico().actualizar();
-		} catch (NullPointerException e) {}
-		catch (ConcurrentModificationException e) {}
+		} catch (Exception e) {}
+	}
+	
+	private void controlarJugador() {
+		if (!mapa.getJugador().estaViva()) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {}
+			
+			System.exit(0);
+		}
 	}
 }

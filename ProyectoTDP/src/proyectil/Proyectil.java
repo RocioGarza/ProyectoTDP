@@ -1,7 +1,6 @@
 package proyectil;
 
 import entidad.Entidad;
-import entidad.Posicion;
 
 public abstract class Proyectil extends Entidad {
 
@@ -25,9 +24,7 @@ public abstract class Proyectil extends Entidad {
 		return daño;
 	}
 	
-	public void mover() {
-		pos.moverY(-velocidadDeMovimiento);
-		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
-			vida=0;
+	public Proyectil mover() {
+		return null;
 	}
 }

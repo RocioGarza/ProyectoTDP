@@ -34,6 +34,8 @@ public class Mapa {
         jugador = j; 
         coleccion.add(jugador);
         
+        puntaje = 0;
+        
         mGraf = new MapaGrafico(coleccion);
 	}	
 	
@@ -83,6 +85,10 @@ public class Mapa {
 				&& X<=posicion.getX()+posicion.getAncho()) 
 				&& (Y>= posicion.getY() 
 				&& Y<=posicion.getY()+posicion.getAlto() );
+	}
+	
+	public int getPuntaje() {
+		return puntaje;
 	}
 	
 	public boolean termine() {

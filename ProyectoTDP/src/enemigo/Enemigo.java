@@ -9,7 +9,6 @@ public abstract class Enemigo extends Personaje {
 	
 	public Enemigo (int X, int Y, int alto, int ancho) {
 		super(X, Y, alto, ancho);	
-		inteligencia = new Inteligencia(this);
 	}
 	
 	public int getDaño() {
@@ -18,5 +17,9 @@ public abstract class Enemigo extends Personaje {
 	
 	public void serColisionado(ProyectilJugador p) {
 		vida=0;
+	}
+	
+	public Inteligencia getInteligencia() {
+		return inteligencia;
 	}
 }

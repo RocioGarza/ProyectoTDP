@@ -1,13 +1,9 @@
 package enemigo;
 
+import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import jugador.Jugador;
-import obstaculo.Irrompible;
-import obstaculo.Pared;
-import obstaculo.ParedJugador;
-import obstaculo.Portal;
-import obstaculo.Rebote;
-import proyectil.ProyectilJugador;
+import proyectil.Proyectil;
 
 public class Gamma extends EnemigoKamikaze{
 
@@ -16,27 +12,37 @@ public class Gamma extends EnemigoKamikaze{
 	public Gamma (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
-		vidaMaxima = 100;
-		dañoAtaque = 5;
+		vidaMaxima = 50;
+		vida=vidaMaxima;
+		dañoAtaque = 25;
 		dañoImpacto = dañoAtaque*10;
+		inteligencia = new IA_Kamikaze(this);
 		grafico = new GammaGrafico(pos);
 		puntaje=25;
+		colisionador = new ColisionadorEnemigos(this);
 	}
 	
 	public static int getAlto() {
-		return 103;
+		return 56;
 	}
 	
 	public static int getAncho() {
-		return 193;
+		return 134;
 	}
 
-	public void atacar() {
+	public Proyectil atacar() {
 		grafico.changeIcon(' ');
+		inteligencia = new IA_KamikazeAtaque(this);
+		return null;
 	}
 
-	public void mover() {
-		inteligencia.mover();
+	public Proyectil mover() {
+		return inteligencia.mover();
+	}
+	
+	public void terminarAtaque() {
+		grafico.changeIcon('w');
+		inteligencia = new IA_Kamikaze(this);
 	}
 
 	public void serColisionado(Jugador e) {
@@ -47,33 +53,7 @@ public class Gamma extends EnemigoKamikaze{
 		return grafico;
 	}
 
-	//Colisiones
-
-		public void chocar(Entidad e) {
-			e.serChocado(this);
-		}
-		
-		public void serChocado(Irrompible e) {
-			inteligencia.rebotar();
-		}
-
-		public void serChocado(Pared e) {
-			inteligencia.rebotar();
-		}
-
-		public void serChocado(ParedJugador e) {
-			inteligencia.rebotar();
-		}
-
-		public void serChocado(Portal e) {
-			inteligencia.rebotar();
-		}
-
-		public void serChocado(Rebote e) {
-			inteligencia.rebotar();
-		}
-		
-		public void serChocado(ProyectilJugador e) {
-			e.quitarVida(10);
-		}
+	public void chocar(Entidad e) {
+		e.getColisionador().serChocado(this);
+	}
 }
