@@ -1,8 +1,5 @@
 package jugador;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import arma.Arma;
 import arma.ArmaJugador;
 import colisionador.ColisionadorJugador;
@@ -19,7 +16,6 @@ public class Jugador extends Personaje{
 	private Arma arma;
 	private Escudo escudo;
 	private JugadorGrafico grafico;
-	private Map<String,Character> inputs;
 	private Contador contador;
 	
 	public Jugador(int X, int Y) {
@@ -33,9 +29,6 @@ public class Jugador extends Personaje{
 		escudo = new EscudoNormal();
 		grafico = new JugadorGrafico(pos);	
 		colisionador = new ColisionadorJugador();
-		inputs = new HashMap<String,Character>();
-		inputs.put("Movimiento", 'x');
-		inputs.put("Disparo", 'x');
 		contador = new Contador();
 	}
 	
@@ -64,11 +57,6 @@ public class Jugador extends Personaje{
 		//hacer algo
 	}
 	
-	public Proyectil mover() {
-		mover(inputs.get("Movimiento"));
-		return disparar(inputs.get("Disparo"));
-	}
-	
 	public void mover(char c) {
 		if (c=='a')
 			pos.moverX(-velocidadDeMovimiento);
@@ -79,33 +67,13 @@ public class Jugador extends Personaje{
 	
 	public Proyectil disparar(char c) {
 		if (c==' ' && contador.disponible()) {
-			contador.iniciar(0);
+			contador.iniciar(velocidadDeAtaque*5);
 			return arma.disparar(dañoAtaque, velocidadDeAtaque);
 		}
 		else {
 			contador.decrementarContador();
 			return null;
 		}
-	}
-
-	public void agregarInput(char c) {
-		if(c=='d')
-			inputs.put("Movimiento", 'd');
-		if(c=='a')
-			inputs.put("Movimiento", 'a'); 
-		
-		if(c==' ')
-			inputs.put("Disparo", ' ');
-	}
-	
-	public void quitarInput(char c) {
-		if(c=='d')
-			inputs.put("Movimiento", 'x');
-		if(c=='a')
-			inputs.put("Movimiento", 'x'); 
-		
-		if(c==' ')
-			inputs.put("Disparo", 'x');
 	}
 	
 	/*private void controlarEscudo() {

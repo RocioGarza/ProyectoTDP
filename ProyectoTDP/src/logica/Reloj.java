@@ -3,22 +3,26 @@ package logica;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 import entidad.Entidad;
 
 public class Reloj extends Thread{
 	
 	private Collection<Entidad> coleccion;
+	private Map<String,Character> mapeoInputs;
 	private Mapa mapa;
 	
-	public Reloj(Mapa mapa) {
+	public Reloj(Mapa mapa, Map<String,Character> mapeo) {
 		this.mapa = mapa;
 		coleccion = mapa.getColeccion();
+		mapeoInputs = mapeo;
 	}
 	
 	public void run() {
 		while(true) {
 			mover();
+			moverJugador();
 			controlarColisiones();
 			refresh();
 			controlarJugador();
@@ -38,8 +42,7 @@ public class Reloj extends Thread{
 					coleccionAgregar.add(aux);
 			}
 			for(Entidad e: coleccionAgregar) {
-				mapa.getColeccion().add(e);
-				mapa.getMapaGrafico().agregarGrafico(e.getGrafico());
+				mapa.agregarEntidad(e);
 			}
 		} catch (Exception e) {	}	
 	}
@@ -73,6 +76,13 @@ public class Reloj extends Thread{
 			for(Entidad e: coleccion)
 				e.getGrafico().actualizar();
 		} catch (Exception e) {}
+	}
+	
+	private void moverJugador() {
+		mapa.getJugador().mover(mapeoInputs.get("Movimiento"));
+		Entidad disparo = mapa.getJugador().disparar(mapeoInputs.get("Disparo"));
+		if(disparo!=null)
+			mapa.agregarEntidad(disparo);
 	}
 	
 	private void controlarJugador() {

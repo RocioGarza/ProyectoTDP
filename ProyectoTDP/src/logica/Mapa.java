@@ -65,6 +65,11 @@ public class Mapa {
 		return colision;
 	}
 	
+	public void agregarEntidad(Entidad e1) {
+		coleccion.add(e1);
+		mGraf.agregarGrafico(e1.getGrafico());
+	}
+	
 	public void remover(Entidad e1) {
 		puntaje = puntaje + e1.getPuntaje();
 		mGraf.removerGrafico(e1.getGrafico());

@@ -1,6 +1,5 @@
 package enemigo;
 
-import arma.Arma;
 import arma.ArmaEnemigo;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
@@ -9,7 +8,6 @@ import proyectil.Proyectil;
 public class Delta extends EnemigoArmado{
 	
 	private DeltaGrafico grafico;
-	private Arma arma;
 
 	public Delta (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
