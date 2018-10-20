@@ -30,4 +30,6 @@ public class Portal extends Obstaculo{
 	}
 	
 	public void mover() {}
+	
+	public void morir() {}
 }

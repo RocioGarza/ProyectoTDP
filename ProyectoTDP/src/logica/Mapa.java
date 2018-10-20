@@ -9,11 +9,12 @@ import entidad.Entidad;
 import entidad.Posicion;
 import jugador.Jugador;
 
-public class Mapa {
+public class Mapa implements MapaPublico{
 	
-	private Collection<Entidad> coleccion;
-	private MapaGrafico mGraf;
+	private static Collection<Entidad> coleccion;
+	private static MapaGrafico mGraf;
 	private Jugador jugador;
+	private static int contadorEnemigos;
 	private int puntaje;
 	
 	public Mapa (Jugador j,int n){
@@ -25,11 +26,12 @@ public class Mapa {
         	nivel= gen.getNivel();
         }
         
-        
         String archivo ="nivel"+n+".txt";
         
         GeneradorMapa gen = new GeneradorMapa(archivo);
         coleccion = gen.getColeccion();
+        
+        contadorEnemigos = gen.getCantidadEnemigos();
         
         jugador = j; 
         coleccion.add(jugador);
@@ -65,12 +67,8 @@ public class Mapa {
 		return colision;
 	}
 	
-	public void agregarEntidad(Entidad e1) {
-		coleccion.add(e1);
-		mGraf.agregarGrafico(e1.getGrafico());
-	}
-	
 	public void remover(Entidad e1) {
+		e1.morir();
 		puntaje = puntaje + e1.getPuntaje();
 		mGraf.removerGrafico(e1.getGrafico());
 		coleccion.remove(e1);
@@ -97,10 +95,25 @@ public class Mapa {
 	}
 	
 	public boolean termine() {
-		return coleccion.size()==0 || !jugador.estaViva();
+		return !jugador.estaViva() || contadorEnemigos==0;
 	}
 
 	public int finalizarMapa() {
 		return puntaje;
 	}
+	
+	public int getEnemigosRestantes() {
+		return contadorEnemigos;
+	}
+	
+	public static void agregarEntidad(Entidad e) {
+		coleccion.add(e);
+		mGraf.agregarGrafico(e.getGrafico());
+	}
+	
+	public static void reducirEnemigos() {
+		contadorEnemigos--;
+	}
+	
+	
 }

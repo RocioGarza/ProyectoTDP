@@ -2,6 +2,7 @@ package enemigo;
 
 import arma.Arma;
 import arma.ArmaEnemigo;
+import proyectil.Proyectil;
 
 public abstract class EnemigoArmado extends Enemigo{
 	

@@ -3,6 +3,7 @@ package enemigo;
 import arma.ArmaEnemigo;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
+import logica.Mapa;
 import proyectil.Proyectil;
 
 public class Delta extends EnemigoArmado{
@@ -31,9 +32,9 @@ public class Delta extends EnemigoArmado{
 		return 193;
 	}
 
-	public Proyectil atacar() {
+	public void atacar() {
 		grafico.changeIcon(' ');
-		return arma.disparar(dañoAtaque, velocidadDeAtaque);
+		arma.disparar(dañoAtaque, velocidadDeAtaque);
 	}
 
 	public void mover() {
@@ -46,5 +47,9 @@ public class Delta extends EnemigoArmado{
 
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
+	}
+	
+	public void morir() {
+		Mapa.reducirEnemigos();
 	}
 }

@@ -21,4 +21,6 @@ public class MasAtaques extends ObjetoPrecioso{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void morir() {}
 }

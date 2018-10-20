@@ -23,4 +23,6 @@ public class Pocion extends ObjetoPrecioso{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void morir() {}
 }

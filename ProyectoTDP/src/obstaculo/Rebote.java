@@ -30,4 +30,6 @@ public class Rebote extends Obstaculo{
 	}
 	
 	public void mover() {}
+	
+	public void morir() {}
 }

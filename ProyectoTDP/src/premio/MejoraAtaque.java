@@ -21,4 +21,6 @@ public class MejoraAtaque extends MagiaTemporal{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void morir() {}
 }

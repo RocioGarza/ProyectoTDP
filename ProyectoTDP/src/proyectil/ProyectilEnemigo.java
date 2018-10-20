@@ -29,4 +29,6 @@ public class ProyectilEnemigo extends Proyectil{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void morir() {}
 }

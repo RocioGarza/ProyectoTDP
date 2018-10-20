@@ -3,6 +3,7 @@ package enemigo;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import jugador.Jugador;
+import logica.Mapa;
 import proyectil.Proyectil;
 
 public class Gamma extends EnemigoKamikaze{
@@ -30,10 +31,9 @@ public class Gamma extends EnemigoKamikaze{
 		return 134;
 	}
 
-	public Proyectil atacar() {
+	public void atacar() {
 		grafico.changeIcon(' ');
 		inteligencia = new IA_KamikazeAtaque(this);
-		return null;
 	}
 
 	public void mover() {
@@ -55,5 +55,9 @@ public class Gamma extends EnemigoKamikaze{
 
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
+	}
+	
+	public void morir() {
+		Mapa.reducirEnemigos();
 	}
 }

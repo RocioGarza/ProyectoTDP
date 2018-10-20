@@ -57,7 +57,7 @@ public class Jugador extends Personaje{
 				escudo = new EscudoAntiKamikaze();
 	}
 	
-	protected void morir() {
+	public void morir() {
 		//hacer algo
 	}
 	
@@ -71,11 +71,9 @@ public class Jugador extends Personaje{
 				pos.moverX(velocidadDeMovimiento);
 	}
 	
-	public Proyectil disparar(char c) {
+	public void disparar(char c) {
 		if (c==' ') 
-			return arma.disparar(dañoAtaque, velocidadDeAtaque);
-		else 
-			return null;
+			arma.disparar(dañoAtaque, velocidadDeAtaque);
 	}
 	
 	public void cambiarArma() {
@@ -92,10 +90,6 @@ public class Jugador extends Personaje{
 		return grafico;
 	}
 
-	public Proyectil atacar() {
-		return null;
-	}
-	
 	public ArmaJugador getArma() {
 		return arma;
 	}

@@ -30,4 +30,6 @@ public class Pared extends Obstaculo{
 	}
 	
 	public void mover() {}
+	
+	public void morir() {}
 }

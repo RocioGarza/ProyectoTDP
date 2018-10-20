@@ -19,6 +19,7 @@ public class GeneradorMapa {
 	private int x;
 	private int y;
 	private int yMax;
+	private int cantEnemigos;
 	private char c;
 	private AlmacenadorOcupados ocupados;
 	
@@ -27,6 +28,7 @@ public class GeneradorMapa {
 		yMax = Posicion.getYmax()-(Jugador.getAlto()*2);
 		coleccion = new LinkedList<Entidad>();
 		ocupados = new AlmacenadorOcupados();
+		cantEnemigos=0;
 		try {
 			arch =  new BufferedReader(new FileReader(txt));
 			x=0;
@@ -42,6 +44,7 @@ public class GeneradorMapa {
 							{
 								Alpha a = new Alpha(posAlpha.getX(), posAlpha.getY());
 								coleccion.add(a);
+								cantEnemigos++;
 							}
 							break;
 					case 'B':
@@ -50,6 +53,7 @@ public class GeneradorMapa {
 							{
 								Beta b = new Beta(posBeta.getX(), posBeta.getY());
 								coleccion.add(b);
+								cantEnemigos++;
 							}
 							break;
 					case 'C': 
@@ -58,6 +62,7 @@ public class GeneradorMapa {
 							{
 								Gamma c = new Gamma(posGamma.getX(), posGamma.getY());
 								coleccion.add(c);
+								cantEnemigos++;
 							}
 							break;
 					case 'D': 
@@ -66,6 +71,7 @@ public class GeneradorMapa {
 							{
 								Delta d = new Delta(posDelta.getX(), posDelta.getY());
 								coleccion.add(d);
+								cantEnemigos++;
 							}
 							break;
 					case 'E': 
@@ -74,6 +80,7 @@ public class GeneradorMapa {
 							{
 								Iota e = new Iota(posIota.getX(), posIota.getY());
 								coleccion.add(e);
+								cantEnemigos++;
 							}
 							break;
 					case '1': 
@@ -165,5 +172,9 @@ public class GeneradorMapa {
 	public Collection<Entidad> getColeccion()
 	{
 		return coleccion;
+	}
+	
+	public int getCantidadEnemigos() {
+		return cantEnemigos;
 	}
 }

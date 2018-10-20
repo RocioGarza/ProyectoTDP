@@ -10,8 +10,6 @@ public abstract class Personaje extends Entidad {
 	public Personaje(int X, int Y, int alto, int ancho) {
 		super(X, Y, alto, ancho);
 	}
-	
-	public abstract Proyectil atacar();
 
 	public void aumentarDaño(int d) {
 		dañoAtaque = dañoAtaque + d;

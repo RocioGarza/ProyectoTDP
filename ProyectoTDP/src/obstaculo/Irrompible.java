@@ -30,4 +30,6 @@ public class Irrompible extends Obstaculo{
 	}
 	
 	public void mover() {}
+	
+	public void morir() {}
 }

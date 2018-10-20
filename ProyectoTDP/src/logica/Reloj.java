@@ -25,7 +25,7 @@ public class Reloj extends Thread{
 			moverJugador();
 			controlarColisiones();
 			refresh();
-			controlarJugador();
+			controlarJuego();
 			try {
 				Thread.sleep(8);
 			} catch (Exception e) {}
@@ -34,7 +34,6 @@ public class Reloj extends Thread{
 	
 	private void mover() {
 		try {
-			Collection<Entidad> coleccionAgregar = new LinkedList<Entidad>();
 			for(Entidad e: coleccion) {
 				e.mover();
 			}
@@ -78,14 +77,24 @@ public class Reloj extends Thread{
 			mapa.getJugador().cambiarArma();
 			mapeoInputs.put("CambiarArma", 'x');
 		}
-		Entidad disparo = mapa.getJugador().disparar(mapeoInputs.get("Disparo"));
-		if(disparo!=null)
-			mapa.agregarEntidad(disparo);
+		mapa.getJugador().disparar(mapeoInputs.get("Disparo"));
 	}
 	
-	private void controlarJugador() {
+	private void controlarJuego() {
 		if (!mapa.getJugador().estaViva()) {
 			try {
+				System.out.println("PERDIO");
+				Thread.sleep(500);
+			} catch (InterruptedException e) {}
+			
+			System.exit(0);
+		}
+		
+		System.out.println(mapa.getEnemigosRestantes());
+		
+		if (mapa.getEnemigosRestantes()==0) {
+			try {
+				System.out.println("GANO");
 				Thread.sleep(500);
 			} catch (InterruptedException e) {}
 			

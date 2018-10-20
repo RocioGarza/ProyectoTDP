@@ -57,9 +57,7 @@ public abstract class Entidad {
 			vida = vida + v;
 	}
 	
-	protected void morir() {
-		//hacer
-	}
+	public abstract void morir();
 	
 	public void aumentarVelocidadDeMovimiento(int vel) {
 		velocidadDeMovimiento = velocidadDeMovimiento + vel;

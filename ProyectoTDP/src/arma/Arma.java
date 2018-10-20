@@ -11,7 +11,5 @@ public abstract class Arma {
 		this.posDisparo = p;
 	}
 	
-	public Proyectil disparar(int daño, int velocidad) {
-		return null;
-	}
+	public abstract void disparar(int daño, int velocidad);
 }
