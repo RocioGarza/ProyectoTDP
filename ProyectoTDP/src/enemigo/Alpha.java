@@ -35,9 +35,8 @@ public class Alpha extends EnemigoKamikaze{
 		return null;
 	}
 
-	public Proyectil mover() {
+	public void mover() {
 		inteligencia.mover();
-		return null;
 	}
 	
 	public void terminarAtaque() {

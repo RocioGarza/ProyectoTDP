@@ -1,16 +1,24 @@
 package arma;
 
+import javax.swing.ImageIcon;
+
 import entidad.Posicion;
 import proyectil.Proyectil;
 import proyectil.ProyectilJugador;
 
-public class ArmaJugador extends Arma {
+public abstract class ArmaJugador extends Arma {
 
+	protected long enfriamientoDisparo;
+	protected ImageIcon icono;
+	
 	public ArmaJugador(Posicion p) {
 		super(p);
+		enfriamientoDisparo=-1000;
 	}
 	
-	public Proyectil disparar(int daño, int velocidad) {
-		return new ProyectilJugador(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, daño, velocidad);
+	public abstract Proyectil disparar(int daño, int velocidad);
+	
+	public ImageIcon getIcono(){
+		return icono;
 	}
 }

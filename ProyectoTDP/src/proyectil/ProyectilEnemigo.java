@@ -20,11 +20,10 @@ public class ProyectilEnemigo extends Proyectil{
 		return grafico;
 	}
 	
-	public Proyectil mover() {
+	public void mover() {
 		pos.moverY(velocidadDeMovimiento);
 		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
 			vida=0;
-		return null;
 	}
 	
 	public void chocar(Entidad e) {

@@ -1,23 +1,22 @@
 package enemigo;
 
-import extra.Contador;
 import proyectil.Proyectil;
 
 public class IA_Armado extends Inteligencia{
 	
 	private EnemigoArmado enemigo;
-	protected Contador contador;
+	protected long tiempoDisparo;
 
 	public IA_Armado(EnemigoArmado e) {
 		super();
 		enemigo=e;
-		contador = new Contador();
+		tiempoDisparo=-1000;
 	}
 	
-	public Proyectil mover() {
-		int aux = r.nextInt(2500);
-		if(contador.disponible()) {
-			if(aux<2450) { //Tiene un 99.5% de probabilidad de mover y un 0.5% de probabilidad de atacar
+	public void mover() {
+		int aux = r.nextInt(3000);
+		if(System.currentTimeMillis()-tiempoDisparo>900) {
+			if(aux<2975) { //Tiene un 99.5% de probabilidad de mover y un 0.5% de probabilidad de atacar
 				if(direccion=='d') {
 					enemigo.getGrafico().changeIcon('d');
 					enemigo.getPosicion().moverX(enemigo.getVelocidadDeMovimiento());
@@ -33,12 +32,10 @@ public class IA_Armado extends Inteligencia{
 					} 
 				}
 			} else {
-				contador.iniciar(80);
-				return enemigo.atacar();
+				tiempoDisparo=System.currentTimeMillis();
+				enemigo.atacar();
 			}
-		} else
-			contador.decrementarContador();
-		return null;
+		} 
 	}
 
 }

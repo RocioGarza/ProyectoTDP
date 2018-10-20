@@ -49,6 +49,7 @@ public class GUI extends JFrame {
 		mapeoInputs = new HashMap<String,Character>();
 		mapeoInputs.put("Movimiento",'x');
 		mapeoInputs.put("Disparo",'x');
+		mapeoInputs.put("CambiarArma",'x');
 		
 		juego = new Juego();
 		mapa = juego.crearMapa();
@@ -75,6 +76,8 @@ public class GUI extends JFrame {
 					mapeoInputs.put("Movimiento", 'd');
 			if(key.getKeyChar() == ' ')
 				mapeoInputs.put("Disparo", ' ');
+			if(key.getKeyChar() == 'l')
+				mapeoInputs.put("CambiarArma", 'l');
 		}
 
 		public void keyReleased(KeyEvent key) {

@@ -11,7 +11,7 @@ public class IA_Kamikaze extends Inteligencia{
 		enemigo = e;	
 	}
 	
-	public Proyectil mover() {
+	public void mover() {
 		int aux = r.nextInt(10000);
 		if(aux<9975) { //Tiene un 99.5% de probabilidad de mover y un 0.5% de probabilidad de atacar
 			if(direccion=='d') {
@@ -29,7 +29,6 @@ public class IA_Kamikaze extends Inteligencia{
 			}
 		} else 
 			enemigo.atacar();
-		return null;
 	}
 
 }

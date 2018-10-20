@@ -27,9 +27,7 @@ public abstract class Entidad {
 		return velocidadDeMovimiento;
 	}
 	
-	public Proyectil mover() {
-		return null;
-	}
+	public abstract void mover();
 
 	public abstract EntidadGrafica getGrafico();
 	

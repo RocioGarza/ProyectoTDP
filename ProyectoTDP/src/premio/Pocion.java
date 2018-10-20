@@ -18,6 +18,8 @@ public class Pocion extends ObjetoPrecioso{
 		return null;
 	}
 	
+	public void mover() {}
+	
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}

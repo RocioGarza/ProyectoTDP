@@ -4,14 +4,14 @@ import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
 import entidad.Posicion;
 
-public class ProyectilJugador extends Proyectil{
-	
-	private ProyectilJugadorGrafico grafico;
+public class ProyectilJugadorLaser extends ProyectilJugador{
 
-	public ProyectilJugador(int X, int Y, int VM, int daño) {
+	private ProyectilJugadorLaserGrafico grafico;
+
+	public ProyectilJugadorLaser(int X, int Y, int VM, int daño) {
 		super(X,Y,VM,daño);
 		vida=1;
-		grafico = new ProyectilJugadorGrafico(pos);
+		grafico = new ProyectilJugadorLaserGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);
 	}
 

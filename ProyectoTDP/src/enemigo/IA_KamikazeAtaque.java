@@ -22,7 +22,7 @@ public class IA_KamikazeAtaque extends Inteligencia{
 			vel = -enemigo.getVelocidadDeMovimiento();
 	}
 	
-	public Proyectil mover() {
+	public void mover() {
 		if((enemigo.getPosicion().getY()+enemigo.getPosicion().getAlto())>=(Posicion.getYmax())) {
 				enemigo.getPosicion().setX(xRetorno);
 				enemigo.getPosicion().setY(yRetorno);
@@ -34,7 +34,6 @@ public class IA_KamikazeAtaque extends Inteligencia{
 			enemigo.getPosicion().moverX(vel);
 			enemigo.getPosicion().moverY(2);
 		}
-		return null;
 	}
 	
 	public void rebotar() {

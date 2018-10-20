@@ -28,4 +28,6 @@ public class Irrompible extends Obstaculo{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void mover() {}
 }

@@ -20,6 +20,7 @@ public class HUD extends Thread{
 	private JLabel puntajeGrafico;
 	private JLabel vida;
 	private JLabel vidaHud;
+	private JLabel arma;
 	private Mapa mapa;
 	private Collection<JLabel> componentes;
 	
@@ -34,25 +35,27 @@ public class HUD extends Thread{
 		puntajeGrafico = new JLabel(puntajeIcono);
 		puntaje = new JLabel();
 		vida = new JLabel(vidaIcono);
+		arma = new JLabel();
 		
 		vida.setOpaque(true);
 
-		puntajeGrafico.setBounds(Posicion.getXmax()-400, 20, 40, 40);
-		puntaje.setBounds(Posicion.getXmax()-350, 20, 40, 40);
-		vida.setBounds(Posicion.getXmax()-275, 25 , 200, 25);
+		puntajeGrafico.setBounds(Posicion.getXmax()-450, 20, 40, 40);
+		puntaje.setBounds(Posicion.getXmax()-400, 20, 40, 40);
+		vida.setBounds(Posicion.getXmax()-350, 25 , 200, 25);
 		vida.setBackground(Color.GREEN);
+		arma.setBounds(Posicion.getXmax()-75, 20 , 20, 44);
 		
 		puntaje.setForeground(Color.WHITE);
 		puntaje.setFont(new Font("",Font.PLAIN, 20 ));
 		
 		vidaHud = new JLabel(new ImageIcon(this.getClass().getResource("/Graficos/vidaHud.png")));
-		vidaHud.setBounds(Posicion.getXmax()-300, 4 , 261, 80);
+		vidaHud.setBounds(Posicion.getXmax()-350, 4 , 261, 80);
 		
 		componentes.add(vidaHud);
 		componentes.add(puntaje);
 		componentes.add(puntajeGrafico);
 		componentes.add(vida);
-
+		componentes.add(arma);
 	}
 	
 	public Collection<JLabel> getComponentes() {
@@ -70,8 +73,10 @@ public class HUD extends Thread{
 						if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()<=75)
 							vida.setBackground(Color.YELLOW);
 						
-			vida.setBounds(Posicion.getXmax()-275, 25, ((mapa.getJugador().getVida()*200)/mapa.getJugador().getVidaMaxima()), 25);
+			vida.setBounds(Posicion.getXmax()-325, 25, ((mapa.getJugador().getVida()*200)/mapa.getJugador().getVidaMaxima()), 25);
 			puntaje.setText("" + mapa.getPuntaje());
+			
+			arma.setIcon(mapa.getJugador().getArma().getIcono());
 		}
 	}
 }

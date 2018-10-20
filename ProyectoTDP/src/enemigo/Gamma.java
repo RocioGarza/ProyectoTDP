@@ -36,8 +36,8 @@ public class Gamma extends EnemigoKamikaze{
 		return null;
 	}
 
-	public Proyectil mover() {
-		return inteligencia.mover();
+	public void mover() {
+		inteligencia.mover();
 	}
 	
 	public void terminarAtaque() {

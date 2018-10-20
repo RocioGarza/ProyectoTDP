@@ -1,22 +1,25 @@
 package jugador;
 
-import arma.Arma;
+import java.util.LinkedList;
+import java.util.Queue;
+
 import arma.ArmaJugador;
+import arma.ArmaJugadorBasicaLaser;
+import arma.ArmaJugadorBasicaProyectil;
 import colisionador.ColisionadorJugador;
 import entidad.Entidad;
 import entidad.Personaje;
 import escudo.Escudo;
 import escudo.EscudoAntiKamikaze;
 import escudo.EscudoNormal;
-import extra.Contador;
 import proyectil.Proyectil;
 
 public class Jugador extends Personaje{
 
-	private Arma arma;
+	private Queue<ArmaJugador>  armasJugador;
+	private ArmaJugador arma;
 	private Escudo escudo;
 	private JugadorGrafico grafico;
-	private Contador contador;
 	
 	public Jugador(int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
@@ -25,11 +28,12 @@ public class Jugador extends Personaje{
 		vidaMaxima = 100;
 		vida = vidaMaxima;
 		dañoAtaque = 5;
-		arma = new ArmaJugador(pos);
+		armasJugador = new LinkedList<ArmaJugador>();
+		armasJugador.add(new ArmaJugadorBasicaLaser(pos));
+		arma = new ArmaJugadorBasicaProyectil(pos);
 		escudo = new EscudoNormal();
 		grafico = new JugadorGrafico(pos);	
 		colisionador = new ColisionadorJugador();
-		contador = new Contador();
 	}
 	
 	public static int getAlto() {
@@ -57,6 +61,8 @@ public class Jugador extends Personaje{
 		//hacer algo
 	}
 	
+	public void mover() {}
+	
 	public void mover(char c) {
 		if (c=='a')
 			pos.moverX(-velocidadDeMovimiento);
@@ -66,14 +72,15 @@ public class Jugador extends Personaje{
 	}
 	
 	public Proyectil disparar(char c) {
-		if (c==' ' && contador.disponible()) {
-			contador.iniciar(velocidadDeAtaque*5);
+		if (c==' ') 
 			return arma.disparar(dañoAtaque, velocidadDeAtaque);
-		}
-		else {
-			contador.decrementarContador();
+		else 
 			return null;
-		}
+	}
+	
+	public void cambiarArma() {
+		armasJugador.add(arma);
+		arma = armasJugador.poll();
 	}
 	
 	/*private void controlarEscudo() {
@@ -87,6 +94,10 @@ public class Jugador extends Personaje{
 
 	public Proyectil atacar() {
 		return null;
+	}
+	
+	public ArmaJugador getArma() {
+		return arma;
 	}
 	
 	public void chocar(Entidad e) {

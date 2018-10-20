@@ -28,4 +28,6 @@ public class Portal extends Obstaculo{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void mover() {}
 }

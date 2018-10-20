@@ -35,14 +35,8 @@ public class Reloj extends Thread{
 	private void mover() {
 		try {
 			Collection<Entidad> coleccionAgregar = new LinkedList<Entidad>();
-			Entidad aux;
 			for(Entidad e: coleccion) {
-				aux = e.mover();
-				if(aux!=null) 
-					coleccionAgregar.add(aux);
-			}
-			for(Entidad e: coleccionAgregar) {
-				mapa.agregarEntidad(e);
+				e.mover();
 			}
 		} catch (Exception e) {	}	
 	}
@@ -80,6 +74,10 @@ public class Reloj extends Thread{
 	
 	private void moverJugador() {
 		mapa.getJugador().mover(mapeoInputs.get("Movimiento"));
+		if(mapeoInputs.get("CambiarArma")=='l') {
+			mapa.getJugador().cambiarArma();
+			mapeoInputs.put("CambiarArma", 'x');
+		}
 		Entidad disparo = mapa.getJugador().disparar(mapeoInputs.get("Disparo"));
 		if(disparo!=null)
 			mapa.agregarEntidad(disparo);

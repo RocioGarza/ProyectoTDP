@@ -24,7 +24,5 @@ public abstract class Proyectil extends Entidad {
 		return daño;
 	}
 	
-	public Proyectil mover() {
-		return null;
-	}
+	public void mover() {}
 }

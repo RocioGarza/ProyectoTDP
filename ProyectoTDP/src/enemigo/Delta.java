@@ -36,8 +36,8 @@ public class Delta extends EnemigoArmado{
 		return arma.disparar(dañoAtaque, velocidadDeAtaque);
 	}
 
-	public Proyectil mover() {
-		return inteligencia.mover();
+	public void mover() {
+		inteligencia.mover();
 	}	
 	
 	public DeltaGrafico getGrafico() {

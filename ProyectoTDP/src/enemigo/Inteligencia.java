@@ -17,7 +17,7 @@ public abstract class Inteligencia {
 			direccion='a';
 	}
 	
-	public abstract Proyectil mover();
+	public abstract void mover();
 	
 	public void rebotar() {
 		if (direccion=='d')
