@@ -2,6 +2,7 @@ package logica;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
@@ -11,11 +12,12 @@ import jugador.Jugador;
 
 public class Mapa implements MapaPublico{
 	
-	private static Collection<Entidad> coleccion;
-	private static MapaGrafico mGraf;
+	private Collection<Entidad> coleccion;
+	private  MapaGrafico mGraf;
 	private Jugador jugador;
 	private static int contadorEnemigos;
 	private int puntaje;
+	private static Collection<Entidad> entidadesAAgregar;
 	
 	public Mapa (Jugador j,int n){
 		File nivel;
@@ -39,6 +41,8 @@ public class Mapa implements MapaPublico{
         puntaje = 0;
         
         mGraf = new MapaGrafico(coleccion);
+        
+        entidadesAAgregar = new LinkedList<Entidad>();
 	}	
 	
 	public MapaGrafico getMapaGrafico() {
@@ -106,14 +110,19 @@ public class Mapa implements MapaPublico{
 		return contadorEnemigos;
 	}
 	
-	public static void agregarEntidad(Entidad e) {
-		coleccion.add(e);
-		mGraf.agregarGrafico(e.getGrafico());
+	public void agregarEntidadesPendientes() {
+		for(Entidad e: entidadesAAgregar) {
+			coleccion.add(e);
+			mGraf.agregarGrafico(e.getGrafico());
+		}
+		entidadesAAgregar.clear();
 	}
 	
 	public static void reducirEnemigos() {
 		contadorEnemigos--;
 	}
 	
-	
+	public static void agregarEntidad(Entidad e) {
+		entidadesAAgregar.add(e);
+	}
 }

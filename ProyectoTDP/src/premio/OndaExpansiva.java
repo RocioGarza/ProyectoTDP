@@ -1,22 +1,27 @@
 package premio;
 
 import entidad.Entidad;
-import entidad.EntidadGrafica;
+import entidad.Posicion;
 
 public class OndaExpansiva extends ObjetoPrecioso{
+	
+	private OndaExpansivaGrafica grafico;
 
-	public OndaExpansiva(int X, int Y, int alto, int ancho) {
-		super(X, Y, alto, ancho);
-		// TODO Auto-generated constructor stub
+	public OndaExpansiva(int X, int Y) {
+		super(X, Y, 59, 66);
+		grafico = new OndaExpansivaGrafica(pos);
 	}
 
 	@Override
-	public EntidadGrafica getGrafico() {
-		// TODO Auto-generated method stub
-		return null;
+	public OndaExpansivaGrafica getGrafico() {
+		return grafico;
 	}
 	
-	public void mover() {}
+	public void mover() {
+		pos.moverY(velocidadDeMovimiento);
+		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
+			vida=0;
+	}
 	
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);

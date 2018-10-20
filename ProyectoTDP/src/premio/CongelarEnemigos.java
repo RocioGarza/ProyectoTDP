@@ -1,23 +1,28 @@
 package premio;
 
 import entidad.Entidad;
-import entidad.EntidadGrafica;
+import entidad.Posicion;
 
 
 public class CongelarEnemigos extends MagiaTemporal{
 
-	public CongelarEnemigos(int X, int Y, int alto, int ancho) {
-		super(X, Y, alto, ancho);
-		// TODO Auto-generated constructor stub
+	private CongelarEnemigosGrafico grafico;
+	
+	public CongelarEnemigos(int X, int Y) {
+		super(X, Y, 59, 66);
+		grafico = new CongelarEnemigosGrafico(pos);
 	}
 
 	@Override
-	public EntidadGrafica getGrafico() {
-		// TODO Auto-generated method stub
-		return null;
+	public CongelarEnemigosGrafico getGrafico() {
+		return grafico;
 	}
 	
-	public void mover() {}
+	public void mover() {
+		pos.moverY(velocidadDeMovimiento);
+		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
+			vida=0;
+	}
 	
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);

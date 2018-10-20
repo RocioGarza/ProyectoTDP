@@ -26,9 +26,12 @@ public class Reloj extends Thread{
 			controlarColisiones();
 			refresh();
 			controlarJuego();
+			mapa.agregarEntidadesPendientes();
 			try {
 				Thread.sleep(8);
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -37,7 +40,9 @@ public class Reloj extends Thread{
 			for(Entidad e: coleccion) {
 				e.mover();
 			}
-		} catch (Exception e) {	}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
 	}
 
 	private void controlarColisiones() {
@@ -61,14 +66,18 @@ public class Reloj extends Thread{
 					coleccionBorrar.add(e);
 			for(Entidad e : coleccionBorrar)
 				mapa.remover(e);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void refresh() { 
 		try {
 			for(Entidad e: coleccion)
 				e.getGrafico().actualizar();
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void moverJugador() {
@@ -83,19 +92,15 @@ public class Reloj extends Thread{
 	private void controlarJuego() {
 		if (!mapa.getJugador().estaViva()) {
 			try {
-				System.out.println("PERDIO");
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {}
 			
 			System.exit(0);
 		}
 		
-		System.out.println(mapa.getEnemigosRestantes());
-		
 		if (mapa.getEnemigosRestantes()==0) {
 			try {
-				System.out.println("GANO");
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {}
 			
 			System.exit(0);

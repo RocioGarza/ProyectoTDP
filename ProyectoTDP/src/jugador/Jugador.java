@@ -37,15 +37,11 @@ public class Jugador extends Personaje{
 	}
 	
 	public static int getAlto() {
-		return 160;
+		return 157;
 	}
 	
 	public static int getAncho() {
-		return 190;
-	}
-	
-	public void setArma(char c) {
-		//Requisito: c debe ser un caracter valido asociado a un arma
+		return 188;
 	}
 	
 	public void setEscudo(char c) {
