@@ -2,7 +2,7 @@ package logica;
 
 import entidad.Entidad;
 
-public interface MapaPublico {
+public interface Entorno {
 
 	public static void agregarEntidad(Entidad e) {}
 	

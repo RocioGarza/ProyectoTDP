@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 
 import entidad.Posicion;
 import logica.Mapa;
-import proyectil.Proyectil;
 import proyectil.ProyectilJugador;
 
 public class ArmaJugadorBasicaProyectil extends ArmaJugador {
@@ -20,5 +19,4 @@ public class ArmaJugadorBasicaProyectil extends ArmaJugador {
 			Mapa.agregarEntidad(new ProyectilJugador(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, daño, velocidad));
 		}
 	}
-
 }

@@ -11,8 +11,10 @@ public abstract class EntidadGrafica {
 	
 	protected EntidadGrafica(Posicion posicion) {
 		pos= posicion;
-	
 		this.image = new Icon[5];
+		for (Icon icono: image)
+			icono=null;
+		
 	}
 
 	public Posicion getPos() {
@@ -36,10 +38,12 @@ public abstract class EntidadGrafica {
 						if (c==' ')
 							d=4;
 		this.grafico.setIcon(this.image[d]);
+		grafico.repaint();
 	}
 	
 	public void actualizar() {
 		grafico.setBounds(pos.getX(), pos.getY(), pos.getAncho(), pos.getAlto());
+		grafico.repaint();
 	}
 		
 	public JLabel getGrafico() {

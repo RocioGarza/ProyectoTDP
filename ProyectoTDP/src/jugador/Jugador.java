@@ -12,7 +12,6 @@ import entidad.Personaje;
 import escudo.Escudo;
 import escudo.EscudoAntiKamikaze;
 import escudo.EscudoNormal;
-import proyectil.Proyectil;
 
 public class Jugador extends Personaje{
 

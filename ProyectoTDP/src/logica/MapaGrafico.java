@@ -20,32 +20,33 @@ public class MapaGrafico {
 	private PanelConFondo panel;
 	
 	public MapaGrafico(Collection<Entidad> coleccion) {
+		crearPanel();	
+		posicionarElementos(coleccion);
+		establecerPropiedadesDelPanel();
+	}
+	
+	private void crearPanel() {
 		BufferedImage img = null;
-		
 		try {
 		    img = ImageIO.read(new File("src/Graficos/Fondo.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		panel = new PanelConFondo(img);
-		posicionarElementos(coleccion);
+	}
+	
+	private void posicionarElementos(Collection<Entidad> coleccion)	{
+		for(Entidad e: coleccion)
+			panel.add(e.getGrafico().getGrafico());
+	}
+	
+	private void establecerPropiedadesDelPanel() {
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel.setBackground(Color.BLACK);
 		panel.setLayout(null);
 	}
 	
-	private void posicionarElementos(Collection<Entidad> coleccion)
-	{
-		for(Entidad e: coleccion)
-		{
-			panel.add(e.getGrafico().getGrafico());
-		}
-		
-	}
-	
-	public JPanel getGrafica()
-	{
+	public JPanel getGrafica()	{
 		return panel;
 	}
 	
@@ -55,6 +56,9 @@ public class MapaGrafico {
 
 	public void removerGrafico(EntidadGrafica e) {
 		panel.remove(e.getGrafico());
+	}
+	
+	public void actualizar() {
 		panel.repaint();
 	}
 }

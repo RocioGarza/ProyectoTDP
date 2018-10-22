@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,14 +7,7 @@ import javax.swing.JLabel;
 import entidad.Posicion;
 import logica.Juego;
 import logica.Mapa;
-import logica.Reloj;
-import proyectil.Proyectil;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.HashMap;
-import java.util.Map;
+import logica.AdministradorDeMovimiento;
 
 public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -23,73 +15,54 @@ public class GUI extends JFrame {
 	private Juego juego;
 	private Mapa mapa;
 	private HUD hud;
-	private Reloj reloj;
-	private Map<String,Character> mapeoInputs;
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		//EventQueue.invokeLater(new Runnable() {
+		//	public void run() {
 				try {
 					GUI frame = new GUI();
 					frame.setVisible(true);
+					frame.iniciarGUI();
+					
 				} catch (Exception e) {}
-			}
-		});
+		//	}
+		//});
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public GUI() {
-		addKeyListener(new Oyente());
+	public GUI()
+	{
+	}
+	
+	public void iniciarGUI() {		
 		
-		mapeoInputs = new HashMap<String,Character>();
-		mapeoInputs.put("Movimiento",'x');
-		mapeoInputs.put("Disparo",'x');
-		mapeoInputs.put("CambiarArma",'x');
+		juego = new Juego(); //Aca o se recupera o se genera un nuevo juego
 		
-		juego = new Juego();
-		mapa = juego.crearMapa();
+		//opciones:crear un mapa de un nivel menor al actual, crear un mapa random (n=-1), usar el ultimo mapa random(n=0), usar el utlimo nivel (sin param)
+		
+		mapa = juego.crearMapa(3);		
+		
 		getContentPane().add(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, Posicion.getXmax(), Posicion.getYmax());
+		
 		hud = new HUD(mapa);
 		
 		for(JLabel componente : hud.getComponentes())
 			mapa.getGrafico().add(componente);
-		
-		reloj = new Reloj(mapa, mapeoInputs);
-		reloj.start();
-		hud.start();
-	}
 	
-	public class Oyente implements KeyListener {
+		AdministradorDeMovimiento r = new AdministradorDeMovimiento(mapa);
+		addKeyListener(r.getOyente());
 
-		public void keyPressed(KeyEvent key) {
-			if(key.getKeyChar() == 'a') 
-				mapeoInputs.put("Movimiento", 'a');
-			else
-				if(key.getKeyChar() == 'd')
-					mapeoInputs.put("Movimiento", 'd');
-			if(key.getKeyChar() == ' ')
-				mapeoInputs.put("Disparo", ' ');
-			if(key.getKeyChar() == 'l')
-				mapeoInputs.put("CambiarArma", 'l');
-		}
-
-		public void keyReleased(KeyEvent key) {
-			if(key.getKeyChar() == 'a') 
-				mapeoInputs.put("Movimiento", 'x');
-			else
-				if(key.getKeyChar() == 'd')
-					mapeoInputs.put("Movimiento", 'x');
-			if(key.getKeyChar() == ' ')
-				mapeoInputs.put("Disparo", 'x');
-		}
-
-		public void keyTyped(KeyEvent key) { }		
+		hud.start();
+		juego.jugar(r);
+		System.out.println("GENERANDO MENU");
+		
 	}
+
 }

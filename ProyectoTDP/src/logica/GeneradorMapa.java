@@ -15,7 +15,7 @@ import jugador.Jugador;
 public class GeneradorMapa {
 	
 	BufferedReader arch;
-	private Collection<Entidad> coleccion;
+	private Collection<Entidad> coleccionEntidades;
 	private int x;
 	private int y;
 	private int yMax;
@@ -23,104 +23,96 @@ public class GeneradorMapa {
 	private char c;
 	private AlmacenadorOcupados ocupados;
 	
-	public GeneradorMapa(String txt)
-	{	 
+	public GeneradorMapa(String txt) {	 
 		yMax = Posicion.getYmax()-(Jugador.getAlto()*2);
-		coleccion = new LinkedList<Entidad>();
+		coleccionEntidades = new LinkedList<Entidad>();
 		ocupados = new AlmacenadorOcupados();
 		cantEnemigos=0;
+		generarEntidades(txt);
+	}
+	
+	private void generarEntidades(String txt) {
 		try {
 			arch =  new BufferedReader(new FileReader(txt));
 			x=0;
 			y=0;
 			while(y<(yMax)) {
 				c =(char) arch.read();
-				while(c!='/' && x!= Posicion.getXmax()) 
-				{
+				while(c!='/' && x!= Posicion.getXmax()) {
 					switch (c) {
 					case 'A':
 							Punto posAlpha = posicionar(Alpha.getAlto(), Alpha.getAncho());
-							if(posAlpha != null)
-							{
+							if(posAlpha != null) {
 								Alpha a = new Alpha(posAlpha.getX(), posAlpha.getY());
-								coleccion.add(a);
+								coleccionEntidades.add(a);
 								cantEnemigos++;
 							}
 							break;
 					case 'B':
 							Punto posBeta = posicionar(Beta.getAlto(), Beta.getAncho());
-							if(posBeta != null)
-							{
+							if(posBeta != null)	{
 								Beta b = new Beta(posBeta.getX(), posBeta.getY());
-								coleccion.add(b);
+								coleccionEntidades.add(b);
 								cantEnemigos++;
 							}
 							break;
 					case 'C': 
 							Punto posGamma = posicionar(Gamma.getAlto(), Gamma.getAncho());
-							if(posGamma != null)
-							{
+							if(posGamma != null) {
 								Gamma c = new Gamma(posGamma.getX(), posGamma.getY());
-								coleccion.add(c);
+								coleccionEntidades.add(c);
 								cantEnemigos++;
 							}
 							break;
 					case 'D': 
 							Punto posDelta = posicionar(Delta.getAlto(), Delta.getAncho());
-							if(posDelta != null)
-							{
+							if(posDelta != null) {
 								Delta d = new Delta(posDelta.getX(), posDelta.getY());
-								coleccion.add(d);
+								coleccionEntidades.add(d);
 								cantEnemigos++;
 							}
 							break;
 					case 'E': 
 							Punto posIota = posicionar(Iota.getAlto(), Iota.getAncho());
-							if(posIota != null)
-							{
+							if(posIota != null)	{
 								Iota e = new Iota(posIota.getX(), posIota.getY());
-								coleccion.add(e);
+								coleccionEntidades.add(e);
 								cantEnemigos++;
 							}
 							break;
 					case '1': 
 							Punto posIrromp = posicionar(Irrompible.getAlto(), Irrompible.getAncho());
-							if(posIrromp != null)
-							{
+							if(posIrromp != null) {
 								Irrompible i = new Irrompible(posIrromp.getX(), posIrromp.getY());
-								coleccion.add(i);
+								coleccionEntidades.add(i);
 							}
 							break;
 					case '2': 
 						Punto posPared = posicionar(Pared.getAlto(), Pared.getAncho());
-						if(posPared != null)
-						{
+						if(posPared != null) {
 							Pared p = new Pared(posPared.getX(), posPared.getY());
-							coleccion.add(p);
+							coleccionEntidades.add(p);
 						}
 						break;
 					case '3': 
 						Punto posParedJ = posicionar(ParedJugador.getAlto(), ParedJugador.getAncho());
-						if(posParedJ != null)
-						{
+						if(posParedJ != null) {
 							ParedJugador j = new ParedJugador(posParedJ.getX(), posParedJ.getY());
-							coleccion.add(j);
+							coleccionEntidades.add(j);
 						}
 						break;		
 					case '4': 
 						Punto posReb = posicionar(Rebote.getAlto(), Rebote.getAncho());
-						if(posReb != null)
-						{
+						if(posReb != null)	{
 							Rebote r = new Rebote(posReb.getX(), posReb.getY());
-							coleccion.add(r);
+							coleccionEntidades.add(r);
 						}
 						break;	
 					case '5': 
 						Punto posPortal = posicionar(Portal.getAlto(), Portal.getAncho());
-						if(posPortal != null)
-						{
+						if(posPortal != null) {
 							Portal o = new Portal(posPortal.getX(), posPortal.getY());//OJO resolver como posicionar el segundo portal
-							coleccion.add(o);
+							coleccionEntidades.add(o);
 						}
 						break;	
 					}
@@ -138,40 +130,44 @@ public class GeneradorMapa {
 	private Punto posicionar(int alto, int ancho)
 	{
 		Punto pos = null;
-		if (y+alto<yMax && x+ancho<Posicion.getXmax() && !ocupados(x, ancho))
-		{
-			try {
-				char aux ='.';
-				int xAux =x;
-				for(int i=xAux; i<xAux+ancho||aux=='/'; i++)
-				{			
-					for(int j=y; j<y+alto; j++)
-						ocupados.add(i,j);
-					aux = (char) arch.read();
-					x++;
-				}
-				pos = new Punto (x-ancho/2, y+alto/2); 
-			} catch (IOException e) {
-				return null;
-			}	
+		if (y+alto<yMax && x+ancho<Posicion.getXmax() && !ocupados(x, ancho)) {
+			char aux ='.';
+			int xAux =x;
+			for(int i=xAux; i<xAux+ancho||aux=='/'; i++) {
+				ocuparColumna(i, alto);
+				aux = avanzarASiguienteColumna();
+			}
+			pos = new Punto (x-ancho/2, y+alto/2); 
 		}
 		return pos;
+	}
+	
+	private void ocuparColumna(int i, int alto) {
+		for(int j=y; j<y+alto; j++)
+			ocupados.add(i,j);
+	}
+	
+	private char avanzarASiguienteColumna() {
+		x++;
+		char aux ='.';
+		try {
+			aux = (char) arch.read();
+		}  catch (IOException e) {
+			return '/';
+		}	
+		return aux;
 	}
 	
 	private boolean ocupados(int pos, int ancho)
 	{
 		boolean estaOcupado = false;
 		for(int i = pos; i<pos+ancho && !estaOcupado; i++)
-		{
-			if (ocupados.estaOcupado(i,y))
-				estaOcupado = true;
-		}
+			estaOcupado = ocupados.estaOcupado(i,y);
 		return estaOcupado;
 	}
 	
-	public Collection<Entidad> getColeccion()
-	{
-		return coleccion;
+	public Collection<Entidad> getColeccion()	{
+		return coleccionEntidades;
 	}
 	
 	public int getCantidadEnemigos() {

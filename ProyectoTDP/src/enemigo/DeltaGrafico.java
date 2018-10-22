@@ -1,6 +1,7 @@
 package enemigo;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import entidad.EntidadGrafica;
 import entidad.Posicion;
@@ -15,5 +16,6 @@ public class DeltaGrafico extends EntidadGrafica {
 		image[2] = new ImageIcon(this.getClass().getResource("/Graficos/Delta.png"));
 		image[3] = new ImageIcon(this.getClass().getResource("/Graficos/Delta.png"));
 		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/DeltaAtaque.gif"));
+
 	}
 }

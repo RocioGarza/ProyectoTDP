@@ -10,39 +10,38 @@ import entidad.Entidad;
 import entidad.Posicion;
 import jugador.Jugador;
 
-public class Mapa implements MapaPublico{
+public class Mapa implements Entorno{
 	
-	private Collection<Entidad> coleccion;
-	private  MapaGrafico mGraf;
+	private  Collection<Entidad> coleccion;
+	private   MapaGrafico mGraf;
 	private Jugador jugador;
-	private static int contadorEnemigos;
+	private static  int contadorEnemigos;
 	private int puntaje;
 	private static Collection<Entidad> entidadesAAgregar;
 	
+	//Si n es un nivel valido lo usa, si n es 0 usa el ultimo nivel random generado, si n es otro nro crea un nuevo nivel random
 	public Mapa (Jugador j,int n){
 		File nivel;
-		String dir = this.getClass()+"nivel" + n + ".txt"; 
+		String dir = "nivel" + n + ".txt"; 
         nivel = new File(dir); 
-        if(! nivel.exists()) { //Si el nivel no existe genera un nivel random
+        
+        if( ! nivel.exists()) { 
         	GeneradorDeNiveles gen = new GeneradorDeNiveles();
-        	nivel= gen.getNivel();
+        	dir ="nivel0.txt";
+        	nivel = gen.getNivel();
         }
         
-        String archivo ="nivel"+n+".txt";
-        
-        GeneradorMapa gen = new GeneradorMapa(archivo);
-        coleccion = gen.getColeccion();
-        
-        contadorEnemigos = gen.getCantidadEnemigos();
-        
+        GeneradorMapa gen = new GeneradorMapa(dir);
         jugador = j; 
-        coleccion.add(jugador);
-        
         puntaje = 0;
+        
+        coleccion = gen.getColeccion();
+        contadorEnemigos = gen.getCantidadEnemigos();
+        coleccion.add(jugador);
         
         mGraf = new MapaGrafico(coleccion);
         
-        entidadesAAgregar = new LinkedList<Entidad>();
+        entidadesAAgregar = new LinkedList<Entidad>();    
 	}	
 	
 	public MapaGrafico getMapaGrafico() {
@@ -51,7 +50,7 @@ public class Mapa implements MapaPublico{
 	
 	public JPanel getGrafico(){
 		return mGraf.getGrafica();
-	}
+	} //este metodo es un asco
 	
 	public Jugador getJugador() {
 		return jugador;
@@ -85,20 +84,20 @@ public class Mapa implements MapaPublico{
 				|| perteneceAlCuadrado(posicion1.getX() + posicion1.getAncho(),posicion1.getY(),posicion2)
 				|| perteneceAlCuadrado(posicion1.getX(),posicion1.getY() + posicion1.getAlto(),posicion2)
 				|| perteneceAlCuadrado(posicion1.getX() + posicion1.getAncho(),posicion1.getY() + posicion1.getAlto(),posicion2);
-	}
+	} //este metodo no ceberia estar aca
 	
 	private boolean perteneceAlCuadrado(int X, int Y, Posicion posicion) {
 		return (X>= posicion.getX() 
 				&& X<=posicion.getX()+posicion.getAncho()) 
 				&& (Y>= posicion.getY() 
 				&& Y<=posicion.getY()+posicion.getAlto() );
-	}
+	} //ni este
 	
 	public int getPuntaje() {
 		return puntaje;
 	}
 	
-	public boolean termine() {
+	public boolean termine() {		
 		return !jugador.estaViva() || contadorEnemigos==0;
 	}
 
