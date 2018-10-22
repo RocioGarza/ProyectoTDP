@@ -3,7 +3,6 @@ package colisionador;
 import enemigo.Alpha;
 import enemigo.Beta;
 import enemigo.Delta;
-import enemigo.Enemigo;
 import enemigo.Gamma;
 import enemigo.Iota;
 import jugador.Jugador;
@@ -18,17 +17,12 @@ import premio.MasAtaques;
 import premio.MejoraAtaque;
 import premio.OndaExpansiva;
 import premio.Pocion;
-import premio.Premio;
 import proyectil.ProyectilEnemigo;
 import proyectil.ProyectilJugador;
 
 public class ColisionadorPremio extends Colisionador{
 	
-	Premio premio;
-	
-	public ColisionadorPremio(Premio p) {
-		p=premio;
-	}
+	public ColisionadorPremio() {}
 	
 	public void serChocado(Alpha e) {}
 

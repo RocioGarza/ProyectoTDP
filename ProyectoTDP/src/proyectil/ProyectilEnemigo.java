@@ -10,7 +10,7 @@ public class ProyectilEnemigo extends Proyectil{
 	private ProyectilEnemigoGrafico grafico;
 	
 	public ProyectilEnemigo(int X, int Y, int VM, int daño) {
-		super(X,Y,VM,daño);
+		super(X,Y,22,15,VM,daño);
 		vida=1;
 		grafico = new ProyectilEnemigoGrafico(pos);
 		colisionador = new ColisionadorProyectilEnemigo(this);

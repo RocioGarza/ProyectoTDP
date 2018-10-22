@@ -82,7 +82,7 @@ public class Posicion {
 		}
 	}
 	
-		public void moverY(int cantY) {
+	public void moverY(int cantY) {
 		boolean termine=false;
 		int i=0;
 		int aux;

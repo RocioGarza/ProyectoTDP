@@ -4,14 +4,14 @@ import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
 import entidad.Posicion;
 
-public class ProyectilJugadorLaser extends ProyectilJugador{
-
-	private ProyectilJugadorLaserGrafico grafico;
-
-	public ProyectilJugadorLaser(int X, int Y, int VM, int daño) {
-		super(X,Y,32,8,VM,daño);
+public class ProyectilJugadorMulti extends ProyectilJugador{
+	
+	private ProyectilJugadorMultiGrafico grafico;
+	
+	public ProyectilJugadorMulti(int X, int Y, int VM, int daño) {
+		super(X,Y,24,8,VM,daño);
 		vida=1;
-		grafico = new ProyectilJugadorLaserGrafico(pos);
+		grafico = new ProyectilJugadorMultiGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);
 	}
 
@@ -30,5 +30,4 @@ public class ProyectilJugadorLaser extends ProyectilJugador{
 	}
 
 	public void morir() {}
-
 }

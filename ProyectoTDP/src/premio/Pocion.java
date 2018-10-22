@@ -21,7 +21,7 @@ public class Pocion extends ObjetoPrecioso{
 	public void mover() {
 		pos.moverY(velocidadDeMovimiento);
 		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
-			vida=0;
+			vida--;
 	}
 	
 	public void chocar(Entidad e) {

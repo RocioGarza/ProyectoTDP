@@ -6,18 +6,10 @@ public abstract class Proyectil extends Entidad {
 
 	protected int daño;
 	
-	public Proyectil(int X, int Y, int daño, int VM) {
-		super(X,Y,getAlto(), getAncho());
+	public Proyectil(int X, int Y, int alto, int ancho, int daño, int VM) {
+		super(X,Y, alto, ancho);
 		velocidadDeMovimiento = VM;
 		this.daño=daño;
-	}
-	
-	public static int getAncho() {
-		return 16;
-	}
-	
-	public static int getAlto() {
-		return 25;
 	}
 	
 	public int getDaño() {

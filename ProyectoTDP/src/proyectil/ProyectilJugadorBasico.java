@@ -4,14 +4,14 @@ import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
 import entidad.Posicion;
 
-public class ProyectilJugadorLaser extends ProyectilJugador{
+public class ProyectilJugadorBasico extends ProyectilJugador{
+	
+	private ProyectilJugadorGrafico grafico;
 
-	private ProyectilJugadorLaserGrafico grafico;
-
-	public ProyectilJugadorLaser(int X, int Y, int VM, int daño) {
-		super(X,Y,32,8,VM,daño);
+	public ProyectilJugadorBasico(int X, int Y, int VM, int daño) {
+		super(X,Y,25,16,VM,daño);
 		vida=1;
-		grafico = new ProyectilJugadorLaserGrafico(pos);
+		grafico = new ProyectilJugadorGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);
 	}
 
@@ -28,7 +28,7 @@ public class ProyectilJugadorLaser extends ProyectilJugador{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
-
+	
 	public void morir() {}
 
 }
