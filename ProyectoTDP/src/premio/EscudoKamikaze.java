@@ -1,5 +1,6 @@
 package premio;
 
+import colisionador.ColisionadorEscudoKamikaze;
 import entidad.Entidad;
 import entidad.Posicion;
 
@@ -9,7 +10,9 @@ public class EscudoKamikaze extends ObjetoPrecioso{
 	
 	public EscudoKamikaze(int X, int Y) {
 		super(X, Y, 59, 66);
+		puntaje = 10;
 		grafico = new EscudoKamikazeGrafico(pos);
+		colisionador = new ColisionadorEscudoKamikaze();
 	}
 
 	@Override
@@ -18,9 +21,10 @@ public class EscudoKamikaze extends ObjetoPrecioso{
 	}
 	
 	public void mover() {
-		pos.moverY(velocidadDeMovimiento);
-		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
+		if(pos.getY()+pos.getAlto() >= Posicion.getYmax()-100)
 			vida--;
+		else
+			pos.moverY(velocidadDeMovimiento);
 	}
 	
 	public void chocar(Entidad e) {

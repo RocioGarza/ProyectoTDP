@@ -6,8 +6,8 @@ public class Posicion {
 	private int Y;
 	private int alto;
 	private int ancho;
-	private static final int Xmax = 1280;
-	private static final int Ymax = 750;
+	private static final int Xmax = 1440;
+	private static final int Ymax = 900;
 
 	
 	public Posicion(int X, int Y, int alto, int ancho) {
@@ -55,59 +55,23 @@ public class Posicion {
 	}
 	
 	public void moverX(int cantX) {
-		boolean termine=false;
-		int i=0;
-		int aux;
-		
-		if(cantX>0)
-			aux=1;
-		else {
-			aux=-1;
-			cantX=-cantX;
-		}
-		while(i<cantX && !termine) {
-			if (X+ancho+aux > Xmax) {
-				X = Xmax-ancho;
-				termine = true;
-			}
-			else {
-				if (X+aux < 0) {
-					X = 0;
-					termine=true;
-				}
-				else
-					X = X + aux;
-			}
-			i++;
-		}
+		if (X+ancho+cantX > Xmax) 
+			X = Xmax-ancho;
+		else
+			if (X+cantX < 0) 
+				X = 0;
+			else
+				X = X + cantX;
 	}
 	
 	public void moverY(int cantY) {
-		boolean termine=false;
-		int i=0;
-		int aux;
-		
-		if(cantY>0)
-			aux=1;
-		else {
-			aux=-1;
-			cantY=-cantY;
-		}
-		while(i<cantY && !termine) {
-			if (Y+alto+aux > Xmax) {
-				Y = Ymax-alto;
-				termine = true;
-			}
-			else {
-				if (Y+aux < 0) {
-					Y = 0;
-					termine=true;
-				}
-				else
-					Y = Y + aux;
-			}
-			i++;
-		}
+		if (Y+alto+cantY > Ymax) 
+			Y = Ymax-alto;
+		else
+			if (Y+cantY < 0) 
+				Y = 0;
+			else
+				Y = Y + cantY;
 	}
 		
 	public void setX(int x) {

@@ -8,8 +8,8 @@ public class ProyectilJugadorBasico extends ProyectilJugador{
 	
 	private ProyectilJugadorGrafico grafico;
 
-	public ProyectilJugadorBasico(int X, int Y, int VM, int daño) {
-		super(X,Y,25,16,VM,daño);
+	public ProyectilJugadorBasico(int X, int Y, int daño, int VM) {
+		super(X,Y,25,16,daño,VM);
 		vida=1;
 		grafico = new ProyectilJugadorGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);

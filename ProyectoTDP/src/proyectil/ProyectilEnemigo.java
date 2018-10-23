@@ -9,9 +9,10 @@ public class ProyectilEnemigo extends Proyectil{
 	
 	private ProyectilEnemigoGrafico grafico;
 	
-	public ProyectilEnemigo(int X, int Y, int VM, int daño) {
-		super(X,Y,22,15,VM,daño);
+	public ProyectilEnemigo(int X, int Y, int daño, int VM) {
+		super(X,Y,22,15,daño,VM);
 		vida=1;
+		
 		grafico = new ProyectilEnemigoGrafico(pos);
 		colisionador = new ColisionadorProyectilEnemigo(this);
 	}
@@ -22,7 +23,7 @@ public class ProyectilEnemigo extends Proyectil{
 	
 	public void mover() {
 		pos.moverY(velocidadDeMovimiento);
-		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
+		if(pos.getY() == 0 || pos.getY()+pos.getAlto() == Posicion.getYmax())
 			vida=0;
 	}
 	

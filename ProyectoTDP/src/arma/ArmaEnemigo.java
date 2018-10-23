@@ -1,7 +1,7 @@
 package arma;
 
 import entidad.Posicion;
-import logica.Mapa;
+import logica.Entorno;
 import proyectil.ProyectilEnemigo;
 
 public class ArmaEnemigo extends Arma {
@@ -11,6 +11,6 @@ public class ArmaEnemigo extends Arma {
 	}
 	
 	public void disparar(int daño, int velocidad) {
-		Mapa.agregarEntidad(new ProyectilEnemigo(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, daño, velocidad));
+		Entorno.getEntorno().agregarEntidad(new ProyectilEnemigo(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, daño, velocidad));
 	}
 }

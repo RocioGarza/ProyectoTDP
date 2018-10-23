@@ -23,5 +23,9 @@ public abstract class Enemigo extends Personaje {
 		return inteligencia;
 	}
 	
+	public void setInteligencia(Inteligencia i) {
+		inteligencia = i;
+	}
+	
 	public abstract void atacar();
 }

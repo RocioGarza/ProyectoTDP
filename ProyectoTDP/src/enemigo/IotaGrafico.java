@@ -12,7 +12,7 @@ public class IotaGrafico extends EntidadGrafica {
 		super(pos);
 		
 		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
-		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
+		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/EnemigoArmadoCongelado.png"));
 		image[2] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[3] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/IotaAtaque.gif"));

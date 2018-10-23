@@ -3,7 +3,7 @@ package arma;
 import javax.swing.ImageIcon;
 
 import entidad.Posicion;
-import logica.Mapa;
+import logica.Entorno;
 import proyectil.ProyectilJugadorMulti;
 
 public class ArmaJugadorMultiDisparo extends ArmaJugador {
@@ -14,11 +14,11 @@ public class ArmaJugadorMultiDisparo extends ArmaJugador {
 	}
 	
 	public void disparar(int daño, int velocidad) {
-		if(System.currentTimeMillis()-enfriamientoDisparo>(velocidad*75)) {
+		if(System.currentTimeMillis()-enfriamientoDisparo>(250-velocidad)) {
 			enfriamientoDisparo=System.currentTimeMillis();
-			Mapa.agregarEntidad(new ProyectilJugadorMulti(posDisparo.getX()+(posDisparo.getAncho()/6), posDisparo.getY()-posDisparo.getAlto()/4, (1+daño/2), velocidad));
-			Mapa.agregarEntidad(new ProyectilJugadorMulti(posDisparo.getX()+(5*posDisparo.getAncho()/6), posDisparo.getY()-posDisparo.getAlto()/4, (1+daño/2), velocidad));
-			Mapa.agregarEntidad(new ProyectilJugadorMulti(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, (1+daño/2), velocidad));
+			Entorno.getEntorno().agregarEntidad(new ProyectilJugadorMulti(posDisparo.getX()+(posDisparo.getAncho()/6)-8, posDisparo.getY()-posDisparo.getAlto()/4, (1+daño/2), velocidad));
+			Entorno.getEntorno().agregarEntidad(new ProyectilJugadorMulti(posDisparo.getX()+(5*posDisparo.getAncho()/6)-8, posDisparo.getY()-posDisparo.getAlto()/4, (1+daño/2), velocidad));
+			Entorno.getEntorno().agregarEntidad(new ProyectilJugadorMulti(posDisparo.getX()+(posDisparo.getAncho()/2)-8, posDisparo.getY()-posDisparo.getAlto()/8, (1+daño/2), velocidad));
 		}
 	}
 

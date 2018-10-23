@@ -30,7 +30,6 @@ public class HUD extends Thread{
 		componentes = new LinkedList<JLabel>();
 		
 		puntajeIcono = new ImageIcon(this.getClass().getResource("/Graficos/moneda.png"));
-		//vidaIcono = new ImageIcon(this.getClass().getResource("/Graficos/vida.png"));
 		
 		puntajeGrafico = new JLabel(puntajeIcono);
 		puntaje = new JLabel();
@@ -72,10 +71,12 @@ public class HUD extends Thread{
 					else
 						if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()<=75)
 							vida.setBackground(Color.YELLOW);
+						else
+							if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()>75)
+								vida.setBackground(Color.GREEN);
 						
 			vida.setBounds(Posicion.getXmax()-325, 25, ((mapa.getJugador().getVida()*200)/mapa.getJugador().getVidaMaxima()), 25);
 			puntaje.setText("" + mapa.getPuntaje());
-			
 			arma.setIcon(mapa.getJugador().getArma().getIcono());
 		}
 	}

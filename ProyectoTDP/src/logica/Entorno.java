@@ -2,9 +2,17 @@ package logica;
 
 import entidad.Entidad;
 
-public interface Entorno {
+public abstract class Entorno {
 
-	public static void agregarEntidad(Entidad e) {}
+	protected static Entorno entorno;
 	
-	public static void reducirEnemigos() {}
+	public static Entorno getEntorno() {
+		return entorno;
+	}
+	
+	public abstract void  agregarEntidad(Entidad e);
+	
+	public abstract void reducirEnemigos();
+	
+	public abstract void afectar(Entidad e);
 }

@@ -45,6 +45,22 @@ public class AdministradorDeMovimiento extends Thread{
 				e.printStackTrace();
 			}
 		}
+		
+		long temp = System.currentTimeMillis();
+		
+		while(System.currentTimeMillis()-temp<5000) {
+			mover();
+			moverJugador();
+			controlarColisiones();
+			mapa.agregarEntidadesPendientes();
+			refresh();
+			try {
+				Thread.sleep(8);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		System.out.println("termino el juego");
 		try {
 			Thread.sleep(1000);
@@ -52,6 +68,7 @@ public class AdministradorDeMovimiento extends Thread{
 			e.printStackTrace();
 		}
 		
+		System.exit(0);
 	}
 	
 	private void mover() {
@@ -118,7 +135,6 @@ public class AdministradorDeMovimiento extends Thread{
 		
 		public void keyPressed(KeyEvent key) {
 			if(key.getKeyChar() == 'a') {
-				j.mover('a');
 				mapeoInputs.put("Movimiento", 'a');
 			}
 			else

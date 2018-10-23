@@ -11,11 +11,11 @@ import obstaculo.Pared;
 import obstaculo.ParedJugador;
 import obstaculo.Portal;
 import obstaculo.Rebote;
+import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
-import premio.OndaExpansiva;
 import premio.Pocion;
 import proyectil.ProyectilEnemigo;
 import proyectil.ProyectilJugador;
@@ -52,7 +52,7 @@ public abstract class Colisionador {
 
 	public abstract void serChocado(MejoraAtaque e);
 
-	public abstract void serChocado(OndaExpansiva e);
+	public abstract void serChocado(Cohete e);
 
 	public abstract void serChocado(Pocion e);
 	

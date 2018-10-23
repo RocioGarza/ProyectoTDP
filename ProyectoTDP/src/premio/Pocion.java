@@ -1,6 +1,7 @@
 package premio;
 
 
+import colisionador.ColisionadorPocion;
 import entidad.Entidad;
 import entidad.Posicion;
 
@@ -11,7 +12,9 @@ public class Pocion extends ObjetoPrecioso{
 	
 	public Pocion(int X, int Y) {
 		super(X, Y, 59, 66);
+		puntaje = 10;
 		grafico = new PocionGrafica(pos);
+		colisionador=new ColisionadorPocion();
 	}
 
 	public PocionGrafica getGrafico() {
@@ -19,9 +22,10 @@ public class Pocion extends ObjetoPrecioso{
 	}
 	
 	public void mover() {
-		pos.moverY(velocidadDeMovimiento);
-		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
+		if(pos.getY()+pos.getAlto() >= Posicion.getYmax()-100)
 			vida--;
+		else
+			pos.moverY(velocidadDeMovimiento);
 	}
 	
 	public void chocar(Entidad e) {

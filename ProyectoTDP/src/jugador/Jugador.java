@@ -6,6 +6,8 @@ import java.util.Queue;
 import arma.ArmaJugador;
 import arma.ArmaJugadorBasicaLaser;
 import arma.ArmaJugadorBasicaProyectil;
+import arma.ArmaJugadorCohete;
+import arma.ArmaJugadorMultiDisparo;
 import colisionador.ColisionadorJugador;
 import entidad.Entidad;
 import entidad.Personaje;
@@ -41,6 +43,10 @@ public class Jugador extends Personaje{
 	
 	public static int getAncho() {
 		return 188;
+	}
+	
+	public int getDaño() {
+		return dañoAtaque;
 	}
 	
 	public void setEscudo(char c) {
@@ -87,6 +93,10 @@ public class Jugador extends Personaje{
 
 	public ArmaJugador getArma() {
 		return arma;
+	}
+	
+	public void agregarArma(ArmaJugador a) {
+		armasJugador.add(a);
 	}
 	
 	public void chocar(Entidad e) {

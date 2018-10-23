@@ -1,4 +1,4 @@
-/*package gui;
+package gui;
 
 
 import jugador.Jugador;
@@ -92,4 +92,3 @@ public class AdministradorMovimientoJugador extends Thread{
 		public void keyTyped(KeyEvent key) { }		
 	}
 }
-*/

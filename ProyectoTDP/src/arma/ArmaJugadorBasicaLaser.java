@@ -3,8 +3,7 @@ package arma;
 import javax.swing.ImageIcon;
 
 import entidad.Posicion;
-import logica.Mapa;
-import proyectil.Proyectil;
+import logica.Entorno;
 import proyectil.ProyectilJugadorLaser;
 
 public class ArmaJugadorBasicaLaser extends ArmaJugador{
@@ -18,7 +17,7 @@ public class ArmaJugadorBasicaLaser extends ArmaJugador{
 	public void disparar(int daño, int velocidad) {
 		if(System.currentTimeMillis()-enfriamientoDisparo>8) {
 			enfriamientoDisparo=System.currentTimeMillis();
-			Mapa.agregarEntidad(new ProyectilJugadorLaser(posDisparo.getX()+(posDisparo.getAncho()/2), posDisparo.getY()-posDisparo.getAlto()/8, (1 + daño/10), velocidad));
+			Entorno.getEntorno().agregarEntidad(new ProyectilJugadorLaser(posDisparo.getX()+(posDisparo.getAncho()/2)-8, posDisparo.getY()-posDisparo.getAlto()/8-23, (1 + daño/10), velocidad));
 		}
 	}
 

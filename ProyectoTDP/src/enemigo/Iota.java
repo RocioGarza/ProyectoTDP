@@ -5,12 +5,13 @@ import java.util.Random;
 import arma.ArmaEnemigo;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
+import logica.Entorno;
 import logica.Mapa;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
-import premio.OndaExpansiva;
+import premio.Cohete;
 import premio.Pocion;
 import proyectil.Proyectil;
 
@@ -61,23 +62,23 @@ public class Iota extends EnemigoArmado{
 		Random r = new Random();
 		int aux = r.nextInt(100);
 		if(aux<2)
-			Mapa.agregarEntidad(new CongelarEnemigos((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
+			Entorno.getEntorno().agregarEntidad(new CongelarEnemigos((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 		else
 			if(aux<4)
-				Mapa.agregarEntidad(new EscudoKamikaze((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
+				Entorno.getEntorno().agregarEntidad(new EscudoKamikaze((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 			else
 				if(aux<8)
-					Mapa.agregarEntidad(new MejoraAtaque((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
+					Entorno.getEntorno().agregarEntidad(new MejoraAtaque((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 				else
 					if(aux<10)
-						Mapa.agregarEntidad(new MasAtaques((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
+						Entorno.getEntorno().agregarEntidad(new MasAtaques((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 					else
 						if(aux<12)
-							Mapa.agregarEntidad(new OndaExpansiva((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
+							Entorno.getEntorno().agregarEntidad(new Cohete((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 						else
 							if(aux<18)
-								Mapa.agregarEntidad(new Pocion((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
+								Entorno.getEntorno().agregarEntidad(new Pocion((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 		
-		Mapa.reducirEnemigos();
+		Entorno.getEntorno().reducirEnemigos();
 	}
 }

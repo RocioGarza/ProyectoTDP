@@ -1,5 +1,6 @@
 package premio;
 
+import colisionador.ColisionadorCongelarEnemigos;
 import entidad.Entidad;
 import entidad.Posicion;
 
@@ -10,7 +11,9 @@ public class CongelarEnemigos extends MagiaTemporal{
 	
 	public CongelarEnemigos(int X, int Y) {
 		super(X, Y, 59, 66);
+		puntaje = 10;
 		grafico = new CongelarEnemigosGrafico(pos);
+		colisionador = new ColisionadorCongelarEnemigos();
 	}
 
 	@Override
@@ -19,9 +22,10 @@ public class CongelarEnemigos extends MagiaTemporal{
 	}
 	
 	public void mover() {
-		pos.moverY(velocidadDeMovimiento);
-		if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
+		if(pos.getY()+pos.getAlto() >= Posicion.getYmax()-100)
 			vida--;
+		else
+			pos.moverY(velocidadDeMovimiento);
 	}
 	
 	public void chocar(Entidad e) {

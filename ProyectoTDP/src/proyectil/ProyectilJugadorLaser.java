@@ -8,8 +8,8 @@ public class ProyectilJugadorLaser extends ProyectilJugador{
 
 	private ProyectilJugadorLaserGrafico grafico;
 
-	public ProyectilJugadorLaser(int X, int Y, int VM, int daño) {
-		super(X,Y,32,8,VM,daño);
+	public ProyectilJugadorLaser(int X, int Y, int daño, int VM) {
+		super(X,Y,32,8,daño,VM);
 		vida=1;
 		grafico = new ProyectilJugadorLaserGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);

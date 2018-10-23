@@ -10,14 +10,14 @@ import entidad.Entidad;
 import entidad.Posicion;
 import jugador.Jugador;
 
-public class Mapa implements Entorno{
+public class Mapa extends Entorno{
 	
-	private  Collection<Entidad> coleccion;
-	private   MapaGrafico mGraf;
+	private Collection<Entidad> coleccion;
+	private MapaGrafico mGraf;
 	private Jugador jugador;
-	private static  int contadorEnemigos;
+	private int contadorEnemigos;
 	private int puntaje;
-	private static Collection<Entidad> entidadesAAgregar;
+	private Collection<Entidad> entidadesAAgregar;
 	
 	//Si n es un nivel valido lo usa, si n es 0 usa el ultimo nivel random generado, si n es otro nro crea un nuevo nivel random
 	public Mapa (Jugador j,int n){
@@ -40,6 +40,8 @@ public class Mapa implements Entorno{
         coleccion.add(jugador);
         
         mGraf = new MapaGrafico(coleccion);
+        
+        entorno = this;
         
         entidadesAAgregar = new LinkedList<Entidad>();    
 	}	
@@ -117,11 +119,17 @@ public class Mapa implements Entorno{
 		entidadesAAgregar.clear();
 	}
 	
-	public static void reducirEnemigos() {
+	public void reducirEnemigos() {
 		contadorEnemigos--;
 	}
 	
-	public static void agregarEntidad(Entidad e) {
+	public void agregarEntidad(Entidad e) {
 		entidadesAAgregar.add(e);
+	}
+	
+	public void afectar(Entidad e) {
+		for(Entidad ent: coleccion) {
+			ent.chocar(e);
+		}
 	}
 }
