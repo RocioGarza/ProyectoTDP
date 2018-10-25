@@ -14,6 +14,7 @@ import entidad.Personaje;
 import escudo.Escudo;
 import escudo.EscudoAntiKamikaze;
 import escudo.EscudoNormal;
+import escudo.EscudoDisparos;
 
 public class Jugador extends Personaje{
 
@@ -49,13 +50,21 @@ public class Jugador extends Personaje{
 		return dañoAtaque;
 	}
 	
+	public Escudo getEscudo() {
+		return escudo;
+	}
+	
 	public void setEscudo(char c) {
 		//Requisito: c debe ser un caracter valido asociado a un escudo
 		if (c=='n') 
 			escudo = new EscudoNormal();
-		else
-			if (c=='k')
-				escudo = new EscudoAntiKamikaze();
+		if (c=='k') {
+			escudo = new EscudoAntiKamikaze();
+			System.out.println("se creo un escudo antikamikaze");
+		}
+			
+		if (c == 't')
+			escudo = new EscudoDisparos();
 	}
 	
 	public void morir() {
@@ -79,6 +88,7 @@ public class Jugador extends Personaje{
 	
 	public void cambiarArma() {
 		armasJugador.add(arma);
+		
 		arma = armasJugador.poll();
 	}
 	

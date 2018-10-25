@@ -7,8 +7,9 @@ import jugador.Jugador;
 public class ColisionadorEscudoKamikaze extends ColisionadorPremio{
 
 	public void serChocado(Jugador e) {
+		e.setEscudo('k');
 		Random r = new Random();
-		int a = r.nextInt(5);
+		int a = r.nextInt(4);
 		if(a==0)
 			System.out.println("Y ahora quien podra salvarnos? Definitivamente no el Escudo Anti Kamikazes");
 		else

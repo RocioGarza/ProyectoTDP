@@ -11,7 +11,8 @@ public class ColisionadorProyectilEnemigo extends ColisionadorProyectil{
 	}
 	
 	public void serChocado(Jugador e) {
-		e.quitarVida(proyectil.getDaño());
+		int n = e.getEscudo().recibirDaño(proyectil); // el escudo determina si absorber el impacto o pasarlo al jugador
+		e.quitarVida(n);
 	}
 	
 	public void serChocado(Pared e) {

@@ -40,7 +40,8 @@ public class ColisionadorEnemigos extends Colisionador {
 	public void serChocado(Iota e) {}
 
 	public void serChocado(Jugador e) {
-		e.quitarVida(enemigo.getDaño());
+		int n = e.getEscudo().recibirDaño(enemigo); // el escudo determina si absorber el impacto o pasarlo al jugador
+		e.quitarVida(n);
 	}
 
 	public void serChocado(Irrompible e) {}

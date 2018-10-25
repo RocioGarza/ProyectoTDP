@@ -1,13 +1,13 @@
 package escudo;
 
 import enemigo.Enemigo;
-import proyectil.ProyectilEnemigo;
+import proyectil.Proyectil;
 
 public abstract class Escudo {
 	
 	protected int duracion;
 
-	public int recibirDaño(ProyectilEnemigo e) {
+	public int recibirDaño(Proyectil e) {
 		return e.getDaño();
 	}
 	
