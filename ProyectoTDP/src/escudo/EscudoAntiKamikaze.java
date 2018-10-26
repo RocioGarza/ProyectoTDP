@@ -10,8 +10,7 @@ public class EscudoAntiKamikaze extends Escudo{
 	}
 
 	public int recibirDaño(Enemigo e) {
-		if(duracion >= 1) {
-			System.out.println("Duracion: "+duracion);
+		if(duracion == 1) {
 			duracion--;
 			return 0;	
 		}else
@@ -19,6 +18,6 @@ public class EscudoAntiKamikaze extends Escudo{
 	}
 	
 	public int recibirDaño(Proyectil e) {
-		return 0;
+		return e.getDaño();
 	}
 }

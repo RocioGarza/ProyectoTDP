@@ -3,11 +3,12 @@ package colisionador;
 import java.util.Random;
 
 import jugador.Jugador;
+import escudo.*;
 
 public class ColisionadorEscudoKamikaze extends ColisionadorPremio{
 
 	public void serChocado(Jugador e) {
-		e.setEscudo('k');
+		e.setEscudo(new EscudoAntiKamikaze());
 		Random r = new Random();
 		int a = r.nextInt(4);
 		if(a==0)

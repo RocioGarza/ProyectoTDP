@@ -54,17 +54,9 @@ public class Jugador extends Personaje{
 		return escudo;
 	}
 	
-	public void setEscudo(char c) {
+	public void setEscudo(Escudo e) {
 		//Requisito: c debe ser un caracter valido asociado a un escudo
-		if (c=='n') 
-			escudo = new EscudoNormal();
-		if (c=='k') {
-			escudo = new EscudoAntiKamikaze();
-			System.out.println("se creo un escudo antikamikaze");
-		}
-			
-		if (c == 't')
-			escudo = new EscudoDisparos();
+		escudo = e;
 	}
 	
 	public void morir() {
