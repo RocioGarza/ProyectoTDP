@@ -11,7 +11,7 @@ public class ArmaJugadorADN extends ArmaJugador {
 
 	public ArmaJugadorADN(Posicion p) {
 		super(p);
-		icono = new ImageIcon(this.getClass().getResource("/Graficos/ArmaBasicaProyectil.png"));
+		icono = new ImageIcon(this.getClass().getResource("/Graficos/ArmaADN.png"));
 	}
 	
 	public void disparar(int daño, int velocidad) {

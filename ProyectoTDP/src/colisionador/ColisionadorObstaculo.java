@@ -17,6 +17,7 @@ import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
 import premio.Pocion;
+import proyectil.BuscadorObjetivo;
 import proyectil.ProyectilEnemigo;
 import proyectil.ProyectilJugador;
 
@@ -73,4 +74,6 @@ public class ColisionadorObstaculo extends Colisionador{
 	public void serChocado(ProyectilEnemigo e) {
 		e.quitarVida(e.getVidaMaxima());
 	}
+	
+	public void serChocado(BuscadorObjetivo e) {}
 }

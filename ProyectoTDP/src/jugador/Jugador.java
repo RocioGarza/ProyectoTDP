@@ -5,6 +5,7 @@ import java.util.Queue;
 
 import arma.ArmaJugador;
 import arma.ArmaJugadorADN;
+import arma.ArmaJugadorArcoiris;
 import arma.ArmaJugadorBasicaLaser;
 import arma.ArmaJugadorBasicaProyectil;
 import arma.ArmaJugadorCohete;
@@ -33,6 +34,7 @@ public class Jugador extends Personaje{
 		armasJugador.add(new ArmaJugadorBasicaLaser(pos));
 		armasJugador.add(new ArmaJugadorCohete(pos));
 		armasJugador.add(new ArmaJugadorADN(pos));
+		armasJugador.add(new ArmaJugadorArcoiris(pos));
 		arma = new ArmaJugadorBasicaProyectil(pos);
 		escudo = new EscudoNormal();
 		grafico = new JugadorGrafico(pos);	

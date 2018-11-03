@@ -2,6 +2,7 @@ package colisionador;
 
 import jugador.Jugador;
 import obstaculo.Pared;
+import proyectil.BuscadorObjetivo;
 import proyectil.Proyectil;
 
 public class ColisionadorProyectilEnemigo extends ColisionadorProyectil{
@@ -18,4 +19,6 @@ public class ColisionadorProyectilEnemigo extends ColisionadorProyectil{
 	public void serChocado(Pared e) {
 		e.quitarVida(proyectil.getDaño());
 	}
+	
+	public void serChocado(BuscadorObjetivo e) {}
 }

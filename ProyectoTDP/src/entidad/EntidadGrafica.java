@@ -12,9 +12,6 @@ public abstract class EntidadGrafica {
 	protected EntidadGrafica(Posicion posicion) {
 		pos= posicion;
 		this.image = new Icon[5];
-		for (Icon icono: image)
-			icono=null;
-		
 	}
 
 	public Posicion getPos() {

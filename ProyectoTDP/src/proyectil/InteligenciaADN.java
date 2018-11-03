@@ -28,7 +28,7 @@ public abstract class InteligenciaADN extends InteligenciaProyectil{
 		proyectil.getPosicion().moverY(-3);
 		if(vel>-6)
 			vel--;
-		if(proyectil.getPosicion().getX() <= (eje-amplitud)) {
+		if(proyectil.getPosicion().getX() <= (eje-amplitud) || proyectil.getPosicion().getX() <= 0 || proyectil.getPosicion().getX() >= Posicion.getXmax()) {
 			vel=0;
 			direccion=false;
 		}

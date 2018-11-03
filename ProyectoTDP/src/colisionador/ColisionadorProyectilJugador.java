@@ -7,6 +7,7 @@ import enemigo.Gamma;
 import enemigo.Iota;
 import obstaculo.Pared;
 import obstaculo.ParedJugador;
+import proyectil.BuscadorObjetivo;
 import proyectil.Proyectil;
 
 public class ColisionadorProyectilJugador extends ColisionadorProyectil{
@@ -42,4 +43,6 @@ public class ColisionadorProyectilJugador extends ColisionadorProyectil{
 	public void serChocado(ParedJugador e) {
 		e.quitarVida(proyectil.getDaño());
 	}
+	
+	public void serChocado(BuscadorObjetivo e) {}
 }

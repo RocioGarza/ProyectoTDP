@@ -15,4 +15,6 @@ public abstract class Entorno {
 	public abstract void reducirEnemigos();
 	
 	public abstract void afectar(Entidad e);
+	
+	public abstract void serAfectado(Entidad e);
 }

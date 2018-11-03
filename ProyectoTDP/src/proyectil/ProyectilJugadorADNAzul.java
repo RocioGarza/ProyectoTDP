@@ -9,7 +9,7 @@ public class ProyectilJugadorADNAzul extends ProyectilJugador{
 	private InteligenciaProyectil inteligencia;
 
 	public ProyectilJugadorADNAzul(int X, int Y, int daño, int VM) {
-		super(X,Y,25,16,daño,VM);
+		super(X,Y,16,16,daño,VM);
 		vida=1;
 		grafico = new ProyectilJugadorADNAzulGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);

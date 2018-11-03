@@ -17,6 +17,7 @@ import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
 import premio.Pocion;
+import proyectil.BuscadorObjetivo;
 import proyectil.ProyectilEnemigo;
 import proyectil.ProyectilJugador;
 
@@ -61,4 +62,6 @@ public class ColisionadorPremio extends Colisionador{
 	public void serChocado(ProyectilJugador e) {}
 	
 	public void serChocado(ProyectilEnemigo e) {}
+	
+	public void serChocado(BuscadorObjetivo e) {}
 }

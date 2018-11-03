@@ -132,4 +132,10 @@ public class Mapa extends Entorno{
 			ent.chocar(e);
 		}
 	}
+	
+	public void serAfectado(Entidad e) {
+		for(Entidad ent: coleccion) {
+			e.chocar(ent);
+		}
+	}
 }
