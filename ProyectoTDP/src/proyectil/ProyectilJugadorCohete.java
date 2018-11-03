@@ -9,14 +9,14 @@ public class ProyectilJugadorCohete extends ProyectilJugador{
 	private ProyectilJugadorGrafico grafico;
 	private long tiempoDisparo;
 	private long incrementarVel;
+	private InteligenciaProyectil inteligencia;
 	
 	public ProyectilJugadorCohete(int X, int Y, int daño) {
 		super(X,Y,64,24,daño*10,1);
 		vida=1;
 		grafico = new ProyectilJugadorCoheteGrafico(pos);
 		colisionador = new ColisionadorProyectilJugador(this);
-		tiempoDisparo = System.currentTimeMillis();
-		incrementarVel = -1000;
+		inteligencia = new InteligenciaCohete(this);
 	}
 
 	public ProyectilJugadorGrafico getGrafico() {
@@ -24,28 +24,7 @@ public class ProyectilJugadorCohete extends ProyectilJugador{
 	}
 	
 	public void mover() {
-		if(System.currentTimeMillis()-tiempoDisparo>250) {
-			pos.moverY(-velocidadDeMovimiento);
-			if(System.currentTimeMillis()-incrementarVel>500 && velocidadDeMovimiento<10) {
-				incrementarVel=System.currentTimeMillis();
-				velocidadDeMovimiento=velocidadDeMovimiento+(1+velocidadDeMovimiento/2);
-			}
-			
-			if(velocidadDeMovimiento>6)
-				grafico.changeIcon(' ');
-			else
-				if(velocidadDeMovimiento>4)
-					grafico.changeIcon('a');
-				else
-					if(velocidadDeMovimiento>2)
-						grafico.changeIcon('d');
-					else
-						if(velocidadDeMovimiento>0)
-							grafico.changeIcon('s');
-			
-			if(pos.getY()==0 || pos.getY()==Posicion.getYmax())
-				vida=0;
-		}
+		inteligencia.mover();
 	}
 	
 	public void chocar(Entidad e) {

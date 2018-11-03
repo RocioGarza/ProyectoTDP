@@ -46,21 +46,6 @@ public class AdministradorDeMovimiento extends Thread{
 			}
 		}
 		
-		long temp = System.currentTimeMillis();
-		
-		while(System.currentTimeMillis()-temp<5000) {
-			mover();
-			moverJugador();
-			controlarColisiones();
-			mapa.agregarEntidadesPendientes();
-			refresh();
-			try {
-				Thread.sleep(8);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
 		System.out.println("termino el juego");
 		try {
 			Thread.sleep(1000);

@@ -16,14 +16,14 @@ public class ColisionadorPortal extends ColisionadorObstaculo{
 	public void serChocado(ProyectilJugador e) {
 		int mov = r.nextInt(500)-250; 
 		e.getPosicion().moverX(mov);
-		mov = Math.abs(mov);
+		mov = -Math.abs(mov);
 		e.getPosicion().moverY(mov-100);
 	}
 	
 	public void serChocado(ProyectilEnemigo e) {
 		int mov = r.nextInt(500)-250; 
 		e.getPosicion().moverX(mov);
-		mov = Math.abs(mov);
+		mov = -Math.abs(mov);
 		e.getPosicion().moverY(mov-100);
 	}
 }

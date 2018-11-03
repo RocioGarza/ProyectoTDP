@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import arma.ArmaJugador;
+import arma.ArmaJugadorADN;
 import arma.ArmaJugadorBasicaLaser;
 import arma.ArmaJugadorBasicaProyectil;
 import arma.ArmaJugadorCohete;
@@ -12,9 +13,7 @@ import colisionador.ColisionadorJugador;
 import entidad.Entidad;
 import entidad.Personaje;
 import escudo.Escudo;
-import escudo.EscudoAntiKamikaze;
 import escudo.EscudoNormal;
-import escudo.EscudoDisparos;
 
 public class Jugador extends Personaje{
 
@@ -32,6 +31,8 @@ public class Jugador extends Personaje{
 		dañoAtaque = 5;
 		armasJugador = new LinkedList<ArmaJugador>();
 		armasJugador.add(new ArmaJugadorBasicaLaser(pos));
+		armasJugador.add(new ArmaJugadorCohete(pos));
+		armasJugador.add(new ArmaJugadorADN(pos));
 		arma = new ArmaJugadorBasicaProyectil(pos);
 		escudo = new EscudoNormal();
 		grafico = new JugadorGrafico(pos);	
