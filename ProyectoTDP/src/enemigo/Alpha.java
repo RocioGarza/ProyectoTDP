@@ -67,7 +67,7 @@ public class Alpha extends EnemigoKamikaze{
 		if(aux<2)
 			Entorno.getEntorno().agregarEntidad(new CongelarEnemigos((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 		else
-			if(aux<99)
+			if(aux<4)
 				Entorno.getEntorno().agregarEntidad(new EscudoKamikaze((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 			else
 				if(aux<8)
