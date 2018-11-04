@@ -5,6 +5,7 @@ import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
 import enemigo.Iota;
+import enemigo.Strelitzia;
 import jugador.Jugador;
 import obstaculo.Irrompible;
 import obstaculo.Pared;
@@ -42,6 +43,8 @@ public class ColisionadorObstaculo extends Colisionador{
 	public void serChocado(Iota e) {
 		e.getInteligencia().rebotar();
 	}
+	
+	public void serChocado(Strelitzia e) {}
 
 	public void serChocado(Jugador e) {}
 

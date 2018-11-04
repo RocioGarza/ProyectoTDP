@@ -5,6 +5,7 @@ import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
 import enemigo.Iota;
+import enemigo.Strelitzia;
 import jugador.Jugador;
 import obstaculo.Irrompible;
 import obstaculo.Pared;
@@ -32,6 +33,8 @@ public abstract class Colisionador {
 	public abstract void serChocado(Delta e);
 
 	public abstract void serChocado(Iota e);
+	
+	public abstract void serChocado(Strelitzia e);
 
 	public abstract void serChocado(Jugador e);
 

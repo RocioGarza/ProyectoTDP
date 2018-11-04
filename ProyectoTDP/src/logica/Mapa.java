@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
+import enemigo.Strelitzia;
 import entidad.Entidad;
 import entidad.Posicion;
 import jugador.Jugador;
@@ -34,11 +35,16 @@ public class Mapa extends Entorno{
         GeneradorMapa gen = new GeneradorMapa(dir);
         jugador = j; 
         puntaje = 0;
-        
+        /* Mapa normal
         coleccion = gen.getColeccion();
         contadorEnemigos = gen.getCantidadEnemigos();
         coleccion.add(jugador);
+        */
         
+        coleccion = new LinkedList<Entidad>();
+        coleccion.add(new Strelitzia(500,100));
+        contadorEnemigos = 1;
+        coleccion.add(jugador);
         mGraf = new MapaGrafico(coleccion);
         
         entorno = this;

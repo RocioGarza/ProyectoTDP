@@ -21,7 +21,7 @@ public class Alpha extends EnemigoKamikaze{
 	public Alpha (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
-		vidaMaxima = 10;
+		vidaMaxima = 100;
 		vida=vidaMaxima;
 		dañoAtaque = 25;
 		dañoImpacto = dañoAtaque*10;

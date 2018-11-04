@@ -23,9 +23,9 @@ public class Delta extends EnemigoArmado{
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
 		velocidadDeAtaque = 5;
-		vidaMaxima = 100;
+		vidaMaxima = 150;
 		vida=vidaMaxima;
-		dañoAtaque = 5;
+		dañoAtaque = 15;
 		arma = new ArmaEnemigo(pos);
 		inteligencia = new IA_Armado(this);
 		grafico = new DeltaGrafico(pos);

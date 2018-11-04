@@ -8,6 +8,7 @@ import enemigo.Gamma;
 import enemigo.IA_Nula;
 import enemigo.Inteligencia;
 import enemigo.Iota;
+import enemigo.Strelitzia;
 import entidad.Entidad;
 import jugador.Jugador;
 import obstaculo.Irrompible;
@@ -54,6 +55,11 @@ public class VisitorCongelador extends Colisionador{
 	}
 
 	public void serChocado(Iota e) {
+		mapeoInteligencias.put(e,e.getInteligencia());
+		e.setInteligencia(new IA_Nula(e));
+	}
+	
+	public void serChocado(Strelitzia e) {
 		mapeoInteligencias.put(e,e.getInteligencia());
 		e.setInteligencia(new IA_Nula(e));
 	}

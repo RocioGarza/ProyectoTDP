@@ -22,7 +22,7 @@ public class Gamma extends EnemigoKamikaze{
 	public Gamma (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
-		vidaMaxima = 50;
+		vidaMaxima = 75;
 		vida=vidaMaxima;
 		dañoAtaque = 25;
 		dañoImpacto = dañoAtaque*10;

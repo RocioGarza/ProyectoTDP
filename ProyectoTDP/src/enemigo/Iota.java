@@ -25,7 +25,7 @@ public class Iota extends EnemigoArmado{
 		velocidadDeAtaque = 5;
 		vidaMaxima = 200;
 		vida=vidaMaxima;
-		dañoAtaque = 5;
+		dañoAtaque = 20;
 		arma = new ArmaEnemigo(pos);
 		inteligencia = new IA_Armado(this);
 		grafico = new IotaGrafico(pos);

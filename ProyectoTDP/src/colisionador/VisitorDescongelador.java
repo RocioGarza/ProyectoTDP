@@ -7,6 +7,7 @@ import enemigo.Delta;
 import enemigo.Gamma;
 import enemigo.Inteligencia;
 import enemigo.Iota;
+import enemigo.Strelitzia;
 import entidad.Entidad;
 import jugador.Jugador;
 import obstaculo.Irrompible;
@@ -53,6 +54,11 @@ private Map<Entidad,Inteligencia> mapeoInteligencias;
 	}
 
 	public void serChocado(Iota e) {
+		e.setInteligencia(mapeoInteligencias.get(e));
+		e.getGrafico().changeIcon('w');
+	}
+	
+	public void serChocado(Strelitzia e) {
 		e.setInteligencia(mapeoInteligencias.get(e));
 		e.getGrafico().changeIcon('w');
 	}
