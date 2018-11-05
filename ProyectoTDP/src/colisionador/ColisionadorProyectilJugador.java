@@ -1,6 +1,7 @@
 package colisionador;
 
 import enemigo.Alpha;
+import enemigo.AnomaliaTemporal;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
@@ -38,6 +39,10 @@ public class ColisionadorProyectilJugador extends ColisionadorProyectil{
 	}
 	
 	public void serChocado(Strelitzia e) {
+		e.quitarVida(proyectil.getDaño());
+	}
+	
+	public void serChocado(AnomaliaTemporal e) {
 		e.quitarVida(proyectil.getDaño());
 	}
 

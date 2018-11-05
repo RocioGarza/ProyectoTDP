@@ -1,6 +1,7 @@
 package colisionador;
 
 import enemigo.Alpha;
+import enemigo.AnomaliaTemporal;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
@@ -35,6 +36,8 @@ public abstract class Colisionador {
 	public abstract void serChocado(Iota e);
 	
 	public abstract void serChocado(Strelitzia e);
+	
+	public abstract void serChocado(AnomaliaTemporal e);
 
 	public abstract void serChocado(Jugador e);
 

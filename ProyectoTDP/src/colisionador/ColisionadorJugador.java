@@ -1,6 +1,7 @@
 package colisionador;
 
 import enemigo.Alpha;
+import enemigo.AnomaliaTemporal;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
@@ -41,6 +42,10 @@ public class ColisionadorJugador  extends Colisionador{
 	}
 
 	public void serChocado(Iota e) {
+		e.quitarVida(e.getVidaMaxima());
+	}
+	
+	public void serChocado(AnomaliaTemporal e) {
 		e.quitarVida(e.getVidaMaxima());
 	}
 

@@ -1,6 +1,7 @@
 package colisionador;
 
 import enemigo.Alpha;
+import enemigo.AnomaliaTemporal;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Enemigo;
@@ -43,6 +44,8 @@ public class ColisionadorEnemigos extends Colisionador {
 	public void serChocado(Iota e) {}
 
 	public void serChocado(Strelitzia e) {}
+	
+	public void serChocado(AnomaliaTemporal e) {}
 	
 	public void serChocado(Jugador e) {
 		int n = e.getEscudo().recibirDaño(enemigo); // el escudo determina si absorber el impacto o pasarlo al jugador

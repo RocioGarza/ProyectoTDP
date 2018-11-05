@@ -4,6 +4,7 @@ import java.util.Map;
 
 import Inteligencia.InteligenciaEnemigo;
 import enemigo.Alpha;
+import enemigo.AnomaliaTemporal;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
@@ -63,6 +64,8 @@ private Map<Entidad,InteligenciaEnemigo> mapeoInteligencias;
 		e.setInteligencia(mapeoInteligencias.get(e));
 		e.getGrafico().changeIcon('w');
 	}
+	
+	public void serChocado(AnomaliaTemporal e) {}
 	
 	public void serChocado(Jugador e) {}
 

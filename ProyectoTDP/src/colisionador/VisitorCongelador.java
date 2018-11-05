@@ -5,6 +5,7 @@ import java.util.Map;
 import Inteligencia.IA_Nula;
 import Inteligencia.InteligenciaEnemigo;
 import enemigo.Alpha;
+import enemigo.AnomaliaTemporal;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
@@ -64,6 +65,8 @@ public class VisitorCongelador extends Colisionador{
 		mapeoInteligencias.put(e,e.getInteligencia());
 		e.setInteligencia(new IA_Nula(e));
 	}
+	
+	public void serChocado(AnomaliaTemporal e) {}
 	
 	public void serChocado(Jugador e) {}
 
