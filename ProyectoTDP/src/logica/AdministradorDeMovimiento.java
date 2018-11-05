@@ -119,11 +119,11 @@ public class AdministradorDeMovimiento extends Thread{
 	public class Oyente implements KeyListener {
 		
 		public void keyPressed(KeyEvent key) {
-			if(key.getKeyChar() == 'a') {
+			if(key.getKeyChar() == 'a' || key.getKeyChar() == 'A') {
 				mapeoInputs.put("Movimiento", 'a');
 			}
 			else
-				if(key.getKeyChar() == 'd')
+				if(key.getKeyChar() == 'd' || key.getKeyChar() == 'D')
 					mapeoInputs.put("Movimiento", 'd');
 			if(key.getKeyChar() == ' ')
 				mapeoInputs.put("Disparo", ' ');
@@ -132,10 +132,10 @@ public class AdministradorDeMovimiento extends Thread{
 		}
 
 		public void keyReleased(KeyEvent key) {
-			if(key.getKeyChar() == 'a') 
+			if(key.getKeyChar() == 'a' || key.getKeyChar() == 'A') 
 				mapeoInputs.put("Movimiento", 'x');
 			else
-				if(key.getKeyChar() == 'd')
+				if(key.getKeyChar() == 'd' || key.getKeyChar() == 'D')
 					mapeoInputs.put("Movimiento", 'x');
 			if(key.getKeyChar() == ' ')
 				mapeoInputs.put("Disparo", 'x');
