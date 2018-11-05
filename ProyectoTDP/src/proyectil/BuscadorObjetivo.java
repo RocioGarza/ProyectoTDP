@@ -1,7 +1,7 @@
 package proyectil;
 
+import EntidadGrafica.EntidadGrafica;
 import entidad.Entidad;
-import entidad.EntidadGrafica;
 
 public class BuscadorObjetivo extends Entidad{
 

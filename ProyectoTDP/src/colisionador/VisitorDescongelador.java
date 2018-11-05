@@ -2,11 +2,11 @@ package colisionador;
 
 import java.util.Map;
 
+import Inteligencia.InteligenciaEnemigo;
 import enemigo.Alpha;
 import enemigo.Beta;
 import enemigo.Delta;
 import enemigo.Gamma;
-import enemigo.Inteligencia;
 import enemigo.Iota;
 import enemigo.Strelitzia;
 import entidad.Entidad;
@@ -28,9 +28,9 @@ import proyectil.ProyectilJugador;
 
 public class VisitorDescongelador extends Colisionador{
 
-private Map<Entidad,Inteligencia> mapeoInteligencias;
+private Map<Entidad,InteligenciaEnemigo> mapeoInteligencias;
 	
-	public VisitorDescongelador(Map<Entidad,Inteligencia> mapeoInteligencias) {
+	public VisitorDescongelador(Map<Entidad,InteligenciaEnemigo> mapeoInteligencias) {
 		this.mapeoInteligencias = mapeoInteligencias;
 	}
 	

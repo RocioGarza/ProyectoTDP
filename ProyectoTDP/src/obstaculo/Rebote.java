@@ -1,5 +1,6 @@
 package obstaculo;
 
+import EntidadGrafica.ReboteGrafico;
 import colisionador.ColisionadorRebote;
 import entidad.Entidad;
 

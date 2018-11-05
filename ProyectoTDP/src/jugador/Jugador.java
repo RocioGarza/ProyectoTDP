@@ -3,6 +3,7 @@ package jugador;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import EntidadGrafica.JugadorGrafico;
 import arma.ArmaJugador;
 import arma.ArmaJugadorADN;
 import arma.ArmaJugadorArcoiris;

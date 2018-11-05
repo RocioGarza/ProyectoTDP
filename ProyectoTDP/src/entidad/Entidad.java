@@ -1,5 +1,6 @@
 package entidad;
 
+import EntidadGrafica.EntidadGrafica;
 import colisionador.Colisionador;
 
 public abstract class Entidad {

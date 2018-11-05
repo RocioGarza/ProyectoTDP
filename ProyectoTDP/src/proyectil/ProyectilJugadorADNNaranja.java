@@ -1,5 +1,8 @@
 package proyectil;
 
+import EntidadGrafica.ProyectilJugadorADNNaranjaGrafico;
+import Inteligencia.InteligenciaADNNaranja;
+import Inteligencia.InteligenciaProyectil;
 import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
 

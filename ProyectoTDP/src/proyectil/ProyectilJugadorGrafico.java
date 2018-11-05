@@ -2,7 +2,7 @@ package proyectil;
 
 import javax.swing.ImageIcon;
 
-import entidad.EntidadGrafica;
+import EntidadGrafica.EntidadGrafica;
 import entidad.Posicion;
 
 public class ProyectilJugadorGrafico extends EntidadGrafica{

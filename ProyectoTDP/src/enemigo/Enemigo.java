@@ -1,11 +1,12 @@
 package enemigo;
 
+import Inteligencia.InteligenciaEnemigo;
 import entidad.Personaje;
 import proyectil.ProyectilJugador;
 
 public abstract class Enemigo extends Personaje {
 	
-	protected Inteligencia inteligencia; 
+	protected InteligenciaEnemigo inteligencia; 
 	
 	public Enemigo (int X, int Y, int alto, int ancho) {
 		super(X, Y, alto, ancho);	
@@ -19,11 +20,11 @@ public abstract class Enemigo extends Personaje {
 		vida=0;
 	}
 	
-	public Inteligencia getInteligencia() {
+	public InteligenciaEnemigo getInteligencia() {
 		return inteligencia;
 	}
 	
-	public void setInteligencia(Inteligencia i) {
+	public void setInteligencia(InteligenciaEnemigo i) {
 		inteligencia = i;
 	}
 	

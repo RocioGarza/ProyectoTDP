@@ -2,6 +2,9 @@ package enemigo;
 
 import java.util.Random;
 
+import EntidadGrafica.IotaGrafico;
+import Inteligencia.IA_Iota;
+import Inteligencia.IA_Kamikaze;
 import arma.Arma;
 import arma.ArmaEnemigo;
 import colisionador.ColisionadorEnemigos;

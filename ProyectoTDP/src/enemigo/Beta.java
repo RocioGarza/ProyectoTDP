@@ -2,6 +2,8 @@ package enemigo;
 
 import java.util.Random;
 
+import EntidadGrafica.BetaGrafico;
+import Inteligencia.IA_Kamikaze;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import logica.Entorno;

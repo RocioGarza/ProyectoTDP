@@ -2,7 +2,7 @@ package premio;
 
 import javax.swing.ImageIcon;
 
-import entidad.EntidadGrafica;
+import EntidadGrafica.EntidadGrafica;
 import entidad.Posicion;
 
 public class PocionGrafica extends EntidadGrafica{

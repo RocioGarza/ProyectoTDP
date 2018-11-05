@@ -2,6 +2,8 @@ package proyectil;
 
 import java.util.Random;
 
+import EntidadGrafica.ProyectilJugadorArcoirisGrafico;
+import Inteligencia.InteligenciaArcoiris;
 import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
 

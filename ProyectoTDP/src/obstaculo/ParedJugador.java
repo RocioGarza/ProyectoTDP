@@ -1,5 +1,6 @@
 package obstaculo;
 
+import EntidadGrafica.ParedJugadorGrafica;
 import colisionador.ColisionadorParedJugador;
 import entidad.Entidad;
 

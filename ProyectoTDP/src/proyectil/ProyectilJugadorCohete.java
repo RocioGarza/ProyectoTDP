@@ -1,5 +1,8 @@
 package proyectil;
 
+import EntidadGrafica.ProyectilJugadorCoheteGrafico;
+import Inteligencia.InteligenciaCohete;
+import Inteligencia.InteligenciaProyectil;
 import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
 

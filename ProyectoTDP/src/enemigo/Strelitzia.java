@@ -1,8 +1,10 @@
 package enemigo;
 
+import EntidadGrafica.EntidadGrafica;
+import EntidadGrafica.StrelitziaGrafica;
+import Inteligencia.InteligenciaStrelitzia;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
-import entidad.EntidadGrafica;
 import logica.Entorno;
 
 public class Strelitzia extends Enemigo{

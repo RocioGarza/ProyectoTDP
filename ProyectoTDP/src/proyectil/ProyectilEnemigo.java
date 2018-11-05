@@ -1,5 +1,6 @@
 package proyectil;
 
+import EntidadGrafica.ProyectilEnemigoGrafico;
 import colisionador.ColisionadorProyectilEnemigo;
 import entidad.Entidad;
 import entidad.Posicion;

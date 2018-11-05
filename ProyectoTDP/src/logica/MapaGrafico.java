@@ -10,8 +10,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import EntidadGrafica.EntidadGrafica;
 import entidad.Entidad;
-import entidad.EntidadGrafica;
 import gui.PanelConFondo;
 
 

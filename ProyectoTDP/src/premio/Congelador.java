@@ -3,23 +3,23 @@ package premio;
 import java.util.HashMap;
 import java.util.Map;
 
+import EntidadGrafica.EntidadGrafica;
+import Inteligencia.InteligenciaEnemigo;
 import colisionador.Colisionador;
 import colisionador.VisitorCongelador;
 import colisionador.VisitorDescongelador;
-import enemigo.Inteligencia;
 import entidad.Entidad;
-import entidad.EntidadGrafica;
 import logica.Entorno;
 
 public class Congelador extends Entidad implements Runnable{
 	
-	private Map<Entidad,Inteligencia> mapeoInteligencias;
+	private Map<Entidad,InteligenciaEnemigo> mapeoInteligencias;
 	private Colisionador colisionador;
 	private static boolean enEjecucion;
 	
 	public Congelador() {
 		super(0, 0, 0, 0);
-		mapeoInteligencias = new HashMap<Entidad,Inteligencia>();
+		mapeoInteligencias = new HashMap<Entidad,InteligenciaEnemigo>();
 		enEjecucion=true;
 	}
 	
