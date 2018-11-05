@@ -1,6 +1,7 @@
 package logica;
 
 import entidad.Entidad;
+import entidad.Posicion;
 
 public abstract class Entorno {
 
@@ -17,4 +18,6 @@ public abstract class Entorno {
 	public abstract void afectar(Entidad e);
 	
 	public abstract void serAfectado(Entidad e);
+
+	public abstract Posicion getPosicionJugador();
 }

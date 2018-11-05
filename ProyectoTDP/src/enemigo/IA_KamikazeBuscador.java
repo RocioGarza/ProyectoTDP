@@ -1,10 +1,10 @@
 package enemigo;
 
-public class IA_Kamikaze extends Inteligencia{
-
-	private EnemigoKamikaze enemigo;
+public class IA_KamikazeBuscador extends Inteligencia{
 	
-	public IA_Kamikaze(EnemigoKamikaze e) {
+private EnemigoKamikaze enemigo;
+	
+	public IA_KamikazeBuscador(EnemigoKamikaze e) {
 		super();
 		enemigo = e;	
 	}
@@ -27,8 +27,7 @@ public class IA_Kamikaze extends Inteligencia{
 			}
 		} else {
 			enemigo.getGrafico().changeIcon(' ');
-			enemigo.setInteligencia(new IA_KamikazeAtaque(enemigo));
+			enemigo.setInteligencia(new IA_KamikazeAtaqueBuscador(enemigo));
 		}
 	}
-
 }

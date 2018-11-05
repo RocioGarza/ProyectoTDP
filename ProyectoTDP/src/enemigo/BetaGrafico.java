@@ -1,7 +1,6 @@
 package enemigo;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 import entidad.EntidadGrafica;
 import entidad.Posicion;

@@ -7,6 +7,7 @@ import enemigo.Enemigo;
 import enemigo.Gamma;
 import enemigo.Iota;
 import enemigo.Strelitzia;
+import escudo.EscudoNormal;
 import jugador.Jugador;
 import obstaculo.Irrompible;
 import obstaculo.Pared;
@@ -22,7 +23,6 @@ import premio.Pocion;
 import proyectil.BuscadorObjetivo;
 import proyectil.ProyectilEnemigo;
 import proyectil.ProyectilJugador;
-import escudo.*;
 
 public class ColisionadorEnemigos extends Colisionador {
 	

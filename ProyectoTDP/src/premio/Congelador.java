@@ -15,10 +15,16 @@ public class Congelador extends Entidad implements Runnable{
 	
 	private Map<Entidad,Inteligencia> mapeoInteligencias;
 	private Colisionador colisionador;
-
+	private static boolean enEjecucion;
+	
 	public Congelador() {
 		super(0, 0, 0, 0);
 		mapeoInteligencias = new HashMap<Entidad,Inteligencia>();
+		enEjecucion=true;
+	}
+	
+	public static boolean enEjecucion() {
+		return enEjecucion;
 	}
 	
 	public void run() {
@@ -32,8 +38,8 @@ public class Congelador extends Entidad implements Runnable{
 		}
 		colisionador = new VisitorDescongelador(mapeoInteligencias);
 		Entorno.getEntorno().afectar(this);
+		enEjecucion=false;
 	}
-	
 	
 	public Colisionador getColisionador() {
 		return colisionador;

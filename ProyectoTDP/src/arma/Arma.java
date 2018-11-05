@@ -1,7 +1,6 @@
 package arma;
 
 import entidad.Posicion;
-import proyectil.Proyectil;
 
 public abstract class Arma {
 	

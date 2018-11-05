@@ -11,8 +11,4 @@ public abstract class EnemigoKamikaze extends Enemigo {
 	public int getDañoImpacto() {
 		return dañoImpacto;
 	}
-	
-	public abstract void terminarAtaque();
-	
-	
 }

@@ -6,14 +6,12 @@ import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import jugador.Jugador;
 import logica.Entorno;
-import logica.Mapa;
+import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
-import premio.Cohete;
 import premio.Pocion;
-import proyectil.Proyectil;
 
 public class Gamma extends EnemigoKamikaze{
 
@@ -26,7 +24,7 @@ public class Gamma extends EnemigoKamikaze{
 		vida=vidaMaxima;
 		dañoAtaque = 25;
 		dañoImpacto = dañoAtaque*10;
-		inteligencia = new IA_Kamikaze(this);
+		inteligencia = new IA_KamikazeBuscador(this);
 		grafico = new GammaGrafico(pos);
 		puntaje=25;
 		colisionador = new ColisionadorEnemigos(this);
@@ -40,18 +38,10 @@ public class Gamma extends EnemigoKamikaze{
 		return 134;
 	}
 
-	public void atacar() {
-		grafico.changeIcon(' ');
-		inteligencia = new IA_KamikazeAtaque(this);
-	}
+	public void atacar() {}
 
 	public void mover() {
 		inteligencia.mover();
-	}
-	
-	public void terminarAtaque() {
-		grafico.changeIcon('w');
-		inteligencia = new IA_Kamikaze(this);
 	}
 
 	public void serColisionado(Jugador e) {
@@ -88,5 +78,15 @@ public class Gamma extends EnemigoKamikaze{
 								Entorno.getEntorno().agregarEntidad(new Pocion((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 		
 		Entorno.getEntorno().reducirEnemigos();
+	}
+	
+	public void quitarVida(int v) {
+		if (vida-v<0)
+			vida = 0;
+		else
+			vida = vida - v;
+		
+		if(vida<=(vidaMaxima/2))
+			inteligencia = new IA_Kamikaze(this);
 	}
 }

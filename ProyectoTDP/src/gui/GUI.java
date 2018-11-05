@@ -5,9 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import entidad.Posicion;
+import logica.AdministradorDeMovimiento;
 import logica.Juego;
 import logica.Mapa;
-import logica.AdministradorDeMovimiento;
 
 public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;

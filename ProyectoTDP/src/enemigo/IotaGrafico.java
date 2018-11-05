@@ -1,7 +1,6 @@
 package enemigo;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 import entidad.EntidadGrafica;
 import entidad.Posicion;
@@ -16,6 +15,13 @@ public class IotaGrafico extends EntidadGrafica {
 		image[2] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[3] = new ImageIcon(this.getClass().getResource("/Graficos/Iota.png"));
 		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/IotaAtaque.gif"));
-
+	}
+	
+	public void actualizarGraficos() {
+		image[0] = new ImageIcon(this.getClass().getResource("/Graficos/IotaSinArma.png"));
+		image[1] = new ImageIcon(this.getClass().getResource("/Graficos/IotaSinArmaCongelado.png"));
+		image[2] = new ImageIcon(this.getClass().getResource("/Graficos/IotaSinArma.png"));
+		image[3] = new ImageIcon(this.getClass().getResource("/Graficos/IotaSinArma.png"));
+		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/IotaSinArma.png"));
 	}
 }

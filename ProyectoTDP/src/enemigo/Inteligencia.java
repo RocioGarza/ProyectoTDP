@@ -1,7 +1,6 @@
 package enemigo;
 
 import java.util.Random;
-import proyectil.Proyectil;
 
 public abstract class Inteligencia {
 

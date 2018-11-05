@@ -2,13 +2,10 @@ package proyectil;
 
 import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
-import entidad.Posicion;
 
 public class ProyectilJugadorCohete extends ProyectilJugador{
 	
 	private ProyectilJugadorGrafico grafico;
-	private long tiempoDisparo;
-	private long incrementarVel;
 	private InteligenciaProyectil inteligencia;
 	
 	public ProyectilJugadorCohete(int X, int Y, int daño) {

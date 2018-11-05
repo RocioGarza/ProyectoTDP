@@ -1,11 +1,11 @@
 package enemigo;
 
-public class IA_Armado extends Inteligencia{
-	
-	private EnemigoArmado enemigo;
+public class IA_Iota extends Inteligencia{
+
+	private Iota enemigo;
 	protected long tiempoDisparo;
 
-	public IA_Armado(EnemigoArmado e) {
+	public IA_Iota(Iota e) {
 		super();
 		enemigo=e;
 		tiempoDisparo=-1000;
@@ -35,5 +35,4 @@ public class IA_Armado extends Inteligencia{
 			}
 		} 
 	}
-
 }

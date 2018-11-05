@@ -1,7 +1,7 @@
 package colisionador;
 
+import escudo.EscudoAntiKamikaze;
 import jugador.Jugador;
-import escudo.*;
 
 public class ColisionadorEscudoKamikaze extends ColisionadorPremio{
 

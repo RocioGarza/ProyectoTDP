@@ -6,14 +6,12 @@ import arma.ArmaEnemigo;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import logica.Entorno;
-import logica.Mapa;
+import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
-import premio.Cohete;
 import premio.Pocion;
-import proyectil.Proyectil;
 
 public class Delta extends EnemigoArmado{
 	

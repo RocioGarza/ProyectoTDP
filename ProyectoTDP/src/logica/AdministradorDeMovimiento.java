@@ -53,7 +53,7 @@ public class AdministradorDeMovimiento extends Thread{
 			e.printStackTrace();
 		}
 		
-		System.exit(0);
+		//System.exit(0);
 	}
 	
 	private void mover() {

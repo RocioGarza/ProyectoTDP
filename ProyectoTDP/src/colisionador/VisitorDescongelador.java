@@ -1,6 +1,7 @@
 package colisionador;
 
 import java.util.Map;
+
 import enemigo.Alpha;
 import enemigo.Beta;
 import enemigo.Delta;

@@ -15,6 +15,5 @@ public class StrelitziaGrafica extends EntidadGrafica {
 		image[2] = new ImageIcon(this.getClass().getResource("/Graficos/StrelitziaMovimientoDerecha.png"));
 		image[3] = new ImageIcon(this.getClass().getResource("/Graficos/StrelitziaMovimientoIzquierda.png"));
 		image[4] = new ImageIcon(this.getClass().getResource("/Graficos/StrelitziaAtaque.gif"));
-
 	}
 }

@@ -1,6 +1,7 @@
 package obstaculo;
 
 import javax.swing.ImageIcon;
+
 import entidad.EntidadGrafica;
 import entidad.Posicion;
 

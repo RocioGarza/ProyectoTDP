@@ -5,14 +5,12 @@ import java.util.Random;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import logica.Entorno;
-import logica.Mapa;
+import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
-import premio.Cohete;
 import premio.Pocion;
-import proyectil.Proyectil;
 
 public class Alpha extends EnemigoKamikaze{
 	
@@ -39,18 +37,8 @@ public class Alpha extends EnemigoKamikaze{
 		return 134; 
 	}
 
-	public void atacar() {
-		grafico.changeIcon(' ');
-		inteligencia = new IA_KamikazeAtaque(this);
-	}
-
 	public void mover() {
 		inteligencia.mover();
-	}
-	
-	public void terminarAtaque() {
-		grafico.changeIcon('w');
-		inteligencia = new IA_Kamikaze(this);
 	}
 	
 	public AlphaGrafico getGrafico() {
@@ -84,5 +72,7 @@ public class Alpha extends EnemigoKamikaze{
 		
 		Entorno.getEntorno().reducirEnemigos();
 	}
+
+	public void atacar() {}
 }
  

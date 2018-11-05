@@ -2,23 +2,23 @@ package enemigo;
 
 import java.util.Random;
 
+import arma.Arma;
 import arma.ArmaEnemigo;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import logica.Entorno;
-import logica.Mapa;
+import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
 import premio.MasAtaques;
 import premio.MejoraAtaque;
-import premio.Cohete;
 import premio.Pocion;
-import proyectil.Proyectil;
 
-public class Iota extends EnemigoArmado{
+public class Iota extends EnemigoKamikaze{
 
 	private IotaGrafico grafico;
-
+	private Arma arma;
+	
 	public Iota (int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
@@ -27,7 +27,7 @@ public class Iota extends EnemigoArmado{
 		vida=vidaMaxima;
 		dañoAtaque = 20;
 		arma = new ArmaEnemigo(pos);
-		inteligencia = new IA_Armado(this);
+		inteligencia = new IA_Iota(this);
 		grafico = new IotaGrafico(pos);
 		puntaje=30;
 		colisionador = new ColisionadorEnemigos(this);
@@ -80,5 +80,17 @@ public class Iota extends EnemigoArmado{
 								Entorno.getEntorno().agregarEntidad(new Pocion((pos.getX()+getAncho()/2),pos.getY()+getAlto()));
 		
 		Entorno.getEntorno().reducirEnemigos();
+	}
+	
+	public void quitarVida(int v) {
+		if (vida-v<0)
+			vida = 0;
+		else
+			vida = vida - v;
+		
+		if(vida<=(vidaMaxima/2)) {
+			inteligencia = new IA_Kamikaze(this);
+			grafico.actualizarGraficos();
+		}
 	}
 }

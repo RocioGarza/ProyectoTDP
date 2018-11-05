@@ -13,7 +13,7 @@ public class Strelitzia extends Enemigo{
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
 		velocidadDeAtaque = 5;
-		vidaMaxima = 2000;
+		vidaMaxima = 5000;
 		vida=vidaMaxima;
 		dañoAtaque = 50;
 		colisionador = new ColisionadorEnemigos(this);

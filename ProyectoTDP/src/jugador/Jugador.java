@@ -9,7 +9,6 @@ import arma.ArmaJugadorArcoiris;
 import arma.ArmaJugadorBasicaLaser;
 import arma.ArmaJugadorBasicaProyectil;
 import arma.ArmaJugadorCohete;
-import arma.ArmaJugadorMultiDisparo;
 import colisionador.ColisionadorJugador;
 import entidad.Entidad;
 import entidad.Personaje;

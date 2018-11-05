@@ -1,24 +1,23 @@
 package enemigo;
 
 import entidad.Posicion;
+import logica.Entorno;
 
-public class IA_KamikazeAtaque extends Inteligencia{
+public class IA_KamikazeAtaqueBuscador extends Inteligencia{
 
-	
 	private EnemigoKamikaze enemigo;
 	private int xRetorno;
 	private int yRetorno;
+	private int xObjetivo;
 	private int vel;
 	
-	public IA_KamikazeAtaque(EnemigoKamikaze e) {
+	public IA_KamikazeAtaqueBuscador(EnemigoKamikaze e) {
 		super();
 		enemigo = e;
+		vel = enemigo.getVelocidadDeMovimiento();
+		xObjetivo = Entorno.getEntorno().getPosicionJugador().getX()+(Entorno.getEntorno().getPosicionJugador().getAncho()/2);
 		xRetorno = e.getPosicion().getX();
 		yRetorno = e.getPosicion().getY();
-		if(r.nextInt(2)==0)
-			vel = enemigo.getVelocidadDeMovimiento();
-		else
-			vel = -enemigo.getVelocidadDeMovimiento();
 	}
 	
 	public void mover() {
@@ -27,10 +26,12 @@ public class IA_KamikazeAtaque extends Inteligencia{
 				enemigo.getPosicion().setY(yRetorno);
 				terminarAtaque();
 		} else {
-			if(((enemigo.getPosicion().getX()+enemigo.getPosicion().getAncho())>=(Posicion.getXmax())) ||
-				 enemigo.getPosicion().getX()<=0)
-				vel=-vel;
-			enemigo.getPosicion().moverX(vel);
+			if((enemigo.getPosicion().getX()+(enemigo.getPosicion().getAncho()/2))>=xObjetivo) {
+				enemigo.getPosicion().moverX(-vel);
+			}
+			else {
+				enemigo.getPosicion().moverX(vel);
+			}
 			enemigo.getPosicion().moverY(2);
 		}
 	}
@@ -43,6 +44,6 @@ public class IA_KamikazeAtaque extends Inteligencia{
 	
 	private void terminarAtaque() {
 		enemigo.getGrafico().changeIcon('w');
-		enemigo.setInteligencia(new IA_Kamikaze(enemigo));
+		enemigo.setInteligencia(new IA_KamikazeBuscador(enemigo));
 	}
 }

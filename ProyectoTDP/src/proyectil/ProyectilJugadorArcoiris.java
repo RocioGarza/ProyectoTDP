@@ -4,7 +4,6 @@ import java.util.Random;
 
 import colisionador.ColisionadorProyectilJugador;
 import entidad.Entidad;
-import entidad.EntidadGrafica;
 
 public class ProyectilJugadorArcoiris extends ProyectilJugador{
 	

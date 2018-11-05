@@ -1,12 +1,12 @@
 package gui;
 
 
-import jugador.Jugador;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
+
+import jugador.Jugador;
 	
 public class AdministradorMovimientoJugador extends Thread{
 	
