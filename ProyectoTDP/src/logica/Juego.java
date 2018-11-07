@@ -12,7 +12,7 @@ public class Juego extends Thread{
 	private int nivelActual;
 	
 	public Juego() {
-		nivelMax = 10; 
+		nivelMax = 1; 
 		infoJugador = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*3/2));
 		nivelActual=1;
 	}
@@ -31,8 +31,7 @@ public class Juego extends Thread{
 		return mapa;
 	}
 	
-	public Mapa getMapa()
-	{
+	public Mapa getMapa()	{
 		return mapa;
 	}
 	
@@ -47,18 +46,14 @@ public class Juego extends Thread{
 		this.nivelFinalizado();
 	}
 
-	public void nivelFinalizado()
-	{		
-		System.out.println("NIVEL FIN");
+	public void nivelFinalizado() {		
 		if(mapa.getJugador().estaViva()) {
-			//El jugador gano
-			System.out.println("GANE");
 			if (nivelActual==nivelMax) {
 				nivelMax++;	
 				nivelActual++;
 			}
 		} 
-		puntaje = puntaje + mapa.finalizarMapa(); //DefinirFinalizacion del mapa
+		puntaje = puntaje + mapa.finalizarMapa(); 
 		infoJugador.revivir();
 	}
 }

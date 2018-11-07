@@ -125,7 +125,7 @@ public class AdministradorDeMovimiento extends Thread{
 					mapeoInputs.put("Movimiento", 'd');
 			if(key.getKeyChar() == ' ')
 				mapeoInputs.put("Disparo", ' ');
-			if(key.getKeyChar() == 'l')
+			if(key.getKeyChar() == 'l' || key.getKeyChar() == 'L')
 				mapeoInputs.put("CambiarArma", 'l');
 		}
 

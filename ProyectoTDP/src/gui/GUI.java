@@ -51,7 +51,7 @@ public class GUI extends JFrame {
 
 		//opciones:crear un mapa de un nivel menor al actual, crear un mapa random (n=-1), usar el ultimo mapa random(n=0), usar el utlimo nivel (sin param)
 		
-		mapa = juego.crearMapa(10);		
+		mapa = juego.crearMapa();		
 		
 		getContentPane().add(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
