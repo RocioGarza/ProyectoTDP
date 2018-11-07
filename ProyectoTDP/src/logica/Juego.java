@@ -19,7 +19,6 @@ public class Juego extends Thread{
 	
 	public Mapa crearMapa() {
 		mapa = new Mapa(infoJugador,nivelActual);
-		//nivelActual=nivelMax;
 		return mapa;
 	}
 	
@@ -36,19 +35,22 @@ public class Juego extends Thread{
 	}
 	
 	public void jugar(AdministradorDeMovimiento admMov) {	
+		iniciarAdmMovimiento(admMov);
+		finalizarNivel();
+	}
+	
+	private void iniciarAdmMovimiento(AdministradorDeMovimiento admMov) {
 		admMov.start();
 		try {
 			admMov.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.finalizarNivel();
 	}
 
 	private void finalizarNivel() {		
-		if(mapa.getJugador().estaViva()) {
+		if(mapa.getJugador().estaViva()) 
 			ganarNivel();
-		} 
 		puntaje = puntaje + mapa.finalizarMapa(); 
 		infoJugador.revivir();
 	}

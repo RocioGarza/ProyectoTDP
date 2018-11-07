@@ -17,45 +17,42 @@ public class GUI extends JFrame {
 	private HUD hud;
 	
 	public static void main(String[] args) {
-				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
-					frame.iniciarGUI();	
-				} catch (Exception e) {}
+		GUI frame = new GUI();
+		frame.setVisible(true);
+		frame.crearSigNivel();	
 	}
 
-	
-	public void iniciarGUI() {		
+	public GUI() {
 		juego = new Juego(); //Aca o se recupera o se genera un nuevo juego
-		crearNivel();				
 	}
 	
-	private void crearNivel() {
-
-		//opciones:crear un mapa de un nivel menor al actual, crear un mapa random (n=-1), usar el ultimo mapa random(n=0), usar el utlimo nivel (sin param)
+	private void crearSigNivel() {
+		//opciones:crear un mapa de un nivel menor al actual, crear un mapa random (n=-1), usar el ultimo mapa random(n=0), usar el utlimo nivel (sin param)	
 		
-		mapa = juego.crearMapa();		
-		
+		crearMapa();
+		crearHUD();
+		AdministradorDeMovimiento admMov = new AdministradorDeMovimiento(mapa);
+		addKeyListener(admMov.getOyente());
+		iniciarJuego(admMov);
+		getContentPane().removeAll();
+		crearSigNivel();
+	}
+	
+	private void crearMapa() {
+		mapa = juego.crearMapa();
 		getContentPane().add(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, Posicion.getXmax(), Posicion.getYmax());
-		
-		hud = new HUD(mapa);
-		
-		for(JLabel componente : hud.getComponentes())
-			mapa.getGrafico().add(componente);
-	
-		AdministradorDeMovimiento admMov = new AdministradorDeMovimiento(mapa);
-		addKeyListener(admMov.getOyente());
-
-		hud.start();
-		juego.jugar(admMov);
-
-		getContentPane().removeAll();
-	
-		//CREO EL SIG NIVEL
-		crearNivel();
-		
 	}
 
+	private void crearHUD()	{
+		hud = new HUD(mapa);
+		for(JLabel componente : hud.getComponentes())
+			mapa.getGrafico().add(componente);
+	}
+	
+	private void iniciarJuego(AdministradorDeMovimiento admMov) {
+		hud.start();
+		juego.jugar(admMov);
+	}
 }
