@@ -12,7 +12,7 @@ public class Juego extends Thread{
 	private int nivelActual;
 	
 	public Juego() {
-		nivelMax = 1; 
+		nivelMax = 10; 
 		infoJugador = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*3/2));
 		nivelActual=1;
 	}

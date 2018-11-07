@@ -12,12 +12,18 @@ public class GeneradorDeNiveles {
 	
 	private File nuevoNivel;
 	private BufferedWriter arch;
+	private Random rnd;
 	
 	public GeneradorDeNiveles()	{
 		String dir = this.getClass()+"nivel0.txt"; //El nivel 0 va estar asociado al nivel random, los demas niveles corresponden con su dificultadx
         nuevoNivel = new File(dir);
-        abrirArchivo();
-        this.generarNivel();
+        generarArchivo();
+	}
+	
+	private void generarArchivo() {
+		rnd = new Random();
+		abrirArchivo();
+        generarNivel();
         cerrarArchivo();
 	}
 	
@@ -30,28 +36,32 @@ public class GeneradorDeNiveles {
 	}
 	
 	private void generarNivel()	{
-		try {
-			Random rnd = new Random(); 
+		try { 
 			for(int j=0; j<Posicion.getYmax(); j++) 	
-				escribirLinea(rnd);						
+				escribirLinea();						
 		} catch (IOException e) {
 			e.printStackTrace(); 
 		}
 	}
 	
-	private void escribirLinea(Random rnd) throws IOException
-	{
-		int n = 0;
+	private void escribirLinea() throws IOException	{
 		for(int i=0; i<Posicion.getXmax(); i++)	{
-			n = rnd.nextInt(400000); 
+			int n = siguienteRandom();
 			escribirCaracter(n);	
 		}
+		saltarLinea();
+	}
+	
+	private void saltarLinea() throws IOException	{
 		arch.write("/");
 		arch.write('\n');
 	}
 	
-	private void escribirCaracter(int n) throws IOException
-	{
+	private int siguienteRandom()	{
+		return rnd.nextInt(400000); 
+	}
+	
+	private void escribirCaracter(int n) throws IOException	{
 		switch(n) {
 			case 0: case 1: case 2: case 3: case 4: case 5:
 				arch.write("A"); 
@@ -68,21 +78,21 @@ public class GeneradorDeNiveles {
 			case 20: case 21: case 22: case 23:
 				arch.write("E"); 
 				break;
-			case 24: 
+			case 24:  
 				arch.write("1"); 
-				break;
+				break;			
 			case 25: case 26: case 27: case 28:
 				arch.write("2"); 
-				break;					
+				break;				
 			case 29: case 30: case 31:
 				arch.write("3"); 
-				break;
+				break;/*
 			case 32: case 33:
 				arch.write("4"); 
 				break;
 			case 34:
 				arch.write("5"); 
-				break;
+				break;*/
 			default: 
 				arch.write("."); 
 				break;	

@@ -24,6 +24,7 @@ public class Mapa extends Entorno{
 	public Mapa (Jugador j,int n){
 		File nivel;
 		String dir = "nivel" + n + ".txt"; 
+		System.out.println(dir);
         nivel = new File(dir); 
         
         if( ! nivel.exists()) { 
