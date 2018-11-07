@@ -14,8 +14,10 @@ public class IA_AnomaliaTemporal extends InteligenciaEnemigo{
 	}
 	
 	public void mover() {
-		if(System.currentTimeMillis()-tiempoInicio>45000)
+		if(System.currentTimeMillis()-tiempoInicio>45000) {
+			anomalia.quitarVida(anomalia.getVidaMaxima());
 			Entorno.getEntorno().afectar(anomalia);
+		}
 		else
 			actualizarImagen();
 	}
