@@ -26,7 +26,7 @@ public class Iota extends EnemigoKamikaze{
 		super(X, Y, getAlto(), getAncho());
 		velocidadDeMovimiento = 2;
 		velocidadDeAtaque = 5;
-		vidaMaxima = 200;
+		vidaMaxima = 250;
 		vida=vidaMaxima;
 		dañoAtaque = 20;
 		arma = new ArmaEnemigo(pos);
@@ -86,14 +86,16 @@ public class Iota extends EnemigoKamikaze{
 	}
 	
 	public void quitarVida(int v) {
+		if(vida>((vidaMaxima*20)/100) && (vida-v)<=(vidaMaxima*20)/100) {
+			inteligencia = new IA_Kamikaze(this);
+			grafico.actualizarGraficos();
+		}
+		
 		if (vida-v<0)
 			vida = 0;
 		else
 			vida = vida - v;
 		
-		if(vida<=(vidaMaxima/2)) {
-			inteligencia = new IA_Kamikaze(this);
-			grafico.actualizarGraficos();
-		}
+		
 	}
 }

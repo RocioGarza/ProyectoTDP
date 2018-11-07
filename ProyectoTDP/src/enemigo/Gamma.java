@@ -84,12 +84,14 @@ public class Gamma extends EnemigoKamikaze{
 	}
 	
 	public void quitarVida(int v) {
+		if(vida>(vidaMaxima/2) && (vida-v)<=(vidaMaxima/2)) {
+			inteligencia = new IA_Kamikaze(this);
+		}
+		
+		
 		if (vida-v<0)
 			vida = 0;
 		else
 			vida = vida - v;
-		
-		if(vida<=(vidaMaxima/2))
-			inteligencia = new IA_Kamikaze(this);
 	}
 }

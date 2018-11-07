@@ -3,7 +3,7 @@ package enemigo;
 import java.util.Random;
 
 import EntidadGrafica.BetaGrafico;
-import Inteligencia.IA_Kamikaze;
+import Inteligencia.IA_KamikazeBuscador;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
 import logica.Entorno;
@@ -25,7 +25,7 @@ public class Beta extends EnemigoKamikaze{
 		vida=vidaMaxima;
 		dañoAtaque = 25;
 		dañoImpacto = dañoAtaque*10;
-		inteligencia = new IA_Kamikaze(this);
+		inteligencia = new IA_KamikazeBuscador(this);
 		grafico = new BetaGrafico(pos);
 		puntaje=15;
 		colisionador = new ColisionadorEnemigos(this);
