@@ -16,35 +16,18 @@ public class GUI extends JFrame {
 	private Mapa mapa;
 	private HUD hud;
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
-		//EventQueue.invokeLater(new Runnable() {
-		//	public void run() {
 				try {
 					GUI frame = new GUI();
 					frame.setVisible(true);
-					frame.iniciarGUI();
-					
+					frame.iniciarGUI();	
 				} catch (Exception e) {}
-		//	}
-		//});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public GUI()
-	{
-	}
 	
 	public void iniciarGUI() {		
-		
 		juego = new Juego(); //Aca o se recupera o se genera un nuevo juego
-		
 		crearNivel();				
-		
 	}
 	
 	private void crearNivel() {

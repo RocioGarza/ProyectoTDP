@@ -12,24 +12,25 @@ import jugador.Jugador;
 
 public class AdministradorDeMovimiento extends Thread{
 
-	private Map<String,Character> mapeoInputs;
+	private Mapa mapa;
+	private Collection<Entidad> coleccion;
 	private Jugador j;
 	private Oyente o;
-	private Collection<Entidad> coleccion;
-	private Mapa mapa;
+	private Map<String,Character> mapeoInputs;	
 	
 	public AdministradorDeMovimiento(Mapa m) {
-		this.mapa = m;
+		mapa = m;
 		coleccion = mapa.getColeccion();
-		
+		j=mapa.getJugador();
 		o= new Oyente();
-		
+		crearMapeoInputs();
+	}
+	
+	private void crearMapeoInputs() {
 		mapeoInputs = new HashMap<String,Character>();
 		mapeoInputs.put("Movimiento",'x');
 		mapeoInputs.put("Disparo",'x');
 		mapeoInputs.put("CambiarArma",'x');
-		
-		this.j=mapa.getJugador();
 	}
 	
 	public void run() {
@@ -39,64 +40,15 @@ public class AdministradorDeMovimiento extends Thread{
 			controlarColisiones();
 			mapa.agregarEntidadesPendientes();
 			refresh();
-			try {
-				Thread.sleep(8);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			esperar(8);
 		}
-		
-		System.out.println("termino el juego");
-		try {
-			Thread.sleep(1000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		esperar(1000);
 	}
 	
-	private void mover() {
+	private void esperar(int tiempo) {
 		try {
-			for(Entidad e: coleccion) {
-				e.mover();
-			}
+			Thread.sleep(tiempo);
 		} catch (Exception e) {
-			e.printStackTrace();
-		}	
-	}
-
-	private void controlarColisiones() {
-		try {
-			boolean colicion=false;
-			Collection<Entidad> coleccionBorrar = new LinkedList<Entidad>();
-			HashMap<Entidad,Entidad> hash = new HashMap<Entidad,Entidad>();
-			for(Entidad e1: coleccion) {
-				for(Entidad e2: coleccion) {
-					if(e1.estaViva() && e2.estaViva() && hash.get(e1)!=e2 && hash.get(e2)!=e1)
-						colicion = mapa.colision(e1, e2);
-					if(colicion) {
-						hash.put(e1, e2);
-						hash.put(e2, e1);
-					}
-					colicion=false;
-			}
-			}
-			for(Entidad e : coleccion)
-				if(!e.estaViva())
-					coleccionBorrar.add(e);
-			for(Entidad e : coleccionBorrar)
-				mapa.remover(e);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private void refresh() { 
-		try {
-			for(Entidad e: coleccion)
-				e.getGrafico().actualizar();
-			mapa.getMapaGrafico().actualizar();
-		} catch (Exception e) {
-			System.out.println("Voy a tirar una excepcion");
 			e.printStackTrace();
 		}
 	}
@@ -105,38 +57,105 @@ public class AdministradorDeMovimiento extends Thread{
 		return o;
 	}
 
+	private void mover() {
+		for(Entidad e: coleccion) 
+			e.mover();
+	}
+
+	private void controlarColisiones() {
+			HashMap<Entidad,Entidad> mapeoColisiones = new HashMap<Entidad,Entidad>();
+			for(Entidad e1: coleccion) 
+				for(Entidad e2: coleccion) 
+					colisionar(e1,e2, mapeoColisiones);			
+			eliminarEntidades();
+	}
+	
+	private void colisionar(Entidad e1, Entidad e2, HashMap<Entidad,Entidad> mapeoColisiones){
+		if(e1.estaViva() && e2.estaViva() && mapeoColisiones.get(e1)!=e2 && mapeoColisiones.get(e2)!=e1) {
+			if(mapa.colision(e1, e2))
+				actualizarMapeo(e1, e2, mapeoColisiones);
+		}
+	}
+	
+	private void actualizarMapeo(Entidad e1, Entidad e2, HashMap<Entidad,Entidad> mapeoColisiones)	{
+		mapeoColisiones.put(e1, e2);
+		mapeoColisiones.put(e2, e1);
+	}
+	
+	private void eliminarEntidades() {
+		Collection<Entidad> coleccionBorrar = new LinkedList<Entidad>();
+		for(Entidad e : coleccion)
+			if(!e.estaViva())
+				coleccionBorrar.add(e);
+		for(Entidad e : coleccionBorrar)
+			mapa.remover(e);
+	}
+	
+	private void refresh() { 
+		for(Entidad e: coleccion)
+			e.getGrafico().actualizar();
+		mapa.getMapaGrafico().actualizar();
+	}
+
 	private void moverJugador() {
-		j.mover(mapeoInputs.get("Movimiento"));
-		if(mapeoInputs.get("CambiarArma")=='l') {
+		evaluarMovimiento();
+		cambiarArma();
+		disparar();
+	}
+	
+	private void evaluarMovimiento() {
+		char dir = mapeoInputs.get("Movimiento");
+		if (dir == 'd')
+			j.moverDerecha();
+		else if (dir == 'a')
+			j.moverIzquierda();
+	}
+	
+	private void cambiarArma()	{
+		if(mapeoInputs.get("CambiarArma") == 'l') {
 			j.cambiarArma();
 			mapeoInputs.put("CambiarArma", 'x');
 		}
-		mapa.getJugador().disparar(mapeoInputs.get("Disparo"));
+	}
+	
+	private void disparar() {
+		char disp = mapeoInputs.get("Disparo");
+		if(disp == ' ')
+			j.disparar();
 	}
 	
 	public class Oyente implements KeyListener {
 		
 		public void keyPressed(KeyEvent key) {
-			if(key.getKeyChar() == 'a' || key.getKeyChar() == 'A') {
+			if(esA(key)) 
 				mapeoInputs.put("Movimiento", 'a');
-			}
-			else
-				if(key.getKeyChar() == 'd' || key.getKeyChar() == 'D')
+			else if(esD(key))
 					mapeoInputs.put("Movimiento", 'd');
 			if(key.getKeyChar() == ' ')
 				mapeoInputs.put("Disparo", ' ');
-			if(key.getKeyChar() == 'l' || key.getKeyChar() == 'L')
+			if(esL(key))
 				mapeoInputs.put("CambiarArma", 'l');
 		}
 
 		public void keyReleased(KeyEvent key) {
-			if(key.getKeyChar() == 'a' || key.getKeyChar() == 'A') 
+			if(esA(key)) 
 				mapeoInputs.put("Movimiento", 'x');
-			else
-				if(key.getKeyChar() == 'd' || key.getKeyChar() == 'D')
+			else if(esD(key))
 					mapeoInputs.put("Movimiento", 'x');
 			if(key.getKeyChar() == ' ')
 				mapeoInputs.put("Disparo", 'x');
+		}
+		
+		private boolean esA(KeyEvent key) {
+			return key.getKeyChar() == 'a' || key.getKeyChar() == 'A';
+		}
+		
+		private boolean esD(KeyEvent key) {
+			return key.getKeyChar() == 'd' || key.getKeyChar() == 'D';
+		}
+		
+		private boolean esL(KeyEvent key) {
+			return key.getKeyChar() == 'l' || key.getKeyChar() == 'L';			
 		}
 
 		public void keyTyped(KeyEvent key) { }		

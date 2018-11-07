@@ -36,24 +36,27 @@ public class Juego extends Thread{
 	}
 	
 	public void jugar(AdministradorDeMovimiento admMov) {	
-		
 		admMov.start();
 		try {
 			admMov.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.nivelFinalizado();
+		this.finalizarNivel();
 	}
 
-	public void nivelFinalizado() {		
+	private void finalizarNivel() {		
 		if(mapa.getJugador().estaViva()) {
-			if (nivelActual==nivelMax) {
-				nivelMax++;	
-				nivelActual++;
-			}
+			ganarNivel();
 		} 
 		puntaje = puntaje + mapa.finalizarMapa(); 
 		infoJugador.revivir();
+	}
+	
+	private void ganarNivel()	{
+		if (nivelActual==nivelMax) {
+			nivelMax++;	
+			nivelActual++;
+		}
 	}
 }

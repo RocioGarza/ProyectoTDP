@@ -25,20 +25,32 @@ public class Jugador extends Personaje{
 	
 	public Jugador(int X, int Y) {
 		super(X, Y, getAlto(), getAncho());
+		establecerParametros();
+		crearArmas();
+		escudo = new EscudoNormal();
+		grafico = new JugadorGrafico(pos);	
+		colisionador = new ColisionadorJugador();
+	}
+	
+	private void establecerParametros()	{
 		velocidadDeMovimiento = 5;
 		velocidadDeAtaque = 5;
 		vidaMaxima = 100;
 		vida = vidaMaxima;
 		dañoAtaque = 5;
+	}
+	
+	private void crearArmas() {
 		armasJugador = new LinkedList<ArmaJugador>();
+		anadirArmas();
+		arma = new ArmaJugadorBasicaProyectil(pos);
+	}
+	
+	private void anadirArmas() {
 		armasJugador.add(new ArmaJugadorBasicaLaser(pos));
 		armasJugador.add(new ArmaJugadorCohete(pos));
 		armasJugador.add(new ArmaJugadorADN(pos));
 		armasJugador.add(new ArmaJugadorArcoiris(pos));
-		arma = new ArmaJugadorBasicaProyectil(pos);
-		escudo = new EscudoNormal();
-		grafico = new JugadorGrafico(pos);	
-		colisionador = new ColisionadorJugador();
 	}
 	
 	public static int getAlto() {
@@ -57,41 +69,6 @@ public class Jugador extends Personaje{
 		return escudo;
 	}
 	
-	public void setEscudo(Escudo e) {
-		//Requisito: c debe ser un caracter valido asociado a un escudo
-		escudo = e;
-	}
-	
-	public void morir() {
-		//hacer algo
-	}
-	
-	public void mover() {}
-	
-	public void mover(char c) {
-		if (c=='a')
-			pos.moverX(-velocidadDeMovimiento);
-		else
-			if (c=='d')
-				pos.moverX(velocidadDeMovimiento);
-	}
-	
-	public void disparar(char c) {
-		if (c==' ') 
-			arma.disparar(dañoAtaque, velocidadDeAtaque);
-	}
-	
-	public void cambiarArma() {
-		armasJugador.add(arma);
-		
-		arma = armasJugador.poll();
-	}
-	
-	/*private void controlarEscudo() {
-		if (escudo.getDuracion()==0)
-			escudo = new EscudoNormal();
-	}*/
-	
 	public JugadorGrafico getGrafico() {
 		return grafico;
 	}
@@ -100,8 +77,35 @@ public class Jugador extends Personaje{
 		return arma;
 	}
 	
+	public void setEscudo(Escudo e) {
+		escudo = e;
+	}
+	
+	public void morir() {
+	}
+	
+	public void mover() {
+	}
+	
+	public void moverIzquierda()	{
+		pos.moverX(-velocidadDeMovimiento);
+	}
+	
+	public void moverDerecha() {
+		pos.moverX(velocidadDeMovimiento);
+	}
+	
+	public void disparar() { 
+		arma.disparar(dañoAtaque, velocidadDeAtaque);
+	}
+	
 	public void agregarArma(ArmaJugador a) {
 		armasJugador.add(a);
+	}
+	
+	public void cambiarArma() {
+		armasJugador.add(arma);
+		arma = armasJugador.poll();
 	}
 	
 	public void chocar(Entidad e) {
