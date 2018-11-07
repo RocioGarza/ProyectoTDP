@@ -43,9 +43,15 @@ public class GUI extends JFrame {
 		
 		juego = new Juego(); //Aca o se recupera o se genera un nuevo juego
 		
+		crearNivel();				
+		
+	}
+	
+	private void crearNivel() {
+
 		//opciones:crear un mapa de un nivel menor al actual, crear un mapa random (n=-1), usar el ultimo mapa random(n=0), usar el utlimo nivel (sin param)
 		
-		mapa = juego.crearMapa(3);		
+		mapa = juego.crearMapa();		
 		
 		getContentPane().add(mapa.getGrafico());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,12 +62,16 @@ public class GUI extends JFrame {
 		for(JLabel componente : hud.getComponentes())
 			mapa.getGrafico().add(componente);
 	
-		AdministradorDeMovimiento r = new AdministradorDeMovimiento(mapa);
-		addKeyListener(r.getOyente());
+		AdministradorDeMovimiento admMov = new AdministradorDeMovimiento(mapa);
+		addKeyListener(admMov.getOyente());
 
 		hud.start();
-		juego.jugar(r);
-		System.out.println("GENERANDO MENU");
+		juego.jugar(admMov);
+
+		getContentPane().removeAll();
+	
+		//CREO EL SIG NIVEL
+		crearNivel();
 		
 	}
 

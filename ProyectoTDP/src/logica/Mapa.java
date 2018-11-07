@@ -43,10 +43,10 @@ public class Mapa extends Entorno{
         
         
         //Strelitzia
-        coleccion = new LinkedList<Entidad>();
+        /*coleccion = new LinkedList<Entidad>();
         coleccion.add(new Strelitzia(500,100));
         contadorEnemigos = 1;
-        coleccion.add(jugador);
+        coleccion.add(jugador);*/
         
         
         mGraf = new MapaGrafico(coleccion);

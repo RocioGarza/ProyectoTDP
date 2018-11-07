@@ -47,7 +47,7 @@ public class HUD extends Thread{
 		puntaje.setForeground(Color.WHITE);
 		puntaje.setFont(new Font("",Font.PLAIN, 20 ));
 		
-		vidaHud = new JLabel(new ImageIcon(this.getClass().getResource("/Graficos/vidaHud.png")));
+		vidaHud = new JLabel(new ImageIcon(this.getClass().getResource("/Graficos/VidaHud.png")));
 		vidaHud.setBounds(Posicion.getXmax()-350, 4 , 261, 80);
 		
 		componentes.add(vidaHud);

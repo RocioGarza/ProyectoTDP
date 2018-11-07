@@ -107,4 +107,8 @@ public class Jugador extends Personaje{
 	public void chocar(Entidad e) {
 		e.getColisionador().serChocado(this);
 	}
+	
+	public void revivir()	{
+		vida=vidaMaxima;	
+	}
 }

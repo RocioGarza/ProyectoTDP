@@ -12,14 +12,14 @@ public class Juego extends Thread{
 	private int nivelActual;
 	
 	public Juego() {
-		nivelMax = 0; 
+		nivelMax = 1; 
 		infoJugador = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*3/2));
-		//nivelActual=0;
+		nivelActual=1;
 	}
 	
 	public Mapa crearMapa() {
-		mapa = new Mapa(infoJugador,nivelMax);
-		nivelActual=nivelMax;
+		mapa = new Mapa(infoJugador,nivelActual);
+		//nivelActual=nivelMax;
 		return mapa;
 	}
 	
@@ -36,16 +36,12 @@ public class Juego extends Thread{
 		return mapa;
 	}
 	
-	//public void jugar(Map<String,Character> mapeoInputs) {
-	public void jugar(AdministradorDeMovimiento reloj) {	
-		//if (this.mapa==null)
-		// Tirar una MapaNOCreadoException (O CREAMOS DIRECTAMENTE EL MAPA ACA)	
-
-		reloj.start();
+	public void jugar(AdministradorDeMovimiento admMov) {	
+		
+		admMov.start();
 		try {
-			reloj.join();
+			admMov.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.nivelFinalizado();
@@ -57,13 +53,12 @@ public class Juego extends Thread{
 		if(mapa.getJugador().estaViva()) {
 			//El jugador gano
 			System.out.println("GANE");
-			if (nivelActual==nivelMax)
-				nivelMax++;
-			puntaje = puntaje + mapa.finalizarMapa(); //DefinirFinalizacion del mapa
-		} else {
-			//El jugador perdio
-		}
+			if (nivelActual==nivelMax) {
+				nivelMax++;	
+				nivelActual++;
+			}
+		} 
+		puntaje = puntaje + mapa.finalizarMapa(); //DefinirFinalizacion del mapa
+		infoJugador.revivir();
 	}
-
-
 }
