@@ -6,7 +6,6 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
-import enemigo.Strelitzia;
 import entidad.Entidad;
 import entidad.Posicion;
 import jugador.Jugador;
@@ -24,7 +23,6 @@ public class Mapa extends Entorno{
 	public Mapa (Jugador j,int n){
 		File nivel;
 		String dir = "nivel" + n + ".txt"; 
-		System.out.println(dir);
         nivel = new File(dir); 
         
         if( ! nivel.exists()) { 
@@ -36,24 +34,13 @@ public class Mapa extends Entorno{
         GeneradorMapa gen = new GeneradorMapa(dir);
         jugador = j; 
         puntaje = 0;
-        
-        // Mapa normal
+
         coleccion = gen.getColeccion();
         contadorEnemigos = gen.getCantidadEnemigos();
-        coleccion.add(jugador);
-        
-        
-        //Strelitzia
-        /*coleccion = new LinkedList<Entidad>();
-        coleccion.add(new Strelitzia(500,100));
-        contadorEnemigos = 1;
-        coleccion.add(jugador);*/
-        
+        coleccion.add(jugador);          
         
         mGraf = new MapaGrafico(coleccion);
-        
         entorno = this;
-        
         entidadesAAgregar = new LinkedList<Entidad>();    
 	}	
 	
@@ -139,15 +126,13 @@ public class Mapa extends Entorno{
 	}
 	
 	public void afectar(Entidad e) {
-		for(Entidad ent: coleccion) {
+		for(Entidad ent: coleccion) 
 			ent.chocar(e);
-		}
 	}
 	
 	public void serAfectado(Entidad e) {
-		for(Entidad ent: coleccion) {
+		for(Entidad ent: coleccion) 
 			e.chocar(ent);
-		}
 	}
 	
 	public Posicion getPosicionJugador() {

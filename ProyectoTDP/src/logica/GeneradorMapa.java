@@ -8,50 +8,41 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import enemigo.Strelitzia;
 import entidad.Entidad;
 import entidad.Posicion;
 import jugador.Jugador;
 
 public class GeneradorMapa {
 	
-	BufferedReader arch;
-	private Collection<Entidad> coleccionEntidades;
 	private int x;
 	private int y;
 	private int yMax;
+	private int xMax;
+	BufferedReader arch;
+	char puntero;
+	private Collection<Entidad> coleccionEntidades;
 	private int cantEnemigos;
-	private char c;
 	private AlmacenadorOcupados ocupados;
+	Map<Character, GeneradorEntidades> mapeoGeneradores;
 	
 	public GeneradorMapa(String txt) {	 
-		yMax = Posicion.getYmax()-(Jugador.getAlto()*2);
-		coleccionEntidades = new LinkedList<Entidad>();
-		ocupados = new AlmacenadorOcupados();
-		cantEnemigos=0;
-		generarEntidades(txt);
+		inicializarAtributos();
+		abrirArchivo(txt);
+		generarEntidades();
+		cerrarArchivo();
 	}
 	
-	private void generarEntidades(String txt) {
-		try {
-			arch =  new BufferedReader(new FileReader(txt));
-			x=0;
-			y=0;
-			Map<Character, GeneradorEntidades> mapeoGeneradores = crearMapeoGeneradores();
-			while(y<(yMax)) {
-				c =(char) arch.read();
-				while(c!='/' && x!= Posicion.getXmax()) {
-					GeneradorEntidades g = mapeoGeneradores.get(c); 
-					if (g!= null) 
-						crearEntidad(g);
-					x++;
-					c =(char) arch.read();
-				}
-				x=0;
-				y++;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	private void inicializarAtributos() {
+		x=0;
+		y=0;
+		puntero='.';
+		yMax = Posicion.getYmax()-(Jugador.getAlto()*3);
+		xMax=Posicion.getXmax();
+		coleccionEntidades = new LinkedList<Entidad>();
+		cantEnemigos=0;
+		ocupados = new AlmacenadorOcupados();
+		mapeoGeneradores=crearMapeoGeneradores();
 	}
 	
 	private Map<Character, GeneradorEntidades> crearMapeoGeneradores() {
@@ -73,45 +64,50 @@ public class GeneradorMapa {
 		mapeoGeneradores.put('5', new GeneradorRebote());
 	}
 	
-	private void crearEntidad(GeneradorEntidades generador)	{
-		Punto pos = establecerPosicion(generador.getAlto(), generador.getAncho());
-		if(pos != null) {
-			Entidad e = generador.crear(pos.getX(), pos.getY());
-			coleccionEntidades.add(e);
-			if (generador.generaEnemigo()) 
-				cantEnemigos++;
+	private void abrirArchivo(String txt) {
+		try {
+			arch =  new BufferedReader(new FileReader(txt));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
-	private Punto establecerPosicion(int alto, int ancho)
-	{
+	private void generarEntidades() {
+		while(y<(yMax)) {
+			avanzarASiguienteColumna();
+			evaluarNivelStrelitzia();
+			recorrerFila();
+			x=0;
+			y++;
+		}
+	}
+	
+	private void recorrerFila() {
+		while(puntero!='/' && x!= xMax) {
+			evaluarGenerarEntidad();
+			avanzarASiguienteColumna();
+		}
+	}
+	
+	private void evaluarGenerarEntidad() {
+		GeneradorEntidades generador = mapeoGeneradores.get(puntero); 
+		if (generador != null) 
+			generarEntidad(generador);
+	}
+	
+	private void generarEntidad(GeneradorEntidades generador)	{
+		Punto pos = definirPosicion(generador.getAlto(), generador.getAncho());
+		if(pos != null) 
+			crearEntidad(pos, generador);
+	}
+	
+	private Punto definirPosicion(int alto, int ancho) {
 		Punto pos = null;
-		if (y+alto<yMax && x+ancho<Posicion.getXmax() && !ocupados(x, ancho)) {
-			char aux ='.';
-			int xAux =x;
-			for(int i=xAux; i<xAux+ancho||aux=='/'; i++) {
-				ocuparColumna(i, alto);
-				aux = avanzarASiguienteColumna();
-			}
+		if (y+alto<yMax && x+ancho<xMax && !ocupados(x, ancho)) {
+			ocuparArea(alto, ancho);
 			pos = new Punto (x-ancho/2, y+alto/2); 
 		}
 		return pos;
-	}
-	
-	private void ocuparColumna(int i, int alto) {
-		for(int j=y; j<y+alto; j++)
-			ocupados.add(i,j);
-	}
-	
-	private char avanzarASiguienteColumna() {
-		x++;
-		char aux ='.';
-		try {
-			aux = (char) arch.read();
-		}  catch (IOException e) {
-			return '/';
-		}	
-		return aux;
 	}
 	
 	private boolean ocupados(int pos, int ancho) {
@@ -120,6 +116,56 @@ public class GeneradorMapa {
 			estaOcupado = ocupados.estaOcupado(i,y);
 		return estaOcupado;
 	}
+	
+	private void ocuparArea(int alto, int ancho) {
+		int xInicial = x;
+		for(int i=xInicial; i<xInicial+ancho||puntero=='/'; i++) {
+			ocuparColumna(i, alto);
+			avanzarASiguienteColumna();
+		}
+	}
+	
+	private void ocuparColumna(int i, int alto) {
+		for(int j=y; j<y+alto; j++)
+			ocupados.add(i,j);
+	}
+	
+	private void crearEntidad(Punto pos, GeneradorEntidades generador) {
+		Entidad e = generador.crear(pos.getX(), pos.getY());
+		coleccionEntidades.add(e);
+		if (generador.generaEnemigo()) 
+			cantEnemigos++;
+	}
+	
+	private void avanzarASiguienteColumna() {
+		x++;
+		try {
+			puntero = (char) arch.read();
+		}  catch (IOException e) {
+			puntero = '/';
+		}	
+	}
+
+	private void evaluarNivelStrelitzia() {
+		if(y==0 && puntero=='w') {
+			generarNivelStrelitzia();
+			y=yMax;
+			x=Posicion.getXmax();
+		}
+	}
+	
+	private void generarNivelStrelitzia() {
+		 coleccionEntidades.add(new Strelitzia(500,100));
+		 cantEnemigos = 1;
+	}
+	
+	private void cerrarArchivo() {
+		try {
+			arch.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}	
 	
 	public Collection<Entidad> getColeccion() {
 		return coleccionEntidades;
