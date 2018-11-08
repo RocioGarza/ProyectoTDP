@@ -26,8 +26,6 @@ public class GUI extends JFrame {
 	}
 	
 	private void crearSigNivel() {
-		//opciones:crear un mapa de un nivel menor al actual, crear un mapa random (n=-1), usar el ultimo mapa random(n=0), usar el utlimo nivel (sin param)	
-		
 		crearMapa();
 		crearHUD();
 		AdministradorDeMovimiento admMov = new AdministradorDeMovimiento(mapa);
