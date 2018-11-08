@@ -49,8 +49,7 @@ public class ColisionadorEnemigos extends Colisionador {
 	
 	public void serChocado(Jugador e) {
 		int n = e.getEscudo().recibirDaño(enemigo); // el escudo determina si absorber el impacto o pasarlo al jugador
-		if(n > 0)
-			e.setEscudo(new EscudoNormal());
+		
 		e.quitarVida(n);
 	}
 

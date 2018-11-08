@@ -13,8 +13,7 @@ import arma.ArmaJugadorCohete;
 import colisionador.ColisionadorJugador;
 import entidad.Entidad;
 import entidad.Personaje;
-import escudo.Escudo;
-import escudo.EscudoNormal;
+import escudo.*;
 
 public class Jugador extends Personaje{
 
@@ -27,7 +26,7 @@ public class Jugador extends Personaje{
 		super(X, Y, getAlto(), getAncho());
 		establecerParametros();
 		crearArmas();
-		escudo = new EscudoNormal();
+		escudo = new EscudoTotal(this);
 		grafico = new JugadorGrafico(pos);	
 		colisionador = new ColisionadorJugador();
 	}
