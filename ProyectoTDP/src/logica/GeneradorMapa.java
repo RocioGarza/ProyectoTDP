@@ -37,7 +37,7 @@ public class GeneradorMapa {
 		x=0;
 		y=0;
 		puntero='.';
-		yMax = Posicion.getYmax()-(Jugador.getAlto()*3);
+		yMax = (int) (Posicion.getYmax()-(Jugador.getAlto()*2.5));
 		xMax=Posicion.getXmax();
 		coleccionEntidades = new LinkedList<Entidad>();
 		cantEnemigos=0;
@@ -61,7 +61,6 @@ public class GeneradorMapa {
 		mapeoGeneradores.put('2', new GeneradorPared());
 		mapeoGeneradores.put('3', new GeneradorParedJ());
 		mapeoGeneradores.put('4', new GeneradorPortal());
-		mapeoGeneradores.put('5', new GeneradorRebote());
 	}
 	
 	private void abrirArchivo(String txt) {
@@ -105,7 +104,7 @@ public class GeneradorMapa {
 		Punto pos = null;
 		if (y+alto<yMax && x+ancho<xMax && !ocupados(x, ancho)) {
 			ocuparArea(alto, ancho);
-			pos = new Punto (x-ancho/2, y+alto/2); 
+			pos = new Punto (x-ancho, y); 
 		}
 		return pos;
 	}
@@ -150,7 +149,7 @@ public class GeneradorMapa {
 		if(y==0 && puntero=='w') {
 			generarNivelStrelitzia();
 			y=yMax;
-			x=Posicion.getXmax();
+			x=xMax;
 		}
 	}
 	

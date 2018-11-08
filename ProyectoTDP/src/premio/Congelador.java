@@ -33,7 +33,6 @@ public class Congelador extends Entidad implements Runnable{
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		colisionador = new VisitorDescongelador(mapeoInteligencias);
@@ -45,9 +44,7 @@ public class Congelador extends Entidad implements Runnable{
 		return colisionador;
 	}
 
-	public void mover() {
-		// TODO Auto-generated method stub
-		
+	public void mover() {		
 	}
 
 	public EntidadGrafica getGrafico() {

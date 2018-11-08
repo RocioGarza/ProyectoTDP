@@ -12,7 +12,6 @@ import obstaculo.Irrompible;
 import obstaculo.Pared;
 import obstaculo.ParedJugador;
 import obstaculo.Portal;
-import obstaculo.Rebote;
 import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
@@ -50,8 +49,6 @@ public abstract class ColisionadorProyectil extends Colisionador{
 	public void serChocado(ParedJugador e) {}
 
 	public void serChocado(Portal e) {}
-
-	public void serChocado(Rebote e) {}
 
 	public void serChocado(CongelarEnemigos e) {}
 

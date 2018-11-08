@@ -86,13 +86,10 @@ public class GeneradorDeNiveles {
 				break;				
 			case 29: case 30: case 31:
 				arch.write("3"); 
-				break;/*
+				break;
 			case 32: case 33:
 				arch.write("4"); 
 				break;
-			case 34:
-				arch.write("5"); 
-				break;*/
 			default: 
 				arch.write("."); 
 				break;	

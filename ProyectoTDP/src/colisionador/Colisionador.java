@@ -12,7 +12,6 @@ import obstaculo.Irrompible;
 import obstaculo.Pared;
 import obstaculo.ParedJugador;
 import obstaculo.Portal;
-import obstaculo.Rebote;
 import premio.Cohete;
 import premio.CongelarEnemigos;
 import premio.EscudoKamikaze;
@@ -48,8 +47,6 @@ public abstract class Colisionador {
 	public abstract void serChocado(ParedJugador e);
 
 	public abstract void serChocado(Portal e);
-
-	public abstract void serChocado(Rebote e);
 
 	public abstract void serChocado(CongelarEnemigos e);
 

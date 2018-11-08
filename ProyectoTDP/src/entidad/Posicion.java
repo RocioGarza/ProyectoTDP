@@ -7,7 +7,7 @@ public class Posicion {
 	private int alto;
 	private int ancho;
 	private static final int Xmax = 1440;
-	private static final int Ymax = 1100;
+	private static final int Ymax = 1000;
 
 	
 	public Posicion(int X, int Y, int alto, int ancho) {
