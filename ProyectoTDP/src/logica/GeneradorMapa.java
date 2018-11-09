@@ -35,9 +35,9 @@ public class GeneradorMapa {
 	
 	private void inicializarAtributos() {
 		x=0;
-		y=0;
+		y=50;
 		puntero='.';
-		yMax = (int) (Posicion.getYmax()-(Jugador.getAlto()*2.5));
+		yMax = (int) (Posicion.getYmax()-(Jugador.getAlto()*2.5))+y;
 		xMax=Posicion.getXmax();
 		coleccionEntidades = new LinkedList<Entidad>();
 		cantEnemigos=0;

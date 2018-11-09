@@ -9,17 +9,16 @@ import javax.swing.JPanel;
 
 public class Menu {
 	
+	private GUI gui;
 	private JPanel panel;
 	private JButton botonJugar;
 	private JButton botonSalir;
 	
-	public Menu() {
+	public Menu(GUI g) {
+		gui=g;
 		crearPanel();
-		
 		crearBotones();
-		
 		agregarBotonesAPanel();
-		
 		establecerActionListeners();
 	}
 	
@@ -67,15 +66,17 @@ public class Menu {
 	
 	private class OyenteJugar implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//Hacer algo cuando se presiona BotonJugar
-			System.out.println("Aprete jugar");
+			MenuJugar menuJ = new MenuJugar(gui);
+			gui.getContentPane().removeAll();
+			gui.getContentPane().add(menuJ.getMenu());
+			gui.setVisible(true);
 		}
 	}
 	
 	private class OyenteSalir implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//Hacer algo cuando se presiona BotonSalir
-			System.out.println("Aprete salir");
+			gui.guardarJuego();
+			System.exit(0);
 		}
 	}
 }

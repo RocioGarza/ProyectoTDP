@@ -9,19 +9,18 @@ import javax.swing.JPanel;
 
 public class MenuJugar {
 	
+	private GUI gui;
 	private JPanel panel;
 	private JButton botonContinuar;
 	private JButton botonSeleccionDeNivel;
 	private JButton botonCrearMapaRandom;
 	private JButton botonUltimoMapaRandom;
 	
-	public MenuJugar() {
+	public MenuJugar(GUI g) {
+		gui=g;
 		crearPanel();
-		
 		crearBotones();
-		
 		agregarBotonesAPanel();
-		
 		establecerActionListeners();
 	}
 	
@@ -87,29 +86,25 @@ public class MenuJugar {
 	
 	private class OyenteContinuar implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//Hacer algo cuando se presiona botonContinuar
-			System.out.println("Aprete continuar");
+			gui.crearSigNivel();
 		}
 	}
 	
 	private class OyenteSeleccionDeNivel implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//Hacer algo cuando se presiona botonSeleccionDeNivel
-			System.out.println("Aprete Seleccion de Nivel");
+			//Abrir seleccionardor de nivel
 		}
 	}
 	
 	private class OyenteCrearMapaRandom implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//Hacer algo cuando se presiona botonCrearMapaRandom
-			System.out.println("Aprete Crear mapa Random");
+			gui.crearNuevoNivelRandom();
 		}
 	}
 	
 	private class OyenteUltimoMapaRandom implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//Hacer algo cuando se presiona botonUltimoMapaRandom
-			System.out.println("Aprete jugar al ultimo mapa Random");
+			gui.usarUltimoNivelRandom();
 		}
 	}
 }
