@@ -1,11 +1,10 @@
 package logica;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import entidad.Posicion;
@@ -21,7 +20,7 @@ public class Juego implements Serializable  {
 	private int nivelActual;
 	
 	public Juego() {
-		nivelMax = 11; 
+		nivelMax = 1; 
 		infoJugador = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*3/2));
 		nivelActual=1;
 	}
@@ -73,29 +72,25 @@ public class Juego implements Serializable  {
 	
 	public void guardarJuego() {
 		try {
-			File arch = new File("Juego.dat");
-			ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(arch));
-			output.writeObject(this);
-			output.flush();
-			output.close();
-		} catch(IOException e) {
+			BufferedWriter arch = new BufferedWriter(new FileWriter("Juego.txt"));
+			arch.write(nivelMax+" "+nivelActual+" "+puntaje);
+			arch.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
+
+	public void recuperarJuego() {
+		try {	
+			BufferedReader arch = new BufferedReader(new FileReader("Juego.txt"));
+			nivelMax = (int) arch.read();
+			arch.read();
+			nivelActual = (int) arch.read();
+			arch.read();
+			puntaje = (int) arch.read();
+			arch.close();
+		}catch(IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void recuperarJuego() {
-		Juego j;
-		try {	
-			File arch = new File("Juego.dat"); 
-			ObjectInputStream input = new ObjectInputStream( new FileInputStream(arch) );
-			j = (Juego) input.readObject();
-			input.close(); 
-		}catch(IOException | ClassNotFoundException e) {
-			j=new Juego();
-		}
-		this.infoJugador = j.infoJugador;
-		this.nivelMax=j.nivelMax;
-		this.nivelActual=j.nivelActual;
-		this.puntaje=j.puntaje;
 	}
 }
