@@ -29,7 +29,6 @@ public class EscudoAntiKamikaze extends Escudo{
 	}
 	
 	public void cambiarEscudoTotal() {
-		System.out.println("");
 		jug.setEscudo(new EscudoTotal(jug));
 	}
 	

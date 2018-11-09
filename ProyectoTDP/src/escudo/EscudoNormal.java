@@ -29,13 +29,11 @@ public class EscudoNormal extends Escudo {
 
 	@Override
 	public void cambiarEscudoTotal() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void cambiarKamikaze() {
-		// TODO Auto-generated method stub
-		
+		jug.setEscudo(new EscudoAntiKamikaze(jug));
 	}
 }
