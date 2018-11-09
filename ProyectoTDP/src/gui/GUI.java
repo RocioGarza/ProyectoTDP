@@ -17,12 +17,16 @@ public class GUI extends JFrame {
 	
 	public static void main(String[] args) {
 		GUI frame = new GUI();
+		frame.setBounds(0, 0, Posicion.getXmax(), Posicion.getYmax());
 		frame.setVisible(true);
 		frame.crearSigNivel();	
 	}
 
 	public GUI() {
 		juego = new Juego(); //Aca o se recupera o se genera un nuevo juego
+		Menu menu = new Menu();
+		MenuJugar menuJ = new MenuJugar();
+		//getContentPane().add(menu.getMenu());
 	}
 	
 	private void crearSigNivel() {

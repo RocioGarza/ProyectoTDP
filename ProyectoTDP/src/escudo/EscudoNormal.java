@@ -24,15 +24,10 @@ public class EscudoNormal extends Escudo {
 		return duracion;
 	}
 
-	@Override
 	public void cambiarEscudoNormal() {	}
 
-	@Override
-	public void cambiarEscudoTotal() {
-		
-	}
+	public void cambiarEscudoTotal() {}
 
-	@Override
 	public void cambiarKamikaze() {
 		jug.setEscudo(new EscudoAntiKamikaze(jug));
 	}
