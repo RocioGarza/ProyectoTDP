@@ -1,14 +1,23 @@
 package logica;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import entidad.Posicion;
 import jugador.Jugador;
 
-public class Juego extends Thread{
+public class Juego implements Serializable  {
+	private static final long serialVersionUID = 1L;
 	
 	private Mapa mapa;
 	private Jugador infoJugador;
 	private int puntaje;
-	private int nivelMax; //Solo se usa para los niveles correlativos Hay que guardar un objeto de tipo juego cuando termina de jugar
+	private int nivelMax; 
 	private int nivelActual;
 	
 	public Juego() {
@@ -23,8 +32,8 @@ public class Juego extends Thread{
 	}
 	
 	public Mapa crearMapa(int n) {
-		if (n>nivelMax)		 //no permite al usuario acceder a niveles que todavia no supero
-			n = -1; 			//crea un nuevo nivel random
+		if (n>nivelMax)		
+			n = -1; 			
 		mapa = new Mapa(infoJugador,n); 
 		nivelActual=n;
 		return mapa;
@@ -51,7 +60,7 @@ public class Juego extends Thread{
 	private void finalizarNivel() {		
 		if(mapa.getJugador().estaViva()) 
 			ganarNivel();
-		puntaje = puntaje + mapa.finalizarMapa(); 
+		puntaje = puntaje + mapa.getPuntaje(); 
 		infoJugador.revivir();
 	}
 	
@@ -60,5 +69,33 @@ public class Juego extends Thread{
 			nivelMax++;	
 			nivelActual++;
 		}
+	}
+	
+	public void guardarJuego() {
+		try {
+			File arch = new File("Juego.dat");
+			ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(arch));
+			output.writeObject(this);
+			output.flush();
+			output.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void recuperarJuego() {
+		Juego j;
+		try {	
+			File arch = new File("Juego.dat"); 
+			ObjectInputStream input = new ObjectInputStream( new FileInputStream(arch) );
+			j = (Juego) input.readObject();
+			input.close(); 
+		}catch(IOException | ClassNotFoundException e) {
+			j=new Juego();
+		}
+		this.infoJugador = j.infoJugador;
+		this.nivelMax=j.nivelMax;
+		this.nivelActual=j.nivelActual;
+		this.puntaje=j.puntaje;
 	}
 }

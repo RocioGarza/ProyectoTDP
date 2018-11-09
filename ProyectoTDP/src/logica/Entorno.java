@@ -19,5 +19,5 @@ public abstract class Entorno {
 	
 	public abstract void serAfectado(Entidad e);
 
-	public abstract Posicion getPosicionJugador();
+	public abstract Posicion getObjetivo();
 }

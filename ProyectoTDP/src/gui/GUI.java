@@ -37,7 +37,7 @@ public class GUI extends JFrame {
 	
 	private void crearMapa() {
 		mapa = juego.crearMapa();
-		getContentPane().add(mapa.getGrafico());
+		getContentPane().add(mapa.getMapaGrafico().getGrafica());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, Posicion.getXmax(), Posicion.getYmax());
 	}
@@ -45,7 +45,7 @@ public class GUI extends JFrame {
 	private void crearHUD()	{
 		hud = new HUD(mapa);
 		for(JLabel componente : hud.getComponentes())
-			mapa.getGrafico().add(componente);
+			mapa.getMapaGrafico().getGrafica().add(componente);
 	}
 	
 	private void iniciarJuego(AdministradorDeMovimiento admMov) {

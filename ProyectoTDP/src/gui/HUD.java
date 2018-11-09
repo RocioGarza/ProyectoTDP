@@ -26,30 +26,38 @@ public class HUD extends Thread{
 	
 	public HUD(Mapa mapa) {
 		this.mapa=mapa;
-		
-		componentes = new LinkedList<JLabel>();
-		
+		crearEtiquetaPuntaje();
+		crearEtiquetaVida();
+		crearEtiquetaArma();
+		agregarComponentes();		
+	}
+	
+	private void crearEtiquetaPuntaje() {
 		puntajeIcono = new ImageIcon(this.getClass().getResource("/Graficos/moneda.png"));
-		
 		puntajeGrafico = new JLabel(puntajeIcono);
-		puntaje = new JLabel();
-		vida = new JLabel(vidaIcono);
-		arma = new JLabel();
-		
-		vida.setOpaque(true);
-
 		puntajeGrafico.setBounds(Posicion.getXmax()-450, 20, 40, 40);
+		puntaje = new JLabel();
 		puntaje.setBounds(Posicion.getXmax()-400, 20, 40, 40);
-		vida.setBounds(Posicion.getXmax()-350, 25 , 200, 25);
-		vida.setBackground(Color.GREEN);
-		arma.setBounds(Posicion.getXmax()-75, 20 , 20, 44);
-		
 		puntaje.setForeground(Color.WHITE);
-		puntaje.setFont(new Font("",Font.PLAIN, 20 ));
-		
+		puntaje.setFont(new Font("",Font.PLAIN, 20 ));		
+	}
+	
+	private void crearEtiquetaVida() {
 		vidaHud = new JLabel(new ImageIcon(this.getClass().getResource("/Graficos/VidaHud.png")));
 		vidaHud.setBounds(Posicion.getXmax()-350, 4 , 261, 80);
-		
+		vida = new JLabel(vidaIcono);
+		vida.setOpaque(true);
+		vida.setBounds(Posicion.getXmax()-350, 25 , 200, 25);
+		vida.setBackground(Color.GREEN);		
+	}
+	
+	private void crearEtiquetaArma() {
+		arma = new JLabel();
+		arma.setBounds(Posicion.getXmax()-75, 20 , 20, 44);
+	}
+	
+	private void agregarComponentes() {
+		componentes = new LinkedList<JLabel>();
 		componentes.add(vidaHud);
 		componentes.add(puntaje);
 		componentes.add(puntajeGrafico);
@@ -63,21 +71,22 @@ public class HUD extends Thread{
 	
 	public void run() {
 		while(true) {
-			if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()<=25)
-				vida.setBackground(Color.RED);
-			else
-				if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()<=50)
-					vida.setBackground(Color.ORANGE);
-					else
-						if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()<=75)
-							vida.setBackground(Color.YELLOW);
-						else
-							if(mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima()>75)
-								vida.setBackground(Color.GREEN);
-						
+			setearColorBarraDeVida();	
 			vida.setBounds(Posicion.getXmax()-325, 25, ((mapa.getJugador().getVida()*200)/mapa.getJugador().getVidaMaxima()), 25);
 			puntaje.setText("" + mapa.getPuntaje());
 			arma.setIcon(mapa.getJugador().getArma().getIcono());
 		}
+	}
+	
+	private void setearColorBarraDeVida() {
+		int porcVida = mapa.getJugador().getVida()*100/mapa.getJugador().getVidaMaxima();
+		if(porcVida<=25)
+			vida.setBackground(Color.RED);
+		else if(porcVida<=50)
+				vida.setBackground(Color.ORANGE);
+				else if(porcVida<=75)
+						vida.setBackground(Color.YELLOW);
+					else
+							vida.setBackground(Color.GREEN);
 	}
 }

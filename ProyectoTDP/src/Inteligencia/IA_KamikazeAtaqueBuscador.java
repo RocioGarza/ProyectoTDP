@@ -16,7 +16,7 @@ public class IA_KamikazeAtaqueBuscador extends InteligenciaEnemigo{
 		super();
 		enemigo = e;
 		vel = enemigo.getVelocidadDeMovimiento();
-		xObjetivo = Entorno.getEntorno().getPosicionJugador().getX()+(Entorno.getEntorno().getPosicionJugador().getAncho()/2);
+		xObjetivo = Entorno.getEntorno().getObjetivo().getX()+(Entorno.getEntorno().getObjetivo().getAncho()/2);
 		xRetorno = e.getPosicion().getX();
 		yRetorno = e.getPosicion().getY();
 	}
