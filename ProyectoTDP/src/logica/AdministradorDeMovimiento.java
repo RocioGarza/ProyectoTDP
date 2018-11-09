@@ -40,9 +40,23 @@ public class AdministradorDeMovimiento extends Thread{
 			controlarColisiones();
 			mapa.agregarEntidadesPendientes();
 			refresh();
-			esperar(8);
+			esperar();
 		}
 		esperar(1000);
+	}
+	
+	private void esperar() {
+		int tiempo;
+		if(mapa.getColeccion().size()>100)
+			tiempo=6;
+		else
+			tiempo=8;
+		
+		try {
+			Thread.sleep(tiempo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void esperar(int tiempo) {
