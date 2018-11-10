@@ -49,7 +49,6 @@ public class AdministradorDeMovimiento extends Thread{
 		//El condicional se usa para mantener estable la velocidad del juego cuando haya muchas entidades en el mapa (Principalmente proyectiles)
 		//Esto se da sobre todo en el nivel que contiene a Strelitzia
 		int tiempo;
-		System.out.println(mapa.getColeccion().size());
 		if(mapa.getColeccion().size()>175)
 			tiempo=4;
 		else

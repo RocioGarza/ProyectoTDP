@@ -28,7 +28,7 @@ public class MapaGrafico {
 	private void crearPanel() {
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File("src/Graficos/Fondo.jpg"));
+		    img = ImageIO.read(new File("Fondo.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -1,0 +1,10 @@
+El jugador se mueve con A y D, dispara con Espacio y con L cambia de arma
+
+Los niveles 1 a 10 estan predefinidos, siendo los niveles 1 a 9 niveles normales y el 10 un boss
+
+Notas del Boss:
+
+	Las esferas que crea tardan 45 segundos en explotar (Cada fase de animacion dura 15 segundos), al explotar matan al jugador.
+	Es util usar los cohetes para matarlas ya que no se mueven (se pueden conseguir en los niveles anteriores)
+
+Del nivel 11 en adelante seran niveles generados aleatoriamente

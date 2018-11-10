@@ -21,9 +21,9 @@ public class Juego implements Serializable  {
 	private int nivelActual;
 	
 	public Juego() {
-		nivelMax = 11; 
+		nivelMax = 1; 
 		infoJugador = new Jugador(Posicion.getXmax()/2,Posicion.getYmax()-(Jugador.getAlto()*3/2));
-		nivelActual=11;
+		nivelActual=1;
 	}
 	
 	public Mapa crearMapa() {

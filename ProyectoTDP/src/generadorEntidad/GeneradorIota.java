@@ -1,6 +1,5 @@
 package generadorEntidad;
 
-import enemigo.Alpha;
 import enemigo.Iota;
 
 public class GeneradorIota extends GeneradorEntidades {
