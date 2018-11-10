@@ -11,6 +11,16 @@ import java.util.Map;
 import enemigo.Strelitzia;
 import entidad.Entidad;
 import entidad.Posicion;
+import generadorEntidad.GeneradorAlpha;
+import generadorEntidad.GeneradorBeta;
+import generadorEntidad.GeneradorDelta;
+import generadorEntidad.GeneradorEntidades;
+import generadorEntidad.GeneradorGamma;
+import generadorEntidad.GeneradorIota;
+import generadorEntidad.GeneradorIrromp;
+import generadorEntidad.GeneradorPared;
+import generadorEntidad.GeneradorParedJ;
+import generadorEntidad.GeneradorPortal;
 import jugador.Jugador;
 
 public class GeneradorMapa {
@@ -37,7 +47,7 @@ public class GeneradorMapa {
 		x=0;
 		y=50;
 		puntero='.';
-		yMax = (int) (Posicion.getYmax()-(Jugador.getAlto()*2.5))+y;
+		yMax = (int) (Posicion.getYmax()-(Jugador.getAlto()*2.5)) + y;
 		xMax=Posicion.getXmax();
 		coleccionEntidades = new LinkedList<Entidad>();
 		cantEnemigos=0;
@@ -146,7 +156,7 @@ public class GeneradorMapa {
 	}
 
 	private void evaluarNivelStrelitzia() {
-		if(y==0 && puntero=='w') {
+		if(y==50 && puntero=='w') {
 			generarNivelStrelitzia();
 			y=yMax;
 			x=xMax;

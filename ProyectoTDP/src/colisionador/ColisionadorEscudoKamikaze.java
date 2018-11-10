@@ -1,12 +1,12 @@
 package colisionador;
 
-import escudo.EscudoAntiKamikaze;
 import jugador.Jugador;
+import escudo.EscudoAntiKamikaze;
 
 public class ColisionadorEscudoKamikaze extends ColisionadorPremio{
 
 	public void serChocado(Jugador e) {
-		e.getEscudo().cambiarKamikaze();
+		e.setEscudo(new EscudoAntiKamikaze());
 		
 	}
 }

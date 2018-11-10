@@ -7,6 +7,7 @@ import EntidadGrafica.EntidadGrafica;
 import Inteligencia.IA_AnomaliaTemporal;
 import colisionador.ColisionadorEnemigos;
 import entidad.Entidad;
+import entidad.Posicion;
 import logica.Entorno;
 import premio.Pocion;
 

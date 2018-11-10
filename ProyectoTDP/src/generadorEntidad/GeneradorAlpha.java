@@ -1,4 +1,4 @@
-package logica;
+package generadorEntidad;
 
 import enemigo.Alpha;
 
