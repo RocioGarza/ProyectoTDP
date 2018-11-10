@@ -103,7 +103,7 @@ public class InteligenciaStrelitzia extends InteligenciaEnemigo{
 		delay=crearCascadaAbertura(900,delay);
 		for(int i=0; i<10 ; i++)
 			delay=crearCascadaAbertura(500+r.nextInt(940),delay);
-		tiempoCD=25000;
+		tiempoCD=22000;
 	}
 	
 	private int crearOlaIzquierda(int delay) {
@@ -113,7 +113,7 @@ public class InteligenciaStrelitzia extends InteligenciaEnemigo{
 			posX=posX+50;
 			delay=delay+100;
 		}
-		return delay+1000;
+		return delay+800;
 	}
 	
 	private int crearOlaDerecha(int delay) {
