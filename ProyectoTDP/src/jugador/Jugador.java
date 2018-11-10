@@ -9,7 +9,6 @@ import arma.ArmaJugadorADN;
 import arma.ArmaJugadorArcoiris;
 import arma.ArmaJugadorBasicaLaser;
 import arma.ArmaJugadorBasicaProyectil;
-import arma.ArmaJugadorCohete;
 import colisionador.ColisionadorJugador;
 import entidad.Entidad;
 import entidad.Personaje;
@@ -48,7 +47,6 @@ public class Jugador extends Personaje{
 	
 	private void anadirArmas() {
 		armasJugador.add(new ArmaJugadorBasicaLaser(pos));
-		armasJugador.add(new ArmaJugadorCohete(pos));
 		armasJugador.add(new ArmaJugadorADN(pos));
 		armasJugador.add(new ArmaJugadorArcoiris(pos));
 	}
